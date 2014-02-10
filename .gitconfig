@@ -1,0 +1,43 @@
+[user]
+	name = Danny Smith
+	email = danny@dasmith.co.uk
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+	br = branch
+	p = push
+	df = diff
+  lg = log -p
+  who = shortlog -s --
+  cl = clone
+[core]
+	excludesfile = /Users/danny/.gitignore
+	editor = st -w
+[merge]
+	tool = Kaleidoscope
+	summary = true
+[github]
+	user = dannysmith
+	token = f5c87ae13d1ebeac56897665549b5f92
+	token = ssh-rsa
+[push]
+	default = current
+[credential]
+	helper = osxkeychain
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[diff]
+	tool = Kaleidoscope
+[difftool]
+	prompt = false
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
+[mergetool]
+	prompt = false
