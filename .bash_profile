@@ -19,10 +19,8 @@ export HISTCONTROL=ignoredups
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # common typos
-alias mt='mate'
-alias amte='mate'
-alias atme='mate'
-alias mate.='mate .'
+alias ts='st'
+alias st.='st .'
 
 #Alias for wget
 alias wget="curl -O"
@@ -42,7 +40,7 @@ export LSCOLORS=dxfxcxcxbxexexbxbxDADA
 alias git='hub'
 alias g='git'
 alias gst='git status -s'
-alias gl='git pull'
+alias gpull='git pull'
 alias gp='git push'
 alias gd='git diff'
 alias gc='git commit -v'
@@ -52,6 +50,7 @@ alias gco='git checkout'
 alias gb='git branch'
 alias gba='git branch -a'
 alias glog='git log --oneline --decorate'
+alias gcl='git clone'
 
 #Allows calling wikipedia using DNS
 function wp {
@@ -220,6 +219,7 @@ alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v exten
 # Shortcuts
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
+alias inbox="cd ~/Dropbox/Inbox"
 
 
 
