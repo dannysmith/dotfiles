@@ -219,8 +219,12 @@ alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v exten
 # Shortcuts
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
+alias dev="cd ~/Dropbox/dev"
 alias inbox="cd ~/Dropbox/Inbox"
-
+alias docs="cd ~/Dropbox/Documents"
+alias docsl="cd ~/Documents"
+alias raf="cd ~/RAF"
+alias sparta="cd ~/Dropbox/Documents/Sparta"
 
 
 
