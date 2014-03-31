@@ -1,5 +1,5 @@
 #This is the path variable for my current projects path. It changes as I change projects.
-export CPPATH="~/Dropbox/CTS/Projects/iRedeem/trunk/stories "
+export CPPATH="~/Dropbox/dev/training"
 
 # Add git, node and homebrew /bin's to PATH.
 export PATH=/usr/local/mysql/bin:/usr/local/bin:/usr/local/share/npm/bin:/usr/local/lib/node_modules:/usr/local/git/bin:/usr/bin:$PATH
@@ -136,7 +136,7 @@ wt() {
 
 #For handling the blog
 function blog {
-  cd ~/Dropbox/projects/B/dasmith
+  cd ~/Dropbox/dev/dasmith
 
   if [[ $# = 0 ]]
   then
@@ -225,9 +225,14 @@ alias docs="cd ~/Dropbox/Documents"
 alias docsl="cd ~/Documents"
 alias raf="cd ~/RAF"
 alias sparta="cd ~/Dropbox/Documents/Sparta"
+alias sshsparta="ssh -X root@unix.spartaglobal.com -R 52698:localhost:52698"
 
 
 
 # From https://github.com/rupa/z
 # See ~/.z
 . ~/.zz/z.sh
+
+
+# To make Postgres work with Canvas
+export PGHOST=localhost
