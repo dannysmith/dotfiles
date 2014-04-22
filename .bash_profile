@@ -225,8 +225,8 @@ alias docs="cd ~/Dropbox/Documents"
 alias docsl="cd ~/Documents"
 alias raf="cd ~/RAF"
 alias sparta="cd ~/Dropbox/Documents/Sparta"
-alias sshsparta="ssh -X root@unix.spartaglobal.com -R 52698:localhost:52698"
-
+alias sshspartaroot="ssh -X root@unix.spartaglobal.com -R 52698:localhost:52698"
+alias sshsparta="ssh -X danny@unix.spartaglobal.com -R 52698:localhost:52698"
 
 
 # From https://github.com/rupa/z
