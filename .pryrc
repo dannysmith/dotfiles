@@ -1,9 +1,3 @@
-Pry.commands.alias_command 'c', 'continue'
-Pry.commands.alias_command 's', 'step'
-Pry.commands.alias_command 'n', 'next'
-
-Pry.commands.alias_command 'q', 'exit'
-
 # Hirb
 begin
   require 'hirb'
@@ -28,14 +22,24 @@ if defined? Hirb
       @output_method = nil
     end
   end
-
   Hirb.enable
 end
 
 # Awesome Print
 begin
+  require 'ap'
   require 'awesome_print'
-  Pry.config.print = proc { |output, value| Pry::Helpers::BaseHelpers.stagger_output("=> #{value.ai}", output) }
+  Pry.config.print = proc { |output, value| output.puts value.ai }
 rescue LoadError => err
-  puts "Couldn't load awesome_print. Is it installed?"
+  puts "no awesome_print :("
+end
+
+
+# Aliasses
+Pry.commands.alias_command 'q', 'exit'
+
+
+# Allows the use of the disable-pry command to break out of loopes etc, but doesn;t disable it permanantly.
+Pry::Commands.block_command('enable-pry', 'Enable `binding.pry` feature') do
+  ENV['DISABLE_PRY'] = nil
 end

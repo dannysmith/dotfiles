@@ -4,50 +4,34 @@ require 'irb/completion'
 begin
   require 'json'
 rescue LoadError => err
-  warn "Couldn't load JSON gem: #{err}. Installing now..."
-  system 'gem install json'
-  require 'json'
+  warn "Couldn't load JSON gem: #{err}."
 end
 
 begin
   require 'logger'
 rescue LoadError => err
-  warn "Couldn't load logger gem: #{err}. Installing now..."
-  system 'gem install logger'
+  warn "Couldn't load logger gem: #{err}."
 end
 
 begin
   require 'nokogiri'
 rescue LoadError => err
-  warn "Couldn't load Nokogiri: #{err}. Install now? (y/n)"
-  if gets == 'y'
-    system 'gem install nokogiri'
-    require 'nokogiri'
-  end
+  warn "Couldn't load Nokogiri: #{err}."
 end
 
-#Load Wribble (colouring etc in irb)
+# Load Brice (was wirble) (colouring etc in irb)
 begin
-  require 'wirble'
-  Wirble.init
-  Wirble.colorize
+  require 'brice/init'
 rescue LoadError => err
-  warn "Couldn't load wirble: #{err}. Installing now..."
-  system 'gem install json'
-  require 'wirble'
-  Wirble.init
-  Wirble.colorize
+  warn "Couldn't load brice: #{err}."
 end
 
-#Load Hirb (pretty formatting in irb)
+# Load Hirb (pretty formatting in irb)
 begin
   require 'hirb'
   Hirb.enable
 rescue LoadError => err
-  warn "Couldn't load hirb: #{err}. Installing now..."
-  system 'gem install hirb'
-  require 'hirb'
-  Hirb.enable
+  warn "Couldn't load hirb: #{err}."
 end
 
 # awesome print
@@ -56,10 +40,7 @@ begin
   require 'awesome_print'
   AwesomePrint.irb!
 rescue LoadError => err
-  warn "Couldn't load awesome_print: #{err}. Installing now..."
-  system 'gem install ap'
-  require 'ap'
-  AwesomePrint.irb!
+  warn "Couldn't load awesome_print: #{err}."
 end
 
 # irb history

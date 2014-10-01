@@ -77,6 +77,8 @@ alias ll='ls $LS_OPTIONS -lh'
 alias l='ls $LS_OPTIONS -lhA'
 alias lsa='ls -a $LS_OPTIONS'
 
+alias rm='rm -i'
+
 #Apache commands
 alias apaches='sudo apachectl start'
 alias apacher='sudo apachectl restart'
