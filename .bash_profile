@@ -51,6 +51,7 @@ alias gb='git branch'
 alias gba='git branch -a'
 alias glog='git log --oneline --decorate'
 alias gcl='git clone'
+alias gdc='git difftool --cached'
 
 #Allows calling wikipedia using DNS
 function wp {
