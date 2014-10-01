@@ -8,6 +8,7 @@
 #.gemrc
 #.git_status_in_prompt.sh
 #.gitconfig
+.gitconfig.local
 #.gitignore
 #.gitk
 .guard_history
