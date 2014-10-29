@@ -43,3 +43,19 @@ Pry.commands.alias_command 'q', 'exit'
 Pry::Commands.block_command('enable-pry', 'Enable `binding.pry` feature') do
   ENV['DISABLE_PRY'] = nil
 end
+
+
+
+# Add Interesting Methods
+class Object
+  def imethods
+    case self.class
+    when Class
+      self.methods.sort - Object.methods
+    when Module
+      self.methods.sort - Module.methods
+    else
+      self.methods.sort - Object.new.methods
+    end
+  end
+end

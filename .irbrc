@@ -65,14 +65,14 @@ end
 
 # Add Interesting Methods
 class Object
-  def interesting_methods
+  def imethods
     case self.class
     when Class
-      self.public_methods.sort - Object.public_methods
+      ap self.methods.sort - Object.methods
     when Module
-      self.public_methods.sort - Module.public_methods
+      ap self.methods.sort - Module.methods
     else
-      self.public_methods.sort - Object.new.public_methods
+      ap self.methods.sort - Object.new.methods
     end
   end
 end

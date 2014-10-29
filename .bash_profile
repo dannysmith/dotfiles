@@ -25,6 +25,9 @@ alias st.='st .'
 #Alias for wget
 alias wget="curl -O"
 
+# Start SQL
+alias smysql="/usr/local/bin/mysql.server start"
+
 # Include my own git parse type function
 source ~/.git_status_in_prompt.sh
 
