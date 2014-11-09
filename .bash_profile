@@ -53,6 +53,8 @@ alias gco='git checkout'
 alias gb='git branch'
 alias gba='git branch -a'
 alias glog='git log --oneline --decorate'
+alias glogg='git log --oneline --decorate --graph'
+alias glogs='git log --oneline --decorate --stat'
 alias gcl='git clone'
 alias gdc='git difftool --cached'
 
@@ -88,33 +90,23 @@ alias apaches='sudo apachectl start'
 alias apacher='sudo apachectl restart'
 alias apachestop='sudo apachectl stop'
 
+# REPLACED with brew install tree
 #Alias for Tree Command
-alias tree="find . -type d | sed -e 1d -e 's/[^-][^\/]*\//--/g' -e 's/^/ /' -e 's/-/|-/'"
+# alias tree="find . -type d | sed -e 1d -e 's/[^-][^\/]*\//--/g' -e 's/^/ /' -e 's/-/|-/'"
 
 #Running a sinatra app.
 function run {
-  if [ $# = 0 ]
+  if [ $1 = s ]
   then
-    echo "Running with run.rb..."
-    ruby run.rb
-  else
-    if [ $1 = s ]
+    echo "Running with Shotgun blazing..."
+    shotgun -p 4567 config.ru
+	else
+		if [ $1 = r ]
     then
-      echo "Running with Shotgun blazing..."
-      shotgun -p 4567 config.ru
-		else
-			if [ $1 = r ]
-	    then
-	      echo "Running with Rackup"
-	      rackup -p 4567
-	    fi
+      echo "Running with Rackup"
+      rackup -p 4567
     fi
   fi
-}
-
-# Alisa for browserstack
-function bstack {
-  "java -jar ~/Documents/Resources/Binaries/BrowserStackTunnel.jar r3JRlD6fPuezMmz1ZEyS $1,80,0"
 }
 
 # iA Writer

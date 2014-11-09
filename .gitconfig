@@ -13,12 +13,15 @@
 	br = branch
 	p = push
 	df = diff
-  lg = log -p
+	lg = log --oneline --decorate --all --graph
   who = shortlog -s --
   cl = clone
+  pushall = push --recurse-submodules=on-demand
+	s = status -s
 [core]
 	excludesfile = /Users/danny/.gitignore
 	editor = st -w
+	autocrlf = input
 [merge]
 	tool = Kaleidoscope
 	summary = true
@@ -43,3 +46,7 @@
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
+[pull]
+	rebase = true
+[rerere]
+	enabled = true
