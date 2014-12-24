@@ -3,7 +3,6 @@ begin
   require 'hirb'
 rescue LoadError
   # Missing goodies, bummer
-  puts "Couldnt load Hirb. Is it installed?"
 end
 
 if defined? Hirb
@@ -12,8 +11,8 @@ if defined? Hirb
     def enable_output_method
       @output_method = true
       @old_print = Pry.config.print
-      Pry.config.print = proc do |output, value|
-        Hirb::View.view_or_page_output(value) || @old_print.call(output, value)
+      Pry.config.print = proc do |*args|
+        Hirb::View.view_or_page_output(args[1]) || @old_print.call(*args)
       end
     end
 
@@ -22,6 +21,7 @@ if defined? Hirb
       @output_method = nil
     end
   end
+
   Hirb.enable
 end
 
