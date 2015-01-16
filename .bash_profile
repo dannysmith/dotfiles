@@ -4,6 +4,9 @@ export CPPATH="~/Dropbox/dev/training"
 # Add git, node and homebrew /bin's to PATH.
 export PATH=/usr/local/mysql/bin:/usr/local/bin:/usr/local/share/npm/bin:/usr/local/lib/node_modules:/usr/local/git/bin:/usr/bin:$PATH
 
+# Add Postgres.app command line tools
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
+
 # NOTE: Sublime text is aliased as "st", through a symlink saved in /usr/bin.
 
 #Sets SVN, GVS and default editors to Sublime Text 2
