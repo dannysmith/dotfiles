@@ -56,6 +56,8 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 
 ###### ZSH CONFIG - FROM BASH_CONFIG #######
 
+# This adds the default folder for the omnifocus gem to create new projects in, without this environment variable, the default is 'nerd'
+export OF_FOLDER="Other"
 
 # Add git, node and homebrew /bin's to PATH.
 export PATH=/usr/local/mysql/bin:/usr/local/bin:/usr/local/share/npm/bin:/usr/local/lib/node_modules:/usr/local/git/bin:/usr/bin:$PATH
