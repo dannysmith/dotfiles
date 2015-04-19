@@ -1,0 +1,66 @@
+if &compatible
+  set nocompatible
+end
+
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#begin()
+
+" Let Vundle manage Vundle
+Plugin 'gmarik/Vundle.vim'
+
+" Main Theme
+"Plugin 'dhruvasagar/vim-railscasts-theme' "Version 1
+Plugin 'jpo/vim-railscasts-theme' "Version 2
+
+" File Management and File Searching
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'mileszs/ack.vim'
+Plugin 'scrooloose/nerdtree'
+
+" Makes it possible to switch between tmux and vim panes
+Plugin 'christoomey/vim-tmux-navigator'
+
+" General VIM Stuff
+Plugin 'tpope/vim-repeat' "Allow the . to be used with user-made plugins and text objects.
+Plugin 'kana/vim-textobj-user' "Allows the custom definition of text objects
+Plugin 'Raimondi/delimitMate' "Add closing brackets automatically
+
+" Deal with writing ruby and other programming languages
+Plugin 'vim-ruby/vim-ruby' "Adds ruby movements, syntax highlighting etc
+Plugin 'tpope/vim-endwise' "Adds 'end' when a newline is typed after an if or def etc.
+Plugin 'tmhedberg/matchit' "Required for ruby-refactoring to work
+Plugin 'ecomba/vim-ruby-refactoring' "Allows refactoring of ruby stuff. See https://justinram.wordpress.com/2010/12/30/vim-ruby-refactoring-series/
+Plugin 'nelstrom/vim-textobj-rubyblock' "Allows selection of ruby blocks with `vir` and `var`.
+
+" Web Development
+Plugin 'mattn/emmet-vim' "Emmet
+
+" Markdown and Writing Stuff
+Plugin 'reedes/vim-colors-pencil' "Light/dark theme inspired by iA Writer
+Plugin 'godlygeek/tabular'
+"Plugin 'plasticboy/vim-markdown'
+
+"Plugin 'pbrisbin/vim-mkdir'
+"Plugin 'scrooloose/syntastic'
+"Plugin 'slim-template/vim-slim'
+"Plugin 'thoughtbot/vim-rspec'
+"Plugin 'tpope/vim-bundler'
+"Plugin 'tpope/vim-eunuch'
+"Plugin 'tpope/vim-fugitive'
+"Plugin 'tpope/vim-rails'
+"Plugin 'tpope/vim-repeat'
+"Plugin 'tpope/vim-surround'
+"Plugin 'vim-scripts/ctags.vim'
+"Plugin 'vim-scripts/tComment'
+"Plugin 'rizzatti/dash.vim'
+"Plugin 'bling/vim-airline'
+"Plugin 'airblade/vim-gitgutter'
+"Plugin 'airblade/vim-rooter'
+
+if filereadable(expand("~/.vimrc.bundles.local"))
+  source ~/.vimrc.bundles.local
+endif
+
+call vundle#end()
+filetype on
