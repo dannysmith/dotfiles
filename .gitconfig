@@ -29,7 +29,7 @@
 	user = dannysmith
 	token = ssh-rsa
 [push]
-	default = current
+	default = simple
 [credential]
 	helper = osxkeychain
 [difftool "Kaleidoscope"]
@@ -50,3 +50,5 @@
 	rebase = true
 [rerere]
 	enabled = true
+[ghi]
+	token = !security find-internet-password -a dannysmith -s github.com -l 'ghi token' -w

@@ -96,6 +96,8 @@ alias apaches='sudo apachectl start'
 alias apacher='sudo apachectl restart'
 alias apachestop='sudo apachectl stop'
 
+alias c='clear'
+
 # REPLACED with brew install tree
 #Alias for Tree Command
 # alias tree="find . -type d | sed -e 1d -e 's/[^-][^\/]*\//--/g' -e 's/^/ /' -e 's/-/|-/'"

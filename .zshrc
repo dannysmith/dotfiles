@@ -70,7 +70,7 @@ export PATH=/usr/local/mysql/bin:/usr/local/bin:/usr/local/share/npm/bin:/usr/lo
  export SVN_EDITOR="st -w"
 
 # # Enable shims and autocompletion for rbenv
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+if which rbenv > /dev/null; then eval "$(rbenv init - zsh)"; fi
 
 # common typos
 alias ts='st'
@@ -104,6 +104,9 @@ alias glogg='git log --oneline --decorate --graph'
 alias glogs='git log --oneline --decorate --stat'
 alias gcl='git clone'
 alias gdc='git difftool --cached'
+
+# See https://github.com/qw3rtman/gg#installation
+alias gg='noglob gg'
 
 #Allows calling wikipedia using DNS
 function wp {
