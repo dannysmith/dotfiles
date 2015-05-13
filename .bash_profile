@@ -190,7 +190,8 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 # Homebrew tab completion
 source `brew --repository`/Library/Contributions/brew_bash_completion.sh
 
-
+# Aliad to delete MS OfficeFileCaches - resolves issues with OneDrive for Business crashes
+alias clearofficecache=$(IFS=$'\n';for i in `find ~/Library -name OfficeFileCache`; do echo $i; rm -Rf "$i"; done)
 
 # Get OS X Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm update npm -g; npm update -g; sudo gem update --system; sudo gem update'
