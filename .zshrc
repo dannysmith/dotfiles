@@ -65,9 +65,9 @@ export PATH=/usr/local/mysql/bin:/usr/local/bin:/usr/local/share/npm/bin:/usr/lo
 # NOTE: Sublime text is aliased as "st", through a symlink saved in /usr/bin.
 
 #Sets SVN, GVS and default editors to Sublime Text 2
- export EDITOR="st -w"
- export CVSEDITOR="st -w"
- export SVN_EDITOR="st -w"
+ export EDITOR="vim"
+ export CVSEDITOR="vim"
+ export SVN_EDITOR="vim"
 
 # # Enable shims and autocompletion for rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init - zsh)"; fi
@@ -139,7 +139,10 @@ function blog {
 }
 
 # Alias to clear MS OfficeFileCaches - resolves issue with Onedrive for business Crashing
-alias clearofficecache=$(IFS=$'\n';for i in `find ~/Library -name OfficeFileCache`; do echo $i; rm -Rf "$i"; done)
+function clearofficecache {
+  IFS=$'\n'
+  for i in `find ~/Library -name OfficeFileCache`; do echo $i; rm -Rf "$i"; done
+}
 
 # Get OS X Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm update npm -g; npm update -g; sudo gem update --system; sudo gem update'
@@ -182,6 +185,4 @@ alias raf="cd ~/RAF"
 alias sparta="cd ~/Dropbox/Documents/Sparta"
 alias sshspartaroot="ssh -X root@unix.spartaglobal.com -R 52698:localhost:52698"
 alias sshsparta="ssh -X danny@unix.spartaglobal.com -R 52698:localhost:52698"
-
-
 
