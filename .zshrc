@@ -5,7 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="dannysmith"
 
-plugins=(bower brew brew-cask bundler cloudapp coffee colored-man colorize common-aliases cp docker gem git git-extras gitignore heroku history osx rails rake rbenv ruby zsh-syntax-highlighting)
+plugins=(bower brew brew-cask bundler cloudapp colored-man colorize common-aliases cp docker gem git git-extras gitignore heroku history osx rails rake rbenv ruby zsh-syntax-highlighting zsh-autosuggestions)
 
 # Enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -46,15 +46,22 @@ export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
-
 # added by travis gem
 [ -f /Users/danny/.travis/travis.sh ] && source /Users/danny/.travis/travis.sh
 
 # Code Completion from zsh-completions
 fpath=(/usr/local/share/zsh-completions $fpath)
 
+# Enable autosuggestions automatically.
+# https://github.com/tarruda/zsh-autosuggestions
+source ~/.zsh/zsh-autosuggestions/autosuggestions.zsh
+zle-line-init() {
+    zle autosuggest-start
+}
+zle -N zle-line-init
 
-###### ZSH CONFIG - FROM BASH_CONFIG #######
+
+###### ZSH CONFIG - ORIGINALY FROM MY BASH_CONFIG #######
 
 # This adds the default folder for the omnifocus gem to create new projects in, without this environment variable, the default is 'nerd'
 export OF_FOLDER="Other"
