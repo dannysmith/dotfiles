@@ -46,7 +46,7 @@ export LSCOLORS=dxfxcxcxbxexexbxbxDADA
 # See http://softwaregravy.wordpress.com/2010/10/16/ls-colors-for-mac/
 
 # More Git aliases
-alias git='hub'
+#alias git='hub'
 alias g='git'
 alias gst='git status -s'
 alias gpull='git pull'
