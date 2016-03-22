@@ -41,6 +41,11 @@ export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 export PATH="/Users/danny/.rbenv/shims:/usr/local/mysql/bin:/usr/local/bin:/usr/local/share/npm/bin:/usr/local/lib/node_modules:/usr/local/git/bin:/usr/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
 
+
+# Add NVM Config - note that NVM itself is installed via Homebrew
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
 # Add Postgres.app command line tools
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
 

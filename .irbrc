@@ -13,12 +13,6 @@ rescue LoadError => err
   warn "Couldn't load logger gem: #{err}."
 end
 
-begin
-  require 'nokogiri'
-rescue LoadError => err
-  warn "Couldn't load Nokogiri: #{err}."
-end
-
 # Load Brice (was wirble) (colouring etc in irb)
 begin
   require 'brice/init'
@@ -48,31 +42,20 @@ IRB.conf[:EVAL_HISTORY] = 1000
 IRB.conf[:SAVE_HISTORY] = 1000
 IRB.conf[:HISTORY_FILE] = File::expand_path("~/.irbhistory")
 
-# load .railsrc in rails environments
-railsrc_path = File.expand_path('~/.irbrc_rails')
-if ( ENV['RAILS_ENV'] || defined? Rails ) && File.exist?( railsrc_path )
-  begin
-    load railsrc_path
-  rescue Exception
-    warn "Could not load: #{ railsrc_path } because of #{$!.message}"
-  end
-end
 
-#Set Log display in script/console
-if ENV.include?('RAILS_ENV')&& !Object.const_defined?('RAILS_DEFAULT_LOGGER')
- Object.const_set('RAILS_DEFAULT_LOGGER', Logger.new(STDOUT))
-end
-
-# Add Interesting Methods
+# Add Interesting Methods method.
 class Object
   def imethods
-    case self.class
-    when Class
-      ap self.methods.sort - Object.methods
-    when Module
-      ap self.methods.sort - Module.methods
+    puts self.class
+    if self.class.to_s == "Module"
+      puts "I'm a Module"
+      self.methods false
+    elsif self.class.to_s == "Class"
+      puts "I'm a Class"
+      self.methods false
     else
-      ap self.methods.sort - Object.new.methods
+      puts "I'm a Object"
+      self.public_methods false
     end
   end
 end
