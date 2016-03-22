@@ -46,15 +46,11 @@ IRB.conf[:HISTORY_FILE] = File::expand_path("~/.irbhistory")
 # Add Interesting Methods method.
 class Object
   def imethods
-    puts self.class
     if self.class.to_s == "Module"
-      puts "I'm a Module"
       self.methods false
     elsif self.class.to_s == "Class"
-      puts "I'm a Class"
       self.methods false
     else
-      puts "I'm a Object"
       self.public_methods false
     end
   end
