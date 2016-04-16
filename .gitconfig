@@ -1,6 +1,7 @@
 [user]
 	name = Danny Smith
-	email = danny@dasmith.co.uk
+	email = hi@danny.is
+	signingkey = A9A0DF6D
 [color]
 	diff = auto
 	status = auto
@@ -56,3 +57,5 @@
 	clean = git lfs clean %f
 	smudge = git lfs smudge %f
 	required = true
+[commit]
+	gpgsign = false
