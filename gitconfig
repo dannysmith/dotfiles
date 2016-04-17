@@ -20,7 +20,7 @@
   pushall = push --recurse-submodules=on-demand
 	s = status -s
 [core]
-	excludesfile = /Users/danny/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	editor = st -w
 	autocrlf = input
 [merge]
