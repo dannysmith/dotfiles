@@ -10,13 +10,6 @@ function git_prompt_info() {
 purple="%F{135}"
 
 PROMPT='$fg[cyan]%~$(git_prompt_info)
-<<<<<<< f3db1a6ba9d5f5a916ba01934e1003cd5087db16
-$fg[green]→$reset_color '
-
-if [[ "$USER" == "root" ]]; then
-PROMPT='$fg[cyan]%~$(git_prompt_info)
-$fg[red]ROOT$fg[green]→$reset_color '
-=======
 $fg[green]➟$reset_color '
 
 if [[ "$USER" == "root" ]]; then
@@ -28,5 +21,4 @@ fi
 if [[ -n $SSH_CONNECTION ]]; then
 PROMPT='$fg[cyan]%~$(git_prompt_info)
 $fg[white]☁ $fg[green]➟$reset_color '
->>>>>>> Added some icons
 fi
