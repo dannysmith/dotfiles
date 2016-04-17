@@ -19,7 +19,7 @@ export PATH=$PATH:/usr/local/share/npm/bin:/usr/local/lib/node_modules
 export PATH=$PATH:/usr/local/mysql/bin
 
 # Rbenv
-export PATH=$PATH:/Users/danny/.rbenv/shims
+export PATH=$PATH:$HOME/.rbenv/shims:$HOME/.rbenv/bin
 
 # Postgres.app command line tools
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin

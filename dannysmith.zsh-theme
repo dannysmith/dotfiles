@@ -9,16 +9,16 @@ function git_prompt_info() {
 
 purple="%F{135}"
 
-PROMPT='$fg[cyan]%~$(git_prompt_info)
-$fg[green]➟$reset_color '
+PROMPT='%{$fg[cyan]%}%~$(git_prompt_info)
+%{$fg[green]%}➟%{$reset_color%} '
 
 if [[ "$USER" == "root" ]]; then
-PROMPT='$fg[cyan]%~$(git_prompt_info)
-$fg[red]ⓡ $fg[green]➟$reset_color '
+PROMPT='%{$fg[cyan]%}%~$(git_prompt_info)
+%{$fg[red]%}ⓡ  %{$fg[green]%}➟%{$reset_color%} '
 fi
 
 # Font for remote/SSH connections
 if [[ -n $SSH_CONNECTION ]]; then
-PROMPT='$fg[cyan]%~$(git_prompt_info)
-$fg[white]☁ $fg[green]➟$reset_color '
+PROMPT='%{$fg[cyan]%}%~$(git_prompt_info)
+%{$fg[yellow]%}☁  %{$fg[green]%}➟%{$reset_color%} '
 fi

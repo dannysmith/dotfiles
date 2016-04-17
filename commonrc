@@ -33,7 +33,8 @@ export CVSEDITOR="vim"
 export SVN_EDITOR="vim"
 # NOTE: Sublime text is aliased as "st", through a symlink saved in /usr/bin.
 
-export LANG=en_GB.UTF-8
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 export ARCHFLAGS="-arch x86_64"
 export SSH_KEY_PATH="~/.ssh/dsa_id"
 export MANPATH="/usr/local/man:$MANPATH"
@@ -43,25 +44,9 @@ export CLICOLOR=1
 export LSCOLORS=dxfxcxcxbxexexbxbxDADA
 # See http://softwaregravy.wordpress.com/2010/10/16/ls-colors-for-mac/
 
-################ Git Shortcuts ################
-
-alias git='hub'
-alias g='git'
-alias gst='git status -s'
-alias gpull='git pull'
-alias gp='git push'
-alias gd='git diff'
-alias gc='git commit -v'
-alias gca='git commit -v -a'
-alias gcm='git commit -m'
-alias gco='git checkout'
-alias gb='git branch'
-alias gba='git branch -a'
-alias glog='git log --oneline --decorate'
-alias glogg='git log --oneline --decorate --graph'
-alias glogs='git log --oneline --decorate --stat'
-alias gcl='git clone'
-alias gdc='git difftool --cached'
+# Load colours
+autoload -U colors
+colors
 
 
 ################ Shell Prompt ################
@@ -156,3 +141,24 @@ command -v npm > /dev/null && alias npme="npm --registry http://registry.npmjs.e
 
 # Enable shims and autocompletion for rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init - zsh)"; fi
+
+################ Git Shortcuts ################
+
+alias git='hub'
+alias g='git'
+alias gst='git status -s'
+alias gpull='git pull'
+alias gp='git push'
+alias gd='git diff'
+alias gc='git commit -v'
+alias gca='git commit -v -a'
+alias gcm='git commit -m'
+alias gco='git checkout'
+alias gb='git branch'
+alias gba='git branch -a'
+alias glog='git log --oneline --decorate'
+alias glogg='git log --oneline --decorate --graph'
+alias glogs='git log --oneline --decorate --stat'
+alias gcl='git clone'
+alias gdc='git difftool --cached'
+

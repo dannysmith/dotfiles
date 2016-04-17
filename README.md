@@ -13,5 +13,6 @@ rcup -v
 rcup -x README.md -x dannysmith.zsh-theme
 ```
 
-3. Install [Oh My ZSH](http://ohmyz.sh/) into `~/.oh-my-zsh`.
-4. Move `dannysmith.zsh-theme` into `~/.oh-my-zsh/themes`.
+3. Install [Oh My ZSH](http://ohmyz.sh/) into `~/.oh-my-zsh`. My fork of OMZ [lives here](https://github.com/dannysmith/oh-my-zsh).
+
+Note: If you haven't used my fork of OMZ, you'll need to move the theme file `dannysmith.zsh-theme` (which is also in this repo)  into `~/.oh-my-zsh/themes`.

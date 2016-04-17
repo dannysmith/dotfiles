@@ -1,32 +1,46 @@
 source ~/.commonrc
 
+
 ################ Oh My ZSH ################
 
 # Set Path to oh-my-zsh
-export ZSH=$HOME/.oh-my-zsh
+export ZSH=$HOME/Dropbox/dev/oh-my-zsh
 
 # # Theme
 ZSH_THEME="dannysmith"
 
-# Pligins
-#plugins=(bower brew brew-cask bundler cloudapp colored-man colorize common-aliases cp docker gem git git-extras gitignore heroku history osx rails rake rbenv ruby zsh-syntax-highlighting zsh-autosuggestions)
-plugins=(git brew)
-
 # # Enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
-# Initialize omzsh
+################ Oh My ZSH Plugins ################
+#plugins=(bower brew brew-cask bundler cloudapp colored-man colorize common-aliases cp docker gem git git-extras gitignore heroku history osx rails rake rbenv ruby zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(git git-extras) # Git plugins
+plugins+=(brew osx colored-man last-working-dir) # Standard & OSX plugins
+plugins+=(ruby gem heroku bundler) # Ruby plugins
+plugins+=(npm) # JavaScript plugins
+
+
+# Additional completiones, not included in the OMZSH master.
+# Custom plugin (see oh-my-zsh/custom)
+plugins+=(zsh-completions)
+autoload -U compinit && compinit
+fpath=(/usr/local/share/zsh-completions $fpath)
+
+# ZSH Autosuggestions (as you type)
+# Custom plugin (see oh-my-zsh/custom)
+# See https://github.com/tarruda/zsh-autosuggestions
+plugins+=(zsh-autosuggestions)
+
+# Highlight terminal commands for correctness on-the-fly
+# Custom plugin (see oh-my-zsh/custom)
+# This mist be the last plugin sourced before initializing OMZSH.
+plugins+=(zsh-syntax-highlighting)
+
+
+################ Initialize Oh-my-ZSH ################
+
 source $ZSH/oh-my-zsh.sh
 
-################ Other ZSH Config ################
 
-# Code Completion from zsh-completions
-# fpath=(/usr/local/share/zsh-completions $fpath)
+################## Other ZSH Config ##################
 
-# Enable autosuggestions automatically.
-# https://github.com/tarruda/zsh-autosuggestions
-# source ~/.zsh/zsh-autosuggestions/autosuggestions.zsh
-# zle-line-init() {
-#     zle autosuggest-start
-# }
-# zle -N zle-line-init
