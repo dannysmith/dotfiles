@@ -1,5 +1,7 @@
 source ~/.commonrc
 
+alias fooboo="echo Hello"
+
 ################ Bash Optimisations ################
 
 # Some from: https://github.com/mathiasbynens/dotfiles/blob/master/.bash_profile
@@ -41,4 +43,3 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 
 # Homebrew tab completion
 source `brew --repository`/Library/Contributions/brew_bash_completion.sh
-

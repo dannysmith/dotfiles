@@ -2,23 +2,23 @@ source ~/.commonrc
 
 ################ Oh My ZSH ################
 
-# # Path to oh-my-zsh
-# export ZSH=$HOME/.oh-my-zsh
+# Set Path to oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # # Theme
-# ZSH_THEME="dannysmith"
+ZSH_THEME="dannysmith"
 
-# # Pligins
+# Pligins
 #plugins=(bower brew brew-cask bundler cloudapp colored-man colorize common-aliases cp docker gem git git-extras gitignore heroku history osx rails rake rbenv ruby zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(git brew)
 
 # # Enable command auto-correction.
 # ENABLE_CORRECTION="true"
 
-# # Include omzsh script
-#source $ZSH/oh-my-zsh.sh
+# Initialize omzsh
+source $ZSH/oh-my-zsh.sh
 
-
-################ ZSH Config ################
+################ Other ZSH Config ################
 
 # Code Completion from zsh-completions
 # fpath=(/usr/local/share/zsh-completions $fpath)
@@ -30,4 +30,3 @@ source ~/.commonrc
 #     zle autosuggest-start
 # }
 # zle -N zle-line-init
-

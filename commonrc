@@ -2,7 +2,6 @@
 # This contains settings common to both zsh and bash  #
 # Danny Smith - http://danny.is                       #
 #######################################################
-
 source ~/.pathrc # Set PATH
 
 ################ Location Shortcuts ################
@@ -39,6 +38,11 @@ export ARCHFLAGS="-arch x86_64"
 export SSH_KEY_PATH="~/.ssh/dsa_id"
 export MANPATH="/usr/local/man:$MANPATH"
 
+# Set LS Colours
+export CLICOLOR=1
+export LSCOLORS=dxfxcxcxbxexexbxbxDADA
+# See http://softwaregravy.wordpress.com/2010/10/16/ls-colors-for-mac/
+
 ################ Git Shortcuts ################
 
 alias git='hub'
@@ -62,18 +66,11 @@ alias gdc='git difftool --cached'
 
 ################ Shell Prompt ################
 
-# Include my git parse type function
 source ~/.git_status_in_prompt.sh
 
 # Sets the shell prompt
-export PS1='\[\033[36m\]\w $(git branch &>/dev/null; if [ $? -eq 0 ]; then \
-echo "\[\033[34m\]- $(gitParseStatus)\[\033[33m\]$(git branch | grep ^*|sed s/\*\ //)"; fi)\[\033[32m\]\n→ \[\033[00m\]'
-
-# Set Colours
-export CLICOLOR=1
-export LSCOLORS=dxfxcxcxbxexexbxbxDADA
-# See http://softwaregravy.wordpress.com/2010/10/16/ls-colors-for-mac/
-
+# export PS1='\[\033[36m\]\w $(git branch &>/dev/null; if [ $? -eq 0 ]; then \
+# echo "\[\033[34m\]- $(gitParseStatus)\[\033[33m\]$(git branch | grep ^*|sed s/\*\ //)"; fi)\[\033[32m\]\n→ \[\033[00m\]'
 
 ################ Other Shortcuts ################
 
@@ -106,7 +103,7 @@ alias whois="whois -h whois-servers.net"
 alias osxupdate='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm update npm -g; npm update -g; sudo gem update --system; sudo gem update'
 
 # Alias to delete MS OfficeFileCaches - resolves issues with OneDrive for Business crashes
-alias clearofficecache=$(IFS=$'\n';for i in `find ~/Library -name OfficeFileCache`; do echo $i; rm -Rf "$i"; done)
+# alias clearofficecache=$(IFS=$'\n';for i in `find ~/Library -name OfficeFileCache`; do echo $i; rm -Rf "$i"; done)
 
 #Alias for wget
 alias wget="curl -O"
@@ -159,4 +156,3 @@ command -v npm > /dev/null && alias npme="npm --registry http://registry.npmjs.e
 
 # Enable shims and autocompletion for rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init - zsh)"; fi
-
