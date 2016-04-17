@@ -1,0 +1,28 @@
+#######################################################
+# This is where the PATH is set, for ease of reading  #
+# Danny Smith - http://danny.is                       #
+#######################################################
+
+# Basic Bins (including Homebrew)
+export PATH=$PATH:/bin:/usr/bin:/sbin:/usr/sbin:/usr/bin:/usr/local/bin
+
+# Git
+export PATH=$PATH:/usr/local/git/bin
+
+# X11
+export PATH=$PATH:/opt/X11/bin
+
+# NodeJS
+export PATH=$PATH:/usr/local/share/npm/bin:/usr/local/lib/node_modules
+
+# MySQL
+export PATH=$PATH:/usr/local/mysql/bin
+
+# Rbenv
+export PATH=$PATH:/Users/danny/.rbenv/shims
+
+# Postgres.app command line tools
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
+
+# Heroku Toolbelt
+export PATH=$PATH:/usr/local/heroku/bin

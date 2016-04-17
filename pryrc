@@ -21,7 +21,6 @@ if defined? Hirb
       @output_method = nil
     end
   end
-
   Hirb.enable
 end
 
@@ -37,13 +36,10 @@ end
 # Aliasses
 Pry.commands.alias_command 'q', 'exit'
 
-
 # Allows the use of the disable-pry command to break out of loopes etc, but doesn;t disable it permanantly.
 Pry::Commands.block_command('enable-pry', 'Enable `binding.pry` feature') do
   ENV['DISABLE_PRY'] = nil
 end
-
-
 
 # Add Interesting Methods method.
 class Object

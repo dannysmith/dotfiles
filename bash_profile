@@ -1,162 +1,11 @@
-#This is the path variable for my current projects path. It changes as I change projects.
-export CPPATH="~/Dropbox/dev/training"
+source ~/.commonrc
 
-# This adds the default folder for the omnifocus gem to create new projects in, without this environment variable, the default is 'nerd'
-export OF_FOLDER="Other"
+################ Bash Optimisations ################
 
-# Add git, node and homebrew /bin's to PATH.
-export PATH=/usr/local/mysql/bin:/usr/local/bin:/usr/local/share/npm/bin:/usr/local/lib/node_modules:/usr/local/git/bin:/usr/bin:$PATH
-
-# Add Postgres.app command line tools
-export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
-
-# NOTE: Sublime text is aliased as "st", through a symlink saved in /usr/bin.
-
-#Sets SVN, GVS and default editors to Sublime Text 2
- export EDITOR="st -w"
- export CVSEDITOR="st -w"
- export SVN_EDITOR="st -w"
-
+# Some from: https://github.com/mathiasbynens/dotfiles/blob/master/.bash_profile
 
 # Don't put duplicate lines in the history. See bash(1) for more options
 export HISTCONTROL=ignoredups
-
-# Enable shims and autocompletion for rbenv
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
-# common typos
-alias ts='st'
-alias st.='st .'
-
-#Alias for wget
-alias wget="curl -O"
-
-# Start SQL
-alias smysql="/usr/local/bin/mysql.server start"
-
-# Include my own git parse type function
-source ~/.git_status_in_prompt.sh
-
-#Sets the shell prompt to "DIRECTORY [- GIT_BARNCH]\n→"
-export PS1='\[\033[36m\]\w $(git branch &>/dev/null; if [ $? -eq 0 ]; then \
-echo "\[\033[34m\]- $(gitParseStatus)\[\033[33m\]$(git branch | grep ^*|sed s/\*\ //)"; fi)\[\033[32m\]\n→ \[\033[00m\]'
-
-export CLICOLOR=1
-export LSCOLORS=dxfxcxcxbxexexbxbxDADA
-# See http://softwaregravy.wordpress.com/2010/10/16/ls-colors-for-mac/
-
-# More Git aliases
-#alias git='hub'
-alias g='git'
-alias gst='git status -s'
-alias gpull='git pull'
-alias gp='git push'
-alias gd='git diff'
-alias gc='git commit -v'
-alias gca='git commit -v -a'
-alias gcm='git commit -a -m'
-alias gco='git checkout'
-alias gb='git branch'
-alias gba='git branch -a'
-alias glog='git log --oneline --decorate'
-alias glogg='git log --oneline --decorate --graph'
-alias glogs='git log --oneline --decorate --stat'
-alias gcl='git clone'
-alias gdc='git difftool --cached'
-
-#Allows calling wikipedia using DNS
-function wp {
-  dig +short txt ${1}.wp.dg.cx
-}
-
-#Writes Lorem ipsum to the clipboard
-function lorem {
-	http http://loripsum.net/api/${1-5}/plaintext | pbcopy
-}
-
-#Sets shortcut for changing to current project path.
-alias cdw="cd $CPPATH"
-
-#alias for YUI Compressor
-alias yuicompress="java -jar ~/Documents/Resources/binaries/yuicompressor-2.4.2.jar"
-
-#alias for stroke
-alias stroke="/Applications/Utilities/Network\ Utility.app/Contents/Resources/stroke"
-
-#Aliases for ls
-alias ls='ls $LS_OPTIONS'
-alias ll='ls $LS_OPTIONS -lh'
-alias l='ls $LS_OPTIONS -lhA'
-alias lsa='ls -a $LS_OPTIONS'
-
-alias rm='rm -i'
-
-#Apache commands
-alias apaches='sudo apachectl start'
-alias apacher='sudo apachectl restart'
-alias apachestop='sudo apachectl stop'
-
-alias c='clear'
-
-# REPLACED with brew install tree
-#Alias for Tree Command
-# alias tree="find . -type d | sed -e 1d -e 's/[^-][^\/]*\//--/g' -e 's/^/ /' -e 's/-/|-/'"
-
-#Running a sinatra app.
-function run {
-  if [ $1 = s ]
-  then
-    echo "Running with Shotgun blazing..."
-    shotgun -p 4567 config.ru
-	else
-		if [ $1 = r ]
-    then
-      echo "Running with Rackup"
-      rackup -p 4567
-    fi
-  fi
-}
-
-# iA Writer
-ia() {
-   for FILE in "$@"; do
-      if [ ! -e "$FILE" ]; then
-        touch "$FILE"
-      fi
-   done
-   open -a "iA Writer" "$@"
-}
-
-# Writer Pro
-wt() {
-   for FILE in "$@"; do
-      if [ ! -e "$FILE" ]; then
-        touch "$FILE"
-      fi
-   done
-   open -a "Writer Pro" "$@"
-}
-
-
-
-
-#For handling the blog
-function blog {
-  cd ~/Dropbox/dev/dasmith
-
-  if [[ $# = 0 ]]
-  then
-    echo "Opening Blog"
-  else
-    echo "Running rake task"
-    rake "$@"
-  fi
-}
-
-
-###########
-# From: https://github.com/mathiasbynens/dotfiles/blob/master/.bash_profile
-###########
 
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob
@@ -174,6 +23,9 @@ for option in autocd globstar; do
   shopt -s "$option" 2> /dev/null
 done
 
+
+################ Bash Autocompletions ################
+
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2 | tr ' ' '\n')" scp sftp ssh
 
@@ -190,56 +42,3 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 # Homebrew tab completion
 source `brew --repository`/Library/Contributions/brew_bash_completion.sh
 
-# Aliad to delete MS OfficeFileCaches - resolves issues with OneDrive for Business crashes
-alias clearofficecache=$(IFS=$'\n';for i in `find ~/Library -name OfficeFileCache`; do echo $i; rm -Rf "$i"; done)
-
-# Get OS X Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
-alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm update npm -g; npm update -g; sudo gem update --system; sudo gem update'
-
-# IP addresses
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias localip="ipconfig getifaddr en1"
-alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
-# Enhanced WHOIS lookups
-alias whois="whois -h whois-servers.net"
-
-# Flush Directory Service cache
-alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
-
-# Clean up LaunchServices to remove duplicates in the “Open With” menu
-alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
-
-# View HTTP traffic
-alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
-alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
-
-# Reload the shell (i.e. invoke as a login shell)
-alias reload="exec $SHELL -l"
-
-# Faster npm for europeans
-command -v npm > /dev/null && alias npme="npm --registry http://registry.npmjs.eu"
-
-# Kill all the tabs in Chrome to free up memory
-# [C] explained: http://www.commandlinefu.com/commands/view/402/exclude-grep-from-your-grepped-output-of-ps-alias-included-in-description
-alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
-
-# Shortcuts
-alias dl="cd ~/Downloads"
-alias dt="cd ~/Desktop"
-alias dev="cd ~/Dropbox/dev"
-alias inbox="cd ~/Dropbox/Inbox"
-alias docs="cd ~/Dropbox/Documents"
-alias docsl="cd ~/Documents"
-alias raf="cd ~/RAF"
-alias sparta="cd ~/Dropbox/Documents/Sparta"
-alias sshspartaroot="ssh -X root@unix.spartaglobal.com -R 52698:localhost:52698"
-alias sshsparta="ssh -X danny@unix.spartaglobal.com -R 52698:localhost:52698"
-
-
-# From https://github.com/rupa/z
-# See ~/.z
-. ~/.zz/z.sh
-
-
-# To make Postgres work with Canvas
-export PGHOST=localhost
