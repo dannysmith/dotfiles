@@ -33,8 +33,8 @@ export CVSEDITOR="vim"
 export SVN_EDITOR="vim"
 # NOTE: Sublime text is aliased as "st", through a symlink saved in /usr/bin.
 
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
+export LC_ALL=en_GB.UTF-8
+export LANG=en_GB.UTF-8
 export ARCHFLAGS="-arch x86_64"
 export SSH_KEY_PATH="~/.ssh/dsa_id"
 export MANPATH="/usr/local/man:$MANPATH"

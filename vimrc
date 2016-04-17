@@ -1,190 +1,174 @@
-" Leader
-let mapleader = '\'
+ " Leader
+let mapleader = " "
 
-"set backspace=2   " Backspace deletes like most programs in insert mode
-"set nobackup
-"set nowritebackup
-"set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
-"set history=50
-"set ruler         " show the cursor position all the time
-"set showcmd       " display incomplete commands
-"set incsearch     " do incremental searching
-"set laststatus=2  " Always display the status line
-"set autowrite     " Automatically :write before running commands
-"set smartcase     " be smart when searching
-"set nrformats=    " Make vim treat zero-padded numbers as decimal, rather than octal.
+
+"""""""""""""""""""""" Basic Settings """"""""""""""""""""""
+
+set backspace=2   " Backspace deletes like most programs in insert mode
+set nobackup
+set nowritebackup
+set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
+set history=50
+set ruler         " show the cursor position all the time
+set showcmd       " display incomplete commands
+set incsearch     " do incremental searching
+set laststatus=2  " Always display the status line
+set autowrite     " Automatically :write before running commands
+set relativenumber" Line numbers
+set numberwidth=5 " Set line numbers width
+set encoding=utf-8" Use UTF-8 encoding
+
+" Treat <li> and <p> tags like the block tags they are
+let g:html_indent_tags = 'li\|p'
+
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
+
+" Set spellfile to location that is guaranteed to exist, can be symlinked to
+" Dropbox or kept in Git and managed outside of thoughtbot/dotfiles using rcm.
+set spellfile=$HOME/.vim-spell-en.utf-8.add
+
+" Autocomplete with dictionary words when spell check is on
+set complete+=kspell
+
+" Always use vertical diffs
+set diffopt+=vertical
+
+"""""""""""""""""""""" Bundles """"""""""""""""""""""
+
+if filereadable(expand("~/.vimrc.bundles"))
+  source ~/.vimrc.bundles
+endif
+
+" Load matchit.vim, but only if the user hasn't installed a newer version.
+if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
+  runtime! macros/matchit.vim
+endif
+
+
+"""""""""""""""""""""" Powerline Config """"""""""""""""""""""
+
+set guifont=Inconsolata\ for\ Powerline:h16
+let g:Powerline_symbols = 'fancy'
+set t_Co=256
+set fillchars+=stl:\ ,stlnc:\
+set term=xterm-256color
+set termencoding=utf-8
+
+
+"""""""""""""""""""""" Colorschemes """"""""""""""""""""""
+
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
-"if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
-"  syntax on
-"endif
+if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
+  syntax on
+endif
 
-" if filereadable(expand("~/.vimrc.bundles"))
-"   source ~/.vimrc.bundles
-" endif"
+colo monokai
 
-" "Set the default color scheme to railscasts
-" colorscheme railscasts"
+"""""""""""""""""""""" Syntax Highlighting etc """"""""""""""""""""""
 
-" filetype plugin indent on"
+filetype plugin indent on
 
-" augroup vimrcEx
-"   autocmd!"
+augroup vimrcEx
+  autocmd!
 
-"   " When editing a file, always jump to the last known cursor position.
-"   " Don't do it for commit messages, when the position is invalid, or when
-"   " inside an event handler (happens when dropping a file on gvim).
-"   autocmd BufReadPost *
-"     \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
-"     \   exe "normal g`\"" |
-"     \ endif"
+  " When editing a file, always jump to the last known cursor position.
+  " Don't do it for commit messages, when the position is invalid, or when
+  " inside an event handler (happens when dropping a file on gvim).
+  autocmd BufReadPost *
+    \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
 
-"   " Set syntax highlighting for specific file types
-"   autocmd BufRead,BufNewFile Appraisals set filetype=ruby
-"   autocmd BufRead,BufNewFile *.md set filetype=markdown
-"   autocmd BufNewFile,BufRead Gemfile setlocal filetype=ruby
-"   autocmd BufNewFile,BufRead Guardfile setlocal filetype=ruby
-"   autocmd BufNewFile,BufRead Appraisals setlocal filetype=ruby
-"   autocmd BufNewFile,BufRead *.thor set filetype=ruby
-"   autocmd BufNewFile,BufRead *.mustache set filetype=mustache
-"   autocmd BufNewFile,BufRead *.gemfile set filetype=ruby
-"   autocmd BufNewFile,BufRead *.coffee set filetype=coffee
-"   autocmd BufNewFile,BufRead *.ejs set filetype=html
-"   autocmd BufNewFile,BufRead *.scss set filetype=scss
-"   autocmd BufNewFile,BufRead *.ru set filetype=ruby"
+  " Set syntax highlighting for specific file types
+  autocmd BufRead,BufNewFile Appraisals set filetype=ruby
+  autocmd BufRead,BufNewFile *.md set filetype=markdown
+  autocmd BufRead,BufNewFile .{jscs,jshint,eslint}rc set filetype=json
 
-"   " Enable spellchecking for Marrkdown
-"   autocmd FileType markdown setlocal spell
-"   " autocmd FileType markdown colorscheme pencil"
+  " Enable spellchecking for Marrkdown
+  autocmd FileType markdown setlocal spell
+augroup END
 
-"   " Set soft wrapping for markdown files
-"   autocmd FileType markdown set wrap linebreak nolist"
+" When the type of shell script is /bin/sh, assume a POSIX-compatible
+" shell for syntax highlighting purposes.
+let g:is_posix = 1
 
-"   " Automatically wrap at 80 characters for Markdown
-" "  autocmd BufRead,BufNewFile *.md setlocal textwidth=80"
 
-"   " Automatically wrap at 72 characters and spell check git commit messages
-"   autocmd FileType gitcommit setlocal textwidth=72
-"   autocmd FileType gitcommit setlocal spell"
+"""""""""""""""""""""" Tabs and Whitepsace """"""""""""""""""""""
 
-"   " Allow stylesheets to autocomplete hyphenated words
-"   autocmd FileType css,scss,sass setlocal iskeyword+=-
-" augroup END"
+" Softtabs, 2 spaces
+set tabstop=2
+set shiftwidth=2
+set shiftround
+set expandtab
 
-" " Softtabs, 2 spaces
-" set tabstop=2
-" set shiftwidth=2
-" set shiftround
-" set expandtab"
+" Display extra whitespace
+set list listchars=tab:»·,trail:·,nbsp:·
 
-" " Display extra whitespace
-" set list listchars=tab:»·,trail:·,nbsp:·"
+" Use one space, not two, after punctuation.
+set nojoinspaces
 
-" " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
-" if executable('ag')
-"   " Use Ag over Grep
-"   set grepprg=ag\ --nogroup\ --nocolor"
 
-"   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-"   let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'"
+"""""""""""""""""""""" Silver Searcher """"""""""""""""""""""
 
-"   " ag is fast enough that CtrlP doesn't need to cache
-"   let g:ctrlp_use_caching = 0
-" endif"
+" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+if executable('ag')
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor
 
-" " Make it obvious where 80 characters is
-" " set textwidth=80
-" " set colorcolumn=+1"
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag -Q -l --nocolor --hidden -g "" %s'
 
-" " Numbers
-" set number
-" set numberwidth=5"
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
 
-" " Enable a Wrap command for switching off hard wrapping
-" command! -nargs=* Wrap set wrap linebreak nolist"
 
-" " Tab completion
-" " will insert tab at beginning of line,
-" " will use completion if not at beginning
-" "set wildmode=list:longest,list:full
-" "function! InsertTabWrapper()
-" "    let col = col('.') - 1
-" "    if !col || getline('.')[col - 1] !~ '\k'
-" "        return "\<tab>"
-" "    else
-" "        return "\<c-p>"
-" "    endif
-" "endfunction
-" ""inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
-" "inoremap <S-Tab> <c-n>"
+"""""""""""""""""""""" Tab Completion """"""""""""""""""""""
 
-" " Set Autocompletion to search current file, open buffers and CTags only
-" set complete=.,b,u,]"
+" will insert tab at beginning of line,
+" will use completion if not at beginning
+set wildmode=list:longest,list:full
+function! InsertTabWrapper()
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-p>"
+    endif
+endfunction
+inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
+inoremap <S-Tab> <c-n>
 
-" " Exclude Javascript files in :Rtags via rails.vim due to warnings when parsing
-" let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'""
+"""""""""""""""""""""" Custom Key mappings """"""""""""""""""""""
 
-" " Index ctags from any project, including those outside Rails
-" map <Leader>ct :!ctags -R .<CR>"
+" Map Ctrl N to open NERDTree
+map <C-n> :NERDTreeToggle<CR>
 
-" " Switch between the last two files
-" nnoremap <leader><leader> <c-^>"
 
-" " Map Ctrl N to open NERDTree
-" map <C-n> :NERDTreeToggle<CR>"
 
-" " Get off my lawn
-" "nnoremap <Left> :echoe "Use h"<CR>
-" "nnoremap <Right> :echoe "Use l"<CR>
-" "nnoremap <Up> :echoe "Use k"<CR>
-" "nnoremap <Down> :echoe "Use j"<CR>"
+"""""""""""""""""""""" Prevent Arrow Keys working! """"""""""""""""""""""
+nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up> :echoe "Use k"<CR>
+nnoremap <Down> :echoe "Use j"<CR>
 
-" " vim-rspec mappings
-" "nnoremap <Leader>t :call RunCurrentSpecFile()<CR>
-" "nnoremap <Leader>s :call RunNearestSpec()<CR>
-" "nnoremap <Leader>l :call RunLastSpec()<CR>"
 
-" " Run commands that require an interactive shell
-" "nnoremap <Leader>r :RunInInteractiveShell<space>"
 
-" " Treat <li> and <p> tags like the block tags they are
-" "let g:html_indent_tags = 'li\|p'"
+"""""""""""""""""""""" Syntastic config """"""""""""""""""""""
 
-" " Open new split panes to right and bottom, which feels more natural
-" set splitbelow
-" set splitright"
+" configure syntastic syntax checking to check on open as well as save
+let g:syntastic_check_on_open=1
+let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
+let g:syntastic_eruby_ruby_quiet_messages =
+    \ {"regex": "possibly useless use of a variable in void context"}
 
-" " Quicker window movement
-" nnoremap <C-j> <C-w>j
-" nnoremap <C-k> <C-w>k
-" nnoremap <C-h> <C-w>h
-" nnoremap <C-l> <C-w>l"
 
-" " configure syntastic syntax checking to check on open as well as save
-" "let g:syntastic_check_on_open=1
-" "let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]"
+"""""""""""""""""""""" Load any local custom config """"""""""""""""""""""
 
-" " Set spellfile to location that is guaranteed to exist, can be symlinked to
-" " Dropbox or kept in Git.
-" set spellfile=$HOME/.vim-spell-en.utf-8.add"
-
-" " Autocomplete with dictionary words when spell check is on
-" set complete+=kspell"
-
-" " Always use vertical diffs
-" set diffopt+=vertical"
-
-" " vim-markdown options
-" let g:vim_markdown_folding_disabled=1
-" let g:vim_markdown_frontmatter=1"
-
-" " Pencil theme Options
-" let g:pencil_terminal_italics = 1
-" let g:airline_theme = 'pencil'"
-
-" " Local config
-" if filereadable($HOME . "/.vimrc.local")
-"   source ~/.vimrc.local
-" endif"
-
+if filereadable($HOME . "/.vimrc.local")
+  source ~/.vimrc.local
+endif
