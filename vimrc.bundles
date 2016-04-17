@@ -17,6 +17,7 @@ Plugin 'jpo/vim-railscasts-theme' "Version 2
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 " Makes it possible to switch between tmux and vim panes
 Plugin 'christoomey/vim-tmux-navigator'
