@@ -1,6 +1,5 @@
 source ~/.commonrc
 
-
 ################ Oh My ZSH ################
 
 # Set Path to oh-my-zsh

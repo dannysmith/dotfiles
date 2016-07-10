@@ -158,7 +158,8 @@ nnoremap <Down> :echoe "Use j"<CR>
 
 
 
-"""""""""""""""""""""" Syntastic config """"""""""""""""""""""
+
+"""""""""""""""" Syntastic config """"""""""""""""""""""
 
 " configure syntastic syntax checking to check on open as well as save
 let g:syntastic_check_on_open=1

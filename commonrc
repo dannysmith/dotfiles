@@ -21,6 +21,9 @@ alias st.='st .'
 #Redefine rm for safety
 alias rm='rm -i'
 
+################ VM Shortcuts ################
+
+alias spartaws='cd ~/sparta-workstation && vagrant up && vagrant ssh'
 
 ################ Env Variables ################
 

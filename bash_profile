@@ -1,7 +1,5 @@
 source ~/.commonrc
 
-alias fooboo="echo Hello"
-
 ################ Bash Optimisations ################
 
 # Some from: https://github.com/mathiasbynens/dotfiles/blob/master/.bash_profile
