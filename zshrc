@@ -43,3 +43,5 @@ source $ZSH/oh-my-zsh.sh
 
 ################## Other ZSH Config ##################
 
+alias gcm='git commit -m' # Override gcm provided by zsh-git plugin (https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/git/git.plugin.zsh)
+
