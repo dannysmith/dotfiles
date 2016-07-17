@@ -81,7 +81,6 @@ alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/La
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias localip="ipconfig getifaddr en1"
 alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
 
 # Enhanced WHOIS lookups
@@ -92,6 +91,24 @@ alias osxupdate='sudo softwareupdate -i -a; brew update; brew upgrade; brew clea
 
 # Alias to delete MS OfficeFileCaches - resolves issues with OneDrive for Business crashes
 # alias clearofficecache=$(IFS=$'\n';for i in `find ~/Library -name OfficeFileCache`; do echo $i; rm -Rf "$i"; done)
+
+# Show or hide hidden files
+hiddenfiles() {
+  if [ "$1" = "show" ]; then
+    defaults write com.apple.finder AppleShowAllFiles YES
+  elif [ "$1" = "hide" ]; then
+    defaults write com.apple.finder AppleShowAllFiles NO
+  elif [ "$1" = "toggle" ]; then
+    if [ "$(defaults read com.apple.finder AppleShowAllFiles)" = "NO" ]; then
+      defaults write com.apple.finder AppleShowAllFiles YES
+    else
+      defaults write com.apple.finder AppleShowAllFiles NO
+    fi
+  else
+    echo "Valid options are: show, hide, toggle"
+  fi
+  killall Finder
+}
 
 #Alias for wget
 alias wget="curl -O"
