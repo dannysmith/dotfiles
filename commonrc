@@ -3,6 +3,7 @@
 # Danny Smith - http://danny.is                       #
 #######################################################
 source ~/.pathrc # Set PATH
+source ~/.functions # Include functions
 
 ################ Location Shortcuts ################
 alias dl="cd ~/Downloads"
