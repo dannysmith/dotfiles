@@ -29,3 +29,12 @@ export PATH=$PATH:/usr/local/heroku/bin
 
 # Home .bin Folder
 export PATH=$PATH:$HOME/.bin
+
+# Java and Appium stuff
+export PATH=$ANT_HOME/bin:$PATH
+export PATH=$MAVEN_HOME/bin:$PATH
+export PATH=$GRADLE_HOME/bin:$PATH
+export PATH=$ANDROID_HOME/tools:$PATH
+export PATH=$ANDROID_HOME/platform-tools:$PATH
+export PATH=$ANDROID_HOME/build-tools/19.1.0:$PATH
+export PATH=$JAVA_HOME/bin:$PATH
