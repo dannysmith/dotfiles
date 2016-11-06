@@ -3,3 +3,5 @@ linters:
     enabled: false
   StringQuotes:
     enabled: false
+  PropertySortOrder:
+    enabled: false
