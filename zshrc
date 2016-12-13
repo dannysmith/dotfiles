@@ -48,3 +48,5 @@ alias gcm='git commit -m' # Override gcm provided by zsh-git plugin (https://git
 ## NVM
 export NVM_DIR="$HOME/.nvm"
 . "$(brew --prefix nvm)/nvm.sh"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
