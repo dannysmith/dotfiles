@@ -11,8 +11,7 @@ alias dt="cd ~/Desktop"
 alias dev="cd ~/Dropbox/dev"
 alias docs="cd ~/Dropbox/Documents"
 alias docsl="cd ~/Documents"
-alias sparta="cd ~/Dropbox/Documents/Sparta"
-
+alias odr="cd ~/odrive"
 
 ################ Typo Shortcuts ################
 
