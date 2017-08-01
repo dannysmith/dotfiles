@@ -3,7 +3,7 @@ source ~/.commonrc
 ################ Oh My ZSH ################
 
 # Set Path to oh-my-zsh
-export ZSH=$HOME/Dropbox/dev/oh-my-zsh
+source ~/.ohmyzshpath.local
 
 # # Theme
 ZSH_THEME="dannysmith"

@@ -6,6 +6,11 @@ To install
 
 1. Clone this repo into `~/.dotfiles`
 2. Install RCM and create the symlinks
+3. Add a file called `.ohnyzshpath.local` in your home directory. It should contain the following:
+
+``shell
+export ZSH=$HOME/path/to/oh-my-zsh/install
+```
 
 ```shell
 lsrc -x README.md -x dannysmith.zsh-theme # Dry run, check everything is ok.
