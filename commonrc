@@ -195,3 +195,10 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 ################ MONDO Alias ################
 
 alias monzo-export='open https://developers.getmondo.co.uk; echo "Set MONZO env var to your Monzo Access Token and try again"; ruby $HOME/Dropbox/dev/monzo-to-qif/monzo-to-qif.rb generate --access_token=$(echo $MONZO) --since=2016-01-01 --folder=$HOME/Desktop'
+
+
+######### CharlieHR Aliases ##########
+
+alias charlieup="bundle exec puma -p 3000 config.ru -w 1"
+alias charlieup2="CONCISE_LOG=1 bundle exec puma -p 3000 config.ru -w 1"
+alias be="bundle exec"
