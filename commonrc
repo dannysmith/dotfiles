@@ -200,5 +200,6 @@ alias monzo-export='open https://developers.getmondo.co.uk; echo "Set MONZO env 
 ######### CharlieHR Aliases ##########
 
 alias charlieup="bundle exec puma -p 3000 config.ru -w 1"
-alias charlieup2="CONCISE_LOG=1 bundle exec puma -p 3000 config.ru -w 1"
+alias charlieup2="CONCISE_LOG=1 RAILS_LOG_TO_STDOUT=1bundle exec puma -p 3000 config.ru -w 1"
 alias be="bundle exec"
+alias charliesq="bundle exec sidekiq -C config/sidekiq.yml"
