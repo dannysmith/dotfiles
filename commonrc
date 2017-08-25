@@ -204,3 +204,4 @@ alias charlieup2="CONCISE_LOG=1 RAILS_LOG_TO_STDOUT=1bundle exec puma -p 3000 co
 alias be="bundle exec"
 alias charliesq="bundle exec sidekiq -C config/sidekiq.yml"
 alias gpr="git pull --rebase"
+alias test_db="be rake db:drop db:create db:migrate RAILS_ENV=test"
