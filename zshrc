@@ -8,8 +8,8 @@ source ~/.ohmyzshpath.local
 # # Theme
 ZSH_THEME="dannysmith"
 
-# # Enable command auto-correction.
-ENABLE_CORRECTION="true"
+# # Disable command auto-correction.
+unsetopt correct_all
 
 ################ Oh My ZSH Plugins ################
 #plugins=(bower brew brew-cask bundler cloudapp colored-man colorize common-aliases cp docker gem git git-extras gitignore heroku history osx rails rake rbenv ruby zsh-syntax-highlighting zsh-autosuggestions)
