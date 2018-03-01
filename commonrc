@@ -206,6 +206,7 @@ alias charliesq="redis-cli <<< 'flushall';bundle exec sidekiq -C config/sidekiq.
 alias gpr="git pull --rebase"
 alias test_db="be rake db:drop db:create db:migrate RAILS_ENV=test"
 alias charlie="cd ~/dev/Charlie/"
+alias reloadtv="sshpass -p 'charliehr' ssh -o StrictHostKeyChecking=no pi@10.58.154.196 'pkill --oldest chromium && sleep 10 && sudo shutdown -r now'"
 
 ######## ZSH Autocorrect Whitelist ##########
 
