@@ -1,103 +1,107 @@
 [user]
-	name = Danny Smith
-	email = hi@danny.is
-	signingkey = A9A0DF6D
+  name = Danny Smith
+  email = hi@danny.is
+  signingkey = A9A0DF6D
 [color]
-	diff = auto
-	status = auto
-	branch = auto
-	interactive = auto
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
 [alias]
-	st = status
-	ci = commit
-	co = checkout
-	br = branch
-	p = push
-	df = diff
-	lg = log --oneline --decorate --all --graph
+  st = status
+  ci = commit
+  co = checkout
+  br = branch
+  p = push
+  df = diff
+  lg = log --graph --pretty=format:'%C(yellow)%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'
+  lga = log --graph --pretty=format:'%C(yellow)%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --all
   pf = push --force-with-lease
+  amend = commit --amend --no-edit
   who = shortlog -s --
   cl = clone
   pushall = push --recurse-submodules=on-demand
-	s = status -s
+  s = status -s
+  purr = pull --rebase --autostash
+  stashed = stash list --pretty=format:'%gd: %Cred%h%Creset %Cgreen[%ar]%Creset %s'
 [core]
-	excludesfile = ~/.gitignore_global
-	editor = vim
-	autocrlf = input
-	pager = diff-so-fancy | less --tabs=4 -RFX
+  excludesfile = ~/.gitignore_global
+  editor = vim
+  autocrlf = input
+  pager = diff-so-fancy | less --tabs=4 -RFX
 [merge]
-	tool = Kaleidoscope
-	summary = true
+  tool = Kaleidoscope
+  summary = true
 [github]
-	user = dannysmith
-	token = ssh-rsa
+  user = dannysmith
+token = ssh-rsa
 [push]
-	default = simple
+  default = simple
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain
 [diff]
-	tool = Kaleidoscope
+  tool = Kaleidoscope
 [difftool]
-	prompt = false
+  prompt = false
 [mergetool "Kaleidoscope"]
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustExitCode = true
+  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+  trustExitCode = true
 [mergetool]
-	prompt = false
+  prompt = false
 [filter "media"]
-	clean = git-media-clean %f
-	smudge = git-media-smudge %f
+  clean = git-media-clean %f
+  smudge = git-media-smudge %f
 [pull]
-	rebase = true
+  rebase = true
 [rerere]
-	enabled = true
+  enabled = true
 [ghi]
-	token = !security find-internet-password -a dannysmith -s github.com -l 'ghi token' -w
+  token = !security find-internet-password -a dannysmith -s github.com -l 'ghi token' -w
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
 [commit]
-	gpgsign = false
+  gpgsign = false
 
 # so much color
 [color]
-	ui = always
+  ui = always
 [color "diff"]
-	meta = yellow bold
-	commit = green bold
-	frag = magenta bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
+  meta = yellow bold
+  commit = green bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+  whitespace = red reverse
 [color "diff-highlight"]
-	oldNormal = red
-	oldHighlight = "red bold 52"
-	newNormal = "green"
-	newHighlight = "green bold 22"
+  oldNormal = red
+  oldHighlight = "red bold 52"
+  newNormal = "green"
+  newHighlight = "green bold 22"
 [color "branch"]
-	current = yellow reverse
-	local = yellow
-	remote = green
+  current = yellow reverse
+  local = yellow
+  remote = green
 [color "status"]
-	added = yellow
-	changed = green
-	untracked = cyan
+  added = yellow
+  changed = green
+  untracked = cyan
 
 # rewrites of repo paths
 [url "git@github.com:"]
-	insteadOf = "gh:"
-	insteadOf = "git://github.com"
-	pushInsteadOf = "github:"
-	pushInsteadOf = "git://github.com/"
-    pushInsteadOf = "https://github.com/"
+  insteadOf = "gh:"
+  insteadOf = "git://github.com"
+  pushInsteadOf = "github:"
+  pushInsteadOf = "git://github.com/"
+  pushInsteadOf = "https://github.com/"
 [url "git@gist.github.com:"]
-	insteadOf = "gst:"
-	pushInsteadOf = "gist:"
-	pushInsteadOf = "git://gist.github.com/"
-	pushInsteadOf = "https://gist.github.com/"
+  insteadOf = "gst:"
+  pushInsteadOf = "gist:"
+  pushInsteadOf = "git://gist.github.com/"
+  pushInsteadOf = "https://gist.github.com/"
 
 # push easily. http://stackoverflow.com/a/23918418/89484
 [push]
-	default = current
+  default = current
