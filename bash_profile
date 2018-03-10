@@ -41,3 +41,5 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 
 # Homebrew tab completion
 source `brew --repository`/Library/Contributions/brew_bash_completion.sh
+
+export PATH="$HOME/.cargo/bin:$PATH"
