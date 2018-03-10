@@ -26,7 +26,7 @@
   stashed = stash list --pretty=format:'%gd: %Cred%h%Creset %Cgreen[%ar]%Creset %s'
 [core]
   excludesfile = ~/.gitignore_global
-  editor = vim
+  editor = code --wait
   autocrlf = input
   pager = diff-so-fancy | less --tabs=4 -RFX
 [merge]
@@ -34,7 +34,7 @@
   summary = true
 [github]
   user = dannysmith
-token = ssh-rsa
+  token = ssh-rsa
 [push]
   default = simple
 [credential]
