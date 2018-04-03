@@ -153,6 +153,13 @@ function blog {
   fi
 }
 
+# find all the Ruby files added between origin/master and HEAD and add `# frozen_string_literal: true` to the top of them if it’s not already there.
+function frozen() {
+  for FILE in $(git diff --name-only --diff-filter=A origin/master HEAD | grep '\.rb$'); do
+    ruby -pi -e '$_ = "# frozen_string_literal: true\n\n#{$_}" if $. == 1 && !$_.match?(/frozen_string_literal/); $_' $FILE
+  done
+}
+
 
 ################ Optimizations ################
 
