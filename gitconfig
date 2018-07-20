@@ -2,11 +2,6 @@
   name = Danny Smith
   email = hi@danny.is
   signingkey = A9A0DF6D
-[color]
-  diff = auto
-  status = auto
-  branch = auto
-  interactive = auto
 [alias]
   st = status
   ci = commit
@@ -35,8 +30,9 @@
 [github]
   user = dannysmith
   token = ssh-rsa
+# push easily. http://stackoverflow.com/a/23918418/89484
 [push]
-  default = simple
+  default = current
 [credential]
   helper = osxkeychain
 [diff]
@@ -68,6 +64,10 @@
 # so much color
 [color]
   ui = always
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
 [color "diff"]
   meta = yellow bold
   commit = green bold
@@ -101,7 +101,3 @@
   pushInsteadOf = "gist:"
   pushInsteadOf = "git://gist.github.com/"
   pushInsteadOf = "https://gist.github.com/"
-
-# push easily. http://stackoverflow.com/a/23918418/89484
-[push]
-  default = current

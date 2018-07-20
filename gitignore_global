@@ -1,5 +1,7 @@
+######################
 # OS generated files #
 ######################
+
 .DS_Store
 .DS_Store?
 ._*
@@ -11,3 +13,9 @@ Thumbs.db
 .tags1
 .tags2
 .solargraph.yml
+
+################
+# Node Modules #
+################
+
+node_modules
