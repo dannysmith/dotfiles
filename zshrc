@@ -64,7 +64,13 @@ export NVM_DIR="$HOME/.nvm"
 . "$(brew --prefix nvm)/nvm.sh"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+## Set History Size and Save History Size
+HISTSIZE=5000
+SAVEHIST=5000
 
+## Disable Git zsh integration to help speed things up.
+# See https://blog.jonlu.ca/posts/speeding-up-zsh#observations
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 ################ Automatically switch to correct Node version on `cd` ################
 
