@@ -24,7 +24,17 @@ plugins+=(npm) # JavaScript plugins
 # Additional completiones, not included in the OMZSH master.
 # Custom plugin (see oh-my-zsh/custom)
 plugins+=(zsh-completions)
-autoload -U compinit && compinit
+
+# FROM: https://gist.github.com/ctechols/ca1035271ad134841284#gistcomment-2609770
+# On slow systems, checking the cached .zcompdump file to see if it must be
+# regenerated adds a noticable delay to zsh startup.  This little hack restricts
+# it to once a day.
+autoload -Uz compinit
+for dump in ~/.zcompdump(N.mh+24); do
+  compinit
+done
+compinit -C
+
 fpath=(/usr/local/share/zsh-completions $fpath)
 
 # ZSH Autosuggestions (as you type)
