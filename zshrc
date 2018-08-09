@@ -73,6 +73,7 @@ declare -a NODE_GLOBALS=(`find $NVM_DIR/versions/node -maxdepth 3 -type l -whole
 
 NODE_GLOBALS+=("node")
 NODE_GLOBALS+=("nvm")
+NODE_GLOBALS+=("yarn")
 
 load_nvm () {
   echo "🚨 NVM not loaded! Loading now..."
