@@ -57,13 +57,6 @@ source $ZSH/oh-my-zsh.sh
 
 alias gcm='git commit -m' # Override gcm provided by zsh-git plugin (https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/git/git.plugin.zsh)
 
-## NVM
-export NVM_DIR="$HOME/.nvm"
-
-# TODO: This line is causing the shell to load veeeeerrry slowly. Needs fixing.
-. "$(brew --prefix nvm)/nvm.sh"
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 ## Set History Size and Save History Size
 HISTSIZE=5000
 SAVEHIST=5000
@@ -72,27 +65,21 @@ SAVEHIST=5000
 # See https://blog.jonlu.ca/posts/speeding-up-zsh#observations
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-################ Automatically switch to correct Node version on `cd` ################
+## Set NVM Path
+export NVM_DIR="$HOME/.nvm"
 
-# See here: https://github.com/postlight/lux/blob/master/CONTRIBUTING.md#nodejs-version-requirements
+# Lazy load nvm.sh to prevent slow shell startup
+function nvm() {
+  echo "🚨 No nvm command!"
+  NVM_PREFIX=$(brew --prefix nvm)
 
-# place this after nvm initialization!
-autoload -U add-zsh-hook
-load-nvmrc() {
-  local node_version="$(nvm version)"
-  local nvmrc_path="$(nvm_find_nvmrc)"
-
-  if [ -n "$nvmrc_path" ]; then
-    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-
-    if [ "$nvmrc_node_version" != "N/A" ] && [ "$nvmrc_node_version" != "$node_version" ]; then
-      nvm install
-    fi
-  elif [ "$node_version" != "$(nvm version default)" ]; then
-    echo "Reverting to nvm default version"
-    nvm use default
-  fi
+  echo "Setting BREW_NVM_SCRIPT_PATH to $NVM_PREFIX/nvm.sh"
+  export BREW_NVM_SCRIPT_PATH="$NVM_PREFIX/nvm.sh"
+  . $(echo $BREW_NVM_SCRIPT_PATH) "$@"
+  echo "\e[93mRunning \`\e[92m$0 $@\e[93m\` again\e[39m..."
+  nvm "$@"
 }
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
 # zprof # Uncomment for Profiling
