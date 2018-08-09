@@ -69,17 +69,22 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 export NVM_DIR="$HOME/.nvm"
 
 # Lazy load nvm.sh to prevent slow shell startup
-function nvm() {
-  echo "🚨 No nvm command!"
-  NVM_PREFIX=$(brew --prefix nvm)
+declare -a NODE_GLOBALS=(`find $NVM_DIR/versions/node -maxdepth 3 -type l -wholename '*/bin/*' | xargs -n1 basename | sort | uniq`)
 
-  echo "Setting BREW_NVM_SCRIPT_PATH to $NVM_PREFIX/nvm.sh"
-  export BREW_NVM_SCRIPT_PATH="$NVM_PREFIX/nvm.sh"
-  . $(echo $BREW_NVM_SCRIPT_PATH) "$@"
-  echo "\e[93mRunning \`\e[92m$0 $@\e[93m\` again\e[39m..."
-  nvm "$@"
+NODE_GLOBALS+=("node")
+NODE_GLOBALS+=("nvm")
+
+load_nvm () {
+  echo "🚨 NVM not loaded! Loading now..."
+  export NVM_PREFIX=$(brew --prefix nvm)
+  [ -s "$NVM_PREFIX/nvm.sh" ] && . "$NVM_PREFIX/nvm.sh"
 }
 
+for cmd in "${NODE_GLOBALS[@]}"; do
+    eval "${cmd}(){ unset -f ${NODE_GLOBALS}; load_nvm; ${cmd} \$@ }"
+done
+
+## iTerm integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # zprof # Uncomment for Profiling
