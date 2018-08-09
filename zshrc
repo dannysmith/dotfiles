@@ -1,3 +1,5 @@
+# zmodload zsh/zprof # Uncomment for Profiling
+
 source ~/.commonrc
 
 ################ Oh My ZSH ################
@@ -77,3 +79,4 @@ load-nvmrc() {
 }
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
+# zprof # Uncomment for Profiling
