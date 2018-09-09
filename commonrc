@@ -16,6 +16,9 @@ alias odr="cd ~/odrive"
 #Redefine rm for safety
 alias rm='rm -i'
 
+# Use bat instead of cat
+alias cat='bat'
+
 ################ Env Variables ################
 
 #Sets SVN, GVS and default editors
