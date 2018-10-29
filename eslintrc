@@ -5,5 +5,7 @@
     "es6": true,
     "browser": true
   },
-  "rules": {}
+  "rules": {
+    "semi": [1, "never"]
+  }
 }
