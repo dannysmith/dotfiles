@@ -180,3 +180,8 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 ######## ZSH Autocorrect Whitelist ##########
 
 alias rspec='nocorrect rspec'
+
+######## Set up Z ##########
+
+# Z is isntalled via brew
+. /usr/local/etc/profile.d/z.sh
