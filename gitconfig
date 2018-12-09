@@ -60,6 +60,7 @@
   required = true
 [commit]
   gpgsign = false
+	verbose = true
 
 # so much color
 [color]
