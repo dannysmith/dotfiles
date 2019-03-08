@@ -8,9 +8,9 @@ source ~/.functions # Include functions
 ################ Location Shortcuts ################
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
-alias dev="cd ~/Dropbox/dev"
-alias docs="cd ~/Dropbox/Documents"
-alias docsl="cd ~/Documents"
+alias dev="cd ~/dev"
+alias ref="cd ~/odrive/Personal\ GDrive/Reference"
+alias pspt="cd ~/odrive/Personal\ GDrive/Project\ Support"
 alias odr="cd ~/odrive"
 
 #Redefine rm for safety
