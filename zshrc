@@ -7,6 +7,11 @@ source ~/.commonrc
 # Set Path to oh-my-zsh
 source ~/.ohmyzshpath.local
 
+# Set External Custom Directory
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Customization#overriding-and-adding-themes
+# See https://github.com/dannysmith/.zsh-customizations
+ZSH_CUSTOM=$HOME/.zsh-customizations
+
 # # Theme
 ZSH_THEME="dannysmith"
 
