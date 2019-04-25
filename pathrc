@@ -13,6 +13,7 @@ export PATH=$PATH:/usr/local/git/bin
 export PATH=$PATH:/opt/X11/bin
 
 # NodeJS
+export PATH=$PATH:$HOME/.fnm
 export PATH=$PATH:/usr/local/share/npm/bin:/usr/local/lib/node_modules
 
 # MySQL
