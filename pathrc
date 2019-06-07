@@ -4,7 +4,7 @@
 #######################################################
 
 # Basic Bins (including Homebrew)
-export PATH=$PATH:/bin:/usr/bin:/sbin:/usr/sbin:/usr/bin:/usr/local/bin
+export PATH=$PATH:/bin:/usr/bin:/sbin:/usr/sbin:/usr/bin:/usr/local/bin:/usr/local/sbin
 
 # Git
 export PATH=$PATH:/usr/local/git/bin
