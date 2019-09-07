@@ -32,6 +32,9 @@ export ARCHFLAGS="-arch x86_64"
 export SSH_KEY_PATH="~/.ssh/dsa_id"
 export MANPATH="/usr/local/man:$MANPATH"
 
+# See https://stackoverflow.com/questions/48838498/failed-to-install-ruby-2-5-0-thru-rbenv-macos-high-sierra
+export RUBY_CONFIGURE_OPTS="--disable-dtrace"
+
 # Set LS Colours
 export CLICOLOR=1
 export LSCOLORS=dxfxcxcxbxexexbxbxDADA
