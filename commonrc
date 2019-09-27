@@ -188,3 +188,7 @@ alias rspec='nocorrect rspec'
 
 # Z is isntalled via brew
 . /usr/local/etc/profile.d/z.sh
+
+##### Set up thefuck ######
+
+eval $(thefuck --alias)
