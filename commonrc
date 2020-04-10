@@ -168,6 +168,7 @@ alias glogs='git log --oneline --decorate --stat'
 alias gcl='git clone'
 alias gdc='git difftool --cached'
 alias gpr="git pull --rebase"
+alias gfix="git diff --name-only | uniq | xargs code" # See https://twitter.com/wesbos/status/1217849767579062272
 
 
 ################ APPIUM Stuff ################
