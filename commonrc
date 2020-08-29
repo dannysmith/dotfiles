@@ -185,11 +185,6 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 
 alias rspec='nocorrect rspec'
 
-######## Set up Z ##########
-
-# Z is isntalled via brew
-. /usr/local/etc/profile.d/z.sh
-
 #### Set up pyenv #### (Like rbenv but for python)
 
 if command -v pyenv 1>/dev/null 2>&1; then
