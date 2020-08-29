@@ -190,10 +190,6 @@ alias rspec='nocorrect rspec'
 # Z is isntalled via brew
 . /usr/local/etc/profile.d/z.sh
 
-##### Set up thefuck ######
-
-eval $(thefuck --alias)
-
 #### Set up pyenv #### (Like rbenv but for python)
 
 if command -v pyenv 1>/dev/null 2>&1; then
