@@ -1,18 +1,3 @@
-/* This makes the dirty tab circle yellow */
-
-.vs-dark .monaco-workbench>.part.editor>.content>.one-editor-silo>.container>.title .tabs-container>.tab.dirty .close-editor-action {
-    background: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' height='16' width='16'%3E%3Ccircle fill='%23ffc600' cx='8' cy='8' r='4'/%3E%3C/svg%3E") 50% no-repeat;
-}
-
-.monaco-workbench>.editor>.content>.one-editor-silo {
-    border-top: 1px solid #15232d !important;
-}
-
-/* This depends on the .mtk17 class, whose name is dependant on the color */
-.monaco-workbench>.editor>.content>.one-editor-silo .mtk17 {
-    font-family: 'Fira Code' !important;
-}
-
-.one-editor-silo+.one-editor-silo {
-    border-left: 1px solid #15232d !important;
+.monaco-workbench > .editor > .content > .one-editor-silo {
+  border-top: 1px solid #15232d !important;
 }
