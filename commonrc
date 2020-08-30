@@ -58,86 +58,18 @@ echo "\[\033[34m\]- $(gitParseStatus)\[\033[33m\]$(git branch | grep ^*|sed s/\*
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
 
-# Kill all the tabs in Chrome to free up memory
-# Explained: http://www.commandlinefu.com/commands/view/402/exclude-grep-from-your-grepped-output-of-ps-alias-included-in-description
-alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
-
-# Flush Directory Service cache
-alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
-
-# Clean up LaunchServices to remove duplicates in the “Open With” menu
-alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
-
-# IP addresses
-alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
-
-# Enhanced WHOIS lookups
-alias whois="whois -h whois-servers.net"
-
-# Get OS X Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
-alias osxupdate='sudo softwareupdate -i -a; brew update; brew upgrade; brew cask upgrade; brew cleanup;'
-
-# Alias to delete MS OfficeFileCaches - resolves issues with OneDrive for Business crashes
-# alias clearofficecache=$(IFS=$'\n';for i in `find ~/Library -name OfficeFileCache`; do echo $i; rm -Rf "$i"; done)
-
-# Show or hide hidden files
-hiddenfiles() {
-  if [ "$1" = "show" ]; then
-    defaults write com.apple.finder AppleShowAllFiles YES
-  elif [ "$1" = "hide" ]; then
-    defaults write com.apple.finder AppleShowAllFiles NO
-  elif [ "$1" = "toggle" ]; then
-    if [ "$(defaults read com.apple.finder AppleShowAllFiles)" = "NO" ]; then
-      defaults write com.apple.finder AppleShowAllFiles YES
-    else
-      defaults write com.apple.finder AppleShowAllFiles NO
-    fi
-  else
-    echo "Valid options are: show, hide, toggle"
-  fi
-  killall Finder
-}
-
 #Alias for wget
 alias wget="curl -O"
-
-# Start MySQL
-alias smysql="/usr/local/bin/mysql.server start"
-
-# Alias for stroke (Port Scanner)
-alias stroke="/System/Library/CoreServices/Applications/Network\ Utility.app/Contents/Resources/stroke"
 
 #Aliases for ls
 alias ls='ls $LS_OPTIONS'
 alias ll='ls $LS_OPTIONS -lh'
-alias l='ls $LS_OPTIONS -lhA'
-alias lsa='ls -a $LS_OPTIONS'
-
-#Apache commands
-alias apaches='sudo apachectl start'
-alias apacher='sudo apachectl restart'
-alias apachestop='sudo apachectl stop'
 
 # Alias c for clear
 alias c='clear'
 
 # Aliases for ruby/rails projects
 alias be='bundle exec'
-
-# Git Goodies
-# See https://github.com/qw3rtman/gg#installation
-alias gg='noglob gg'
-
-
-################ Named Functions ################
-
-
-# find all the Ruby files added between origin/master and HEAD and add `# frozen_string_literal: true` to the top of them if it’s not already there.
-function frozen() {
-  for FILE in $(git diff --name-only --diff-filter=A origin/master HEAD | grep '\.rb$'); do
-    ruby -pi -e '$_ = "# frozen_string_literal: true\n\n#{$_}" if $. == 1 && !$_.match?(/frozen_string_literal/); $_' $FILE
-  done
-}
 
 
 ################ Optimizations ################
@@ -153,33 +85,8 @@ if which rbenv > /dev/null; then eval "$(rbenv init - zsh)"; fi
 alias git='hub'
 alias g='git'
 alias gst='git status -s'
-alias gpull='git pull'
-alias gp='git push'
-alias gd='git diff'
-alias gc='git commit -v'
-alias gca='git commit -v -a'
 alias gcm='git commit -m'
 alias gco='git checkout'
-alias gb='git branch'
-alias gba='git branch -a'
-alias glog='git log --oneline --decorate'
-alias glogg='git log --oneline --decorate --graph'
-alias glogs='git log --oneline --decorate --stat'
-alias gcl='git clone'
-alias gdc='git difftool --cached'
-alias gpr="git pull --rebase"
-alias gfix="git diff --name-only | uniq | xargs code" # See https://twitter.com/wesbos/status/1217849767579062272
-
-
-################ APPIUM Stuff ################
-
-export ANT_HOME=/usr/local/opt/ant
-export MAVEN_HOME=/usr/local/opt/maven
-export GRADLE_HOME=/usr/local/opt/gradle
-export ANDROID_HOME=/usr/local/opt/android-sdk
-export ANDROID_NDK_HOME=/usr/local/opt/android-ndk
-
-export JAVA_HOME=$(/usr/libexec/java_home)
 
 ######## ZSH Autocorrect Whitelist ##########
 
