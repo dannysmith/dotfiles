@@ -102,3 +102,5 @@
   pushInsteadOf = "gist:"
   pushInsteadOf = "git://gist.github.com/"
   pushInsteadOf = "https://gist.github.com/"
+[init]
+	defaultBranch = main
