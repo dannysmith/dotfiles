@@ -29,9 +29,6 @@ set splitright
 " Dropbox or kept in Git and managed outside of thoughtbot/dotfiles using rcm.
 set spellfile=$HOME/.vim-spell-en.utf-8.add
 
-" Autocomplete with dictionary words when spell check is on
-set complete+=kspell
-
 " Always use vertical diffs
 set diffopt+=vertical
 
@@ -116,21 +113,6 @@ set list listchars=tab:»·,trail:·,nbsp:·
 set nojoinspaces
 
 
-"""""""""""""""""""""" Silver Searcher """"""""""""""""""""""
-
-" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
-if executable('ag')
-  " Use Ag over Grep
-  set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag -Q -l --nocolor --hidden -g "" %s'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-endif
-
-
 """""""""""""""""""""" Tab Completion """"""""""""""""""""""
 
 " will insert tab at beginning of line,
@@ -146,30 +128,6 @@ function! InsertTabWrapper()
 endfunction
 inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <S-Tab> <c-n>
-
-"""""""""""""""""""""" Custom Key mappings """"""""""""""""""""""
-
-" Map Ctrl N to open NERDTree
-map <C-n> :NERDTreeToggle<CR>
-
-
-
-"""""""""""""""""""""" Prevent Arrow Keys working! """"""""""""""""""""""
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
-
-
-
-
-"""""""""""""""" Syntastic config """"""""""""""""""""""
-
-" configure syntastic syntax checking to check on open as well as save
-let g:syntastic_check_on_open=1
-let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
-let g:syntastic_eruby_ruby_quiet_messages =
-    \ {"regex": "possibly useless use of a variable in void context"}
 
 
 """""""""""""""""""""" Load any local custom config """"""""""""""""""""""

@@ -3,21 +3,11 @@
 # Danny Smith - http://danny.is                       #
 #######################################################
 source ~/.pathrc # Set PATH
-source ~/.functions # Include functions
 
 ################ Location Shortcuts ################
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias dev="cd ~/dev"
-alias ref="cd ~/odrive/Personal\ GDrive/Reference"
-alias pspt="cd ~/odrive/Personal\ GDrive/Project\ Support"
-alias odr="cd ~/odrive"
-
-#Redefine rm for safety
-alias rm='rm -i'
-
-# Use bat instead of cat
-alias cat='bat'
 
 ################ Env Variables ################
 
@@ -35,47 +25,20 @@ export MANPATH="/usr/local/man:$MANPATH"
 # See https://stackoverflow.com/questions/48838498/failed-to-install-ruby-2-5-0-thru-rbenv-macos-high-sierra
 export RUBY_CONFIGURE_OPTS="--disable-dtrace"
 
-# Set LS Colours
-export CLICOLOR=1
-export LSCOLORS=dxfxcxcxbxexexbxbxDADA
-# See http://softwaregravy.wordpress.com/2010/10/16/ls-colors-for-mac/
-
-# Load colours
-autoload -U colors
-colors
-
-
-################ Shell Prompt ################
-
-source ~/.git_status_in_prompt.sh
-
-# Sets the shell prompt
-export PS1='\[\033[36m\]\w $(git branch &>/dev/null; if [ $? -eq 0 ]; then \
-echo "\[\033[34m\]- $(gitParseStatus)\[\033[33m\]$(git branch | grep ^*|sed s/\*\ //)"; fi)\[\033[32m\]\n→ \[\033[00m\]'
-
 ################ Other Shortcuts ################
 
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
 
-#Alias for wget
-alias wget="curl -O"
+#Redefine rm for safety
+alias rm='rm -i'
 
-#Aliases for ls
-alias ls='ls $LS_OPTIONS'
-alias ll='ls $LS_OPTIONS -lh'
-
-# Alias c for clear
-alias c='clear'
-
-# Aliases for ruby/rails projects
-alias be='bundle exec'
-
-
+# Use bat instead of cat
+alias cat='bat'
 ################ Optimizations ################
 
 # Faster npm for europeans
-command -v npm > /dev/null && alias npme="npm --registry http://registry.npmjs.eu"
+# command -v npm > /dev/null && alias npme="npm --registry http://registry.npmjs.eu"
 
 # Enable shims and autocompletion for rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init - zsh)"; fi
@@ -87,13 +50,3 @@ alias g='git'
 alias gst='git status -s'
 alias gcm='git commit -m'
 alias gco='git checkout'
-
-######## ZSH Autocorrect Whitelist ##########
-
-alias rspec='nocorrect rspec'
-
-#### Set up pyenv #### (Like rbenv but for python)
-
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi

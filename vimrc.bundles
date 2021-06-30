@@ -2,24 +2,13 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'ctrlpvim/ctrlp.vim'             " Fuzzy searching
 Plug 'pbrisbin/vim-mkdir'             " Makes new dirs if they dont exist when writing
-Plug 'scrooloose/syntastic'           " Syntax checking stuff
 Plug 'tpope/vim-endwise'              " Adds closing 'end' statements etc
-Plug 'tpope/vim-eunuch'               " UNIX command helpers
-Plug 'tpope/vim-repeat'               " Adds . repeatability to other tpope plugins
-Plug 'tpope/vim-surround'             " Allows changing 'surrounds' (like brackets and quotes etc)
 Plug 'vim-ruby/vim-ruby'              " Ruby stuff
 Plug 'vim-scripts/tComment'           " Toggle comments
 Plug 'mattn/emmet-vim'                " Emmet
 Plug 'Raimondi/delimitMate'           " Provides closing quotes and parens automatically
 Plug 'airblade/vim-gitgutter'         " Git gutter
 
-"Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " Lazy-load this one
-Plug 'tmhedberg/matchit' | Plug 'ecomba/vim-ruby-refactoring' " Fast refactoring of Ruby code.
-
-"Plug 'jpo/vim-railscasts-theme'       "
-"Plug 'rickharris/vim-railscasts'      "
-"Plug 'oguzbilgic/sexy-railscasts-theme'
 Plug 'sickill/vim-monokai'
 call plug#end()
 
