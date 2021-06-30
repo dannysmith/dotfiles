@@ -69,9 +69,9 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
 endif
 
 try
-    colo monokai
+    colorscheme dracula
 catch /^Vim\%((\a\+)\)\=:E185/
-    " No monokai installed :(
+    " No Dracula theme installed :(
 endtry
 
 """""""""""""""""""""" Syntax Highlighting etc """"""""""""""""""""""

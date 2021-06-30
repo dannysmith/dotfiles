@@ -8,7 +8,7 @@ Plug 'vim-scripts/tComment'           " Toggle comments
 Plug 'mattn/emmet-vim'                " Emmet
 Plug 'Raimondi/delimitMate'           " Provides closing quotes and parens automatically
 Plug 'airblade/vim-gitgutter'         " Git gutter
+Plug 'dracula/vim', { 'as': 'dracula' } " Dracula theme
 
-Plug 'sickill/vim-monokai'
 call plug#end()
 
