@@ -33,6 +33,11 @@ set spellfile=$HOME/.vim-spell-en.utf-8.add
 set diffopt+=vertical
 
 """""""""""""""""""""" Bundles """"""""""""""""""""""
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles

@@ -17,7 +17,7 @@ export PATH=$PATH:$HOME/.fnm
 export PATH=$PATH:/usr/local/share/npm/bin:/usr/local/lib/node_modules
 
 # MySQL
-export PATH=$PATH:/usr/local/mysql/bin
+# export PATH=$PATH:/usr/local/mysql/bin
 
 # Rbenv
 export PATH=$PATH:$HOME/.rbenv/shims:$HOME/.rbenv/bin

@@ -4,7 +4,6 @@
   signingkey = A9A0DF6D
 [alias]
   st = status
-  ci = commit
   co = checkout
   br = branch
   p = push
