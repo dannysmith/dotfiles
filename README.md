@@ -8,7 +8,7 @@ To install
 2. Install RCM and create the symlinks
 3. Add a file called `.ohnyzshpath.local` in your home directory. It should contain the following:
 
-``shell
+```shell
 export ZSH=$HOME/path/to/oh-my-zsh/install
 ```
 
