@@ -92,3 +92,5 @@
   pushInsteadOf = "https://gist.github.com/"
 [init]
 	defaultBranch = main
+[hub]
+	protocol = https
