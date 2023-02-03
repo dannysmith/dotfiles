@@ -37,15 +37,11 @@ alias rm='rm -i'
 alias cat='bat'
 ################ Optimizations ################
 
-# Faster npm for europeans
-# command -v npm > /dev/null && alias npme="npm --registry http://registry.npmjs.eu"
-
 # Enable shims and autocompletion for rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init - zsh)"; fi
 
 ################ Git Shortcuts ################
 
-alias git='hub'
 alias g='git'
 alias gst='git status -s'
 alias gcm='git commit -m'
