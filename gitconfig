@@ -25,14 +25,8 @@
   pager = diff-so-fancy | less --tabs=4 -RFX
 [merge]
   summary = true
-[github]
-  user = dannysmith
-  token = ssh-rsa
-# push easily. http://stackoverflow.com/a/23918418/89484
 [push]
   default = current
-[credential]
-  helper = osxkeychain
 [filter "media"]
   clean = git-media-clean %f
   smudge = git-media-smudge %f
@@ -92,5 +86,3 @@
   pushInsteadOf = "https://gist.github.com/"
 [init]
 	defaultBranch = main
-[hub]
-	protocol = https
