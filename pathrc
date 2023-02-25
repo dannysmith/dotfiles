@@ -15,3 +15,8 @@ export PATH=$PATH:$HOME/.rbenv/shims:$HOME/.rbenv/bin
 
 # Postgres.app command line tools
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
+
+# PNPM
+# See: https://github.com/pnpm/pnpm/issues/5883#issuecomment-1444057690
+export PNPM_HOME=$HOME/.pnpm/store
+export PATH=$PNPM_HOME:$PATH
