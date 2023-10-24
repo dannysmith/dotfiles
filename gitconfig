@@ -1,7 +1,6 @@
 [user]
   name = Danny Smith
   email = hi@danny.is
-  signingkey = A9A0DF6D
 [alias]
   st = status
   co = checkout
@@ -22,7 +21,6 @@
   excludesfile = ~/.gitignore_global
   editor = code --wait
   autocrlf = input
-  pager = diff-so-fancy | less --tabs=4 -RFX
 [merge]
   summary = true
 [push]
@@ -34,13 +32,6 @@
   rebase = true
 [rerere]
   enabled = true
-[ghi]
-  token = !security find-internet-password -a dannysmith -s github.com -l 'ghi token' -w
-[filter "lfs"]
-  clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-  required = true
 [commit]
   gpgsign = false
 	verbose = true
@@ -86,3 +77,7 @@
   pushInsteadOf = "https://gist.github.com/"
 [init]
 	defaultBranch = main
+[credential "https://github.com"]
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = !/opt/homebrew/bin/gh auth git-credential

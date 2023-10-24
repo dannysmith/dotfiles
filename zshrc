@@ -94,12 +94,8 @@ source $ZSH/oh-my-zsh.sh
 # Override gcm provided by zsh-git plugin (https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/git/git.plugin.zsh)
 alias gcm='git commit -m'
 
-## iTerm integration
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
 # Enable zsh zyntax highlighting and auto suggestions
 source  /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source  /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Load FNM node version manager
 eval "`fnm env`"
