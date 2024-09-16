@@ -3,6 +3,9 @@
 # Danny Smith - http://danny.is                       #
 #######################################################
 
+# OpenJDK (installed via homebrew)
+export PATH=/opt/homebrew/opt/openjdk/bin:$PATH
+
 # Basic Bins (including Homebrew)
 export PATH=$PATH:/bin:/usr/bin:/sbin:/usr/sbin:/usr/bin:/usr/local/bin:/usr/local/sbin
 
