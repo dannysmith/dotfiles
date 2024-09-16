@@ -94,8 +94,5 @@ source $ZSH/oh-my-zsh.sh
 # Override gcm provided by zsh-git plugin (https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/git/git.plugin.zsh)
 alias gcm='git commit -m'
 
-# Enable zsh zyntax highlighting and auto suggestions
-source  /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 # Load FNM node version manager
 eval "`fnm env`"
