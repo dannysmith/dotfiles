@@ -7,7 +7,22 @@ export ZSH="/Users/danny/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="dannysmith"
+
+### ----------------------------------------------------------------------------------------
+### Ensure you have the following in ~/.oh-my-zsh/custom/themes/dannysmith.zsh-theme:
+###    NEWLINE=$'\n'
+###
+###    PROMPT="${NEWLINE}%{$fg[blue]%}%~%{$reset_color%}"
+###    PROMPT+=' $(git_prompt_info)'
+###    PROMPT+="${NEWLINE}"
+###    PROMPT+='%(?:%{$fg_bold[green]%}%1{➜%} :%{$fg_bold[red]%}%1{➜%} ) '
+###
+###    ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}(%{$fg[red]%}"
+###    ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
+###    ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}%1{✗%}"
+###    ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
+### ----------------------------------------------------------------------------------------
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -26,7 +41,7 @@ ZSH_THEME="robbyrussell"
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
+DISABLE_UPDATE_PROMPT="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
