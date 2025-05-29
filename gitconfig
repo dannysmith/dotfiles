@@ -13,8 +13,6 @@
   amend = commit --amend --no-edit
   who = shortlog -s --
   cl = clone
-  pushall = push --recurse-submodules=on-demand
-  s = status -s
   purr = pull --rebase --autostash
   stashed = stash list --pretty=format:'%gd: %Cred%h%Creset %Cgreen[%ar]%Creset %s'
 [core]
@@ -23,11 +21,6 @@
   autocrlf = input
 [merge]
   summary = true
-[push]
-  default = current
-[filter "media"]
-  clean = git-media-clean %f
-  smudge = git-media-smudge %f
 [pull]
   rebase = true
 [rerere]
@@ -81,8 +74,3 @@
 	helper = !/opt/homebrew/bin/gh auth git-credential
 [credential "https://gist.github.com"]
 	helper = !/opt/homebrew/bin/gh auth git-credential
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
