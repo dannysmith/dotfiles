@@ -111,3 +111,8 @@ alias gcm='git commit -m'
 
 # Load FNM node version manager
 eval "`fnm env`"
+
+# Created by `pipx` on 2025-05-25 15:24:42
+if [ -f ~/.github_token ]; then
+  export GITHUB_TOKEN=$(cat ~/.github_token)
+fi

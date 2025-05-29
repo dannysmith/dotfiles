@@ -35,10 +35,6 @@ alias rm='rm -i'
 
 # Use bat instead of cat
 alias cat='bat'
-################ Optimizations ################
-
-# Enable shims and autocompletion for rbenv
-if which rbenv > /dev/null; then eval "$(rbenv init - zsh)"; fi
 
 ################ Git Shortcuts ################
 
