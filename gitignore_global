@@ -1,5 +1,5 @@
 ######################
-# OS generated files #
+# macOS System Files #
 ######################
 
 .DS_Store
@@ -7,17 +7,98 @@
 ._*
 .Spotlight-V100
 .Trashes
+.AppleDouble
+.LSOverride
+Icon?
+._.DS_Store
+
+########################
+# Windows System Files #
+########################
+
 ehthumbs.db
 Thumbs.db
+
+#########################
+# Linux System Files    #
+#########################
+
 .tags
 .tags1
 .tags2
-.solargraph.yml
 
-################
-# Node Modules #
-################
+########################
+# Editor Configs       #
+########################
 
-node_modules
+.vscode/
+.idea/
+*.iml
+.atom/
+*.atom
+*.sublime-workspace
+*.sublime-project
 
-.vscode
+######################
+# Vim/Neovim/Emacs   #
+######################
+
+*.swp
+*.swo
+*.un~
+*~
+#*#
+
+######################
+# Log & Temp Files    #
+######################
+
+*.log
+*.bak
+*.tmp
+*.temp
+*.orig
+*.old
+
+######################
+# Node Modules        #
+######################
+
+node_modules/
+
+######################
+# Python Artifacts    #
+######################
+
+__pycache__/
+*.py[cod]
+*.pyo
+
+######################
+# Ruby Artifacts      #
+######################
+
+*.gem
+*.rbc
+
+######################
+# Environment Files   #
+######################
+
+.env
+.env.*
+!.env.example
+
+######################
+# SSH Keys            #
+######################
+
+*.pub
+
+######################
+# Zsh/Oh-My-Zsh/Powerlevel10k #
+######################
+
+.zsh_history
+.zsh_sessions
+.p10k.zsh
