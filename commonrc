@@ -12,9 +12,9 @@ alias dev="cd ~/dev"
 ################ Env Variables ################
 
 #Sets SVN, GVS and default editors
-export EDITOR="vim"
-export CVSEDITOR="vim"
-export SVN_EDITOR="vim"
+export EDITOR="cursor --wait"
+export CVSEDITOR="cursor --wait"
+export SVN_EDITOR="cursor --wait"
 
 export LC_ALL=en_GB.UTF-8
 export LANG=en_GB.UTF-8
@@ -24,9 +24,6 @@ export MANPATH="/usr/local/man:$MANPATH"
 
 # Bun https://bun.sh/docs/installation
 export BUN_INSTALL="$HOME/.bun"
-
-# See https://stackoverflow.com/questions/48838498/failed-to-install-ruby-2-5-0-thru-rbenv-macos-high-sierra
-export RUBY_CONFIGURE_OPTS="--disable-dtrace"
 
 ################ Other Shortcuts ################
 

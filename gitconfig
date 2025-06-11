@@ -17,7 +17,7 @@
   stashed = stash list --pretty=format:'%gd: %Cred%h%Creset %Cgreen[%ar]%Creset %s'
 [core]
   excludesfile = ~/.gitignore_global
-  editor = code --wait
+  editor = cursor --wait
   autocrlf = input
 [merge]
   summary = true
