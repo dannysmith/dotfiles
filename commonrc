@@ -25,6 +25,9 @@ export MANPATH="/usr/local/man:$MANPATH"
 # Bun https://bun.sh/docs/installation
 export BUN_INSTALL="$HOME/.bun"
 
+# Added by `rbenv init` on Wed 11 Jun 2025 18:32:21 BST
+eval "$(rbenv init - --no-rehash zsh)"
+
 ################ Other Shortcuts ################
 
 # Reload the shell (i.e. invoke as a login shell)
