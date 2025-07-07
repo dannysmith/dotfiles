@@ -18,3 +18,6 @@ export PATH=$PATH:$HOME/.rbenv/shims:$HOME/.rbenv/bin
 
 # Postgres.app command line tools
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:$HOME/.lmstudio/bin

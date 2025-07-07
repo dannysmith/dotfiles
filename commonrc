@@ -45,3 +45,6 @@ alias g='git'
 alias gst='git status -s'
 alias gcm='git commit -m'
 alias gco='git checkout'
+
+################ AI Shortcuts ################
+alias claude="/Users/danny/.claude/local/claude"
