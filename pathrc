@@ -20,4 +20,4 @@ export PATH=$PATH:$HOME/.rbenv/shims:$HOME/.rbenv/bin
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 
 # Added by LM Studio CLI (lms)
-export PATH="$PATH:$HOME/.lmstudio/bin
+export PATH="$PATH:$HOME/.lmstudio/bin"
