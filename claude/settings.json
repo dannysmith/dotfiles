@@ -1,0 +1,114 @@
+{
+  "permissions": {
+    "allow": [
+      // MCP servers - only specific ones
+      "MCP(playwright:*)",
+      "MCP(context7:*)",
+
+      // File system - read-only operations
+      "Read(*)",
+      "LS(*)",
+      "Bash(ls:*)",
+      "Bash(ll:*)",
+      "Bash(dir:*)",
+      "Bash(cat:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(file:*)",
+      "Bash(stat:*)",
+      "Bash(wc:*)",
+      "Bash(find:*)",
+
+      // Directory navigation
+      "Bash(pwd)",
+      "Bash(cd:*)",
+
+      // Text processing - read-only
+      "Bash(grep:*)",
+      "Bash(awk:*)",
+      "Bash(sed:* -n *)", // Only allow sed with -n (no editing)
+      "Bash(sort:*)",
+      "Bash(uniq:*)",
+      "Bash(diff:*)",
+      "Bash(comm:*)",
+
+      // System information - read-only
+      "Bash(whoami)",
+      "Bash(date)",
+      "Bash(uname:*)",
+      "Bash(env)",
+      "Bash(printenv:*)",
+      "Bash(which:*)",
+      "Bash(whereis:*)",
+      "Bash(type:*)",
+
+      // Git - read-only operations
+      "Bash(git status)",
+      "Bash(git log:*)",
+      "Bash(git show:*)",
+      "Bash(git diff:*)",
+      "Bash(git branch:*)",
+      "Bash(git remote:*)",
+      "Bash(git config --get:*)",
+      "Bash(git rev-parse:*)",
+
+      // GitHub CLI - safe read-only operations
+      "Bash(gh repo view:*)",
+      "Bash(gh pr list:*)",
+      "Bash(gh pr view:*)",
+      "Bash(gh issue list:*)",
+      "Bash(gh issue view:*)",
+      "Bash(gh status)",
+
+      // Safe utilities
+      "Bash(echo:*)",
+      "Bash(printf:*)",
+      "Bash(base64:*)",
+      "Bash(basename:*)",
+      "Bash(dirname:*)",
+      "Bash(realpath:*)",
+      "Bash(readlink:*)"
+    ],
+
+    "deny": [
+      // Privilege escalation
+      "Bash(sudo:*)",
+      "Bash(su:*)",
+
+      // System shutdown/reboot
+      "Bash(reboot)",
+      "Bash(shutdown:*)",
+      "Bash(halt)",
+      "Bash(poweroff)",
+
+      // User management
+      "Bash(useradd:*)",
+      "Bash(userdel:*)",
+      "Bash(usermod:*)",
+      "Bash(passwd:*)",
+      "Bash(chpasswd:*)",
+
+      // Partitioning/mounting
+      "Bash(mkfs:*)",
+      "Bash(fdisk:*)",
+      "Bash(parted:*)",
+      "Bash(mount:* -o *)", // Deny mount operations with options
+      "Bash(umount:*)",
+
+      // Code execution
+      "Bash(exec:*)",
+      "Bash(eval:*)",
+      "Bash(source:*)",
+      "Bash(.:*)", // Dot sourcing
+      "Bash(bash:*)",
+      "Bash(sh:*)",
+      "Bash(zsh:*)",
+      "Bash(fish:*)",
+
+      // Crontab and firewall
+      "Bash(crontab:*)",
+      "Bash(iptables:*)",
+      "Bash(ufw:*)"
+    ]
+  }
+}

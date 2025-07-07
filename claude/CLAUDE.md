@@ -30,6 +30,12 @@
 - For code history/“why", check git logs and GitHub PRs.
 - After each atomic change, suggest a commit before starting the next.
 
+## Command Line Setup
+
+- On my local machine:
+  - `rm` is aliased to `rm -i` - needs confirmation.
+  - `cat` is aliased to `bat`
+
 ## Security
 
 - Never hardcode secrets (API keys, passwords, etc.).
