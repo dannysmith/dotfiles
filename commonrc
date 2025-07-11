@@ -8,6 +8,7 @@ source ~/.pathrc # Set PATH
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias dev="cd ~/dev"
+alias dannyis="cursor ~/dev/dannyis-astro"
 
 ################ Env Variables ################
 
