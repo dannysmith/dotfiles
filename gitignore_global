@@ -27,17 +27,6 @@ Thumbs.db
 .tags1
 .tags2
 
-########################
-# Editor Configs       #
-########################
-
-.vscode/
-.idea/
-*.iml
-.atom/
-*.atom
-*.sublime-workspace
-*.sublime-project
 
 ######################
 # Vim/Neovim/Emacs   #
