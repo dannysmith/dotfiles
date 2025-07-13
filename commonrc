@@ -49,3 +49,6 @@ alias gco='git checkout'
 
 ################ AI Shortcuts ################
 alias claude="/Users/danny/.claude/local/claude"
+
+################ Cargo ################
+. "$HOME/.cargo/env"
