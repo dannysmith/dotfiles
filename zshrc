@@ -51,3 +51,8 @@ eval "`fnm env`"
 if [ -f ~/.github_token ]; then
   export GITHUB_TOKEN=$(cat ~/.github_token)
 fi
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/danny/.lmstudio/bin"
+# End of LM Studio CLI section
+
