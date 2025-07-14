@@ -1,11 +1,8 @@
 {
   "permissions": {
     "allow": [
-      // MCP servers - only specific ones
       "MCP(playwright:*)",
       "MCP(context7:*)",
-
-      // File system - read-only operations
       "Read(*)",
       "LS(*)",
       "Bash(ls:*)",
@@ -18,21 +15,15 @@
       "Bash(stat:*)",
       "Bash(wc:*)",
       "Bash(find:*)",
-
-      // Directory navigation
       "Bash(pwd)",
       "Bash(cd:*)",
-
-      // Text processing - read-only
       "Bash(grep:*)",
       "Bash(awk:*)",
-      "Bash(sed:* -n *)", // Only allow sed with -n (no editing)
+      "Bash(sed:* -n *)",
       "Bash(sort:*)",
       "Bash(uniq:*)",
       "Bash(diff:*)",
       "Bash(comm:*)",
-
-      // System information - read-only
       "Bash(whoami)",
       "Bash(date)",
       "Bash(uname:*)",
@@ -41,8 +32,6 @@
       "Bash(which:*)",
       "Bash(whereis:*)",
       "Bash(type:*)",
-
-      // Git - read-only operations
       "Bash(git status)",
       "Bash(git log:*)",
       "Bash(git show:*)",
@@ -51,16 +40,12 @@
       "Bash(git remote:*)",
       "Bash(git config --get:*)",
       "Bash(git rev-parse:*)",
-
-      // GitHub CLI - safe read-only operations
       "Bash(gh repo view:*)",
       "Bash(gh pr list:*)",
       "Bash(gh pr view:*)",
       "Bash(gh issue list:*)",
       "Bash(gh issue view:*)",
       "Bash(gh status)",
-
-      // Safe utilities
       "Bash(echo:*)",
       "Bash(printf:*)",
       "Bash(base64:*)",
@@ -71,41 +56,30 @@
     ],
 
     "deny": [
-      // Privilege escalation
       "Bash(sudo:*)",
       "Bash(su:*)",
-
-      // System shutdown/reboot
       "Bash(reboot)",
       "Bash(shutdown:*)",
       "Bash(halt)",
       "Bash(poweroff)",
-
-      // User management
       "Bash(useradd:*)",
       "Bash(userdel:*)",
       "Bash(usermod:*)",
       "Bash(passwd:*)",
       "Bash(chpasswd:*)",
-
-      // Partitioning/mounting
       "Bash(mkfs:*)",
       "Bash(fdisk:*)",
       "Bash(parted:*)",
-      "Bash(mount:* -o *)", // Deny mount operations with options
+      "Bash(mount:* -o *)",
       "Bash(umount:*)",
-
-      // Code execution
       "Bash(exec:*)",
       "Bash(eval:*)",
       "Bash(source:*)",
-      "Bash(.:*)", // Dot sourcing
+      "Bash(.:*)",
       "Bash(bash:*)",
       "Bash(sh:*)",
       "Bash(zsh:*)",
       "Bash(fish:*)",
-
-      // Crontab and firewall
       "Bash(crontab:*)",
       "Bash(iptables:*)",
       "Bash(ufw:*)"
