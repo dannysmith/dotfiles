@@ -28,8 +28,16 @@ DISABLE_UPDATE_PROMPT="true"
 
 ################ Oh My ZSH Plugins ################
 
-plugins=(git brew macos)
+plugins=(
+  git
+  brew
+  macos
+  zsh-autosuggestions
+)
 
+# ZSH Autosuggestions Performance Improvements
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE="20"
+ZSH_AUTOSUGGEST_USE_ASYNC=1
 
 # Enable homebrew shell completions
 if type brew &>/dev/null; then
@@ -55,4 +63,3 @@ fi
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/danny/.lmstudio/bin"
 # End of LM Studio CLI section
-
