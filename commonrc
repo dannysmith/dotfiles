@@ -53,3 +53,8 @@ alias claude="/Users/danny/.claude/local/claude"
 
 ################ Cargo ################
 . "$HOME/.cargo/env"
+
+################ Local .commonrc.local ################
+
+# If ~/commonrc.local exists, source it - use for local settings which main contain sensitive data
+[ -f ~/.commonrc.local ] && source ~/.commonrc.local
