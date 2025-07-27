@@ -12,7 +12,7 @@ Set up a simple file-based task management system with todo and done folders.
 ## Usage
 
 ```
-/tasks/init
+/tasks:init
 ```
 
 ## Execution

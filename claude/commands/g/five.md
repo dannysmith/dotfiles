@@ -8,7 +8,7 @@ This command implements the Five Whys problem-solving methodology, iteratively a
 
 ## Usage
 
-`five [issue_description]`
+`/five [issue_description]`
 
 ## Variables
 

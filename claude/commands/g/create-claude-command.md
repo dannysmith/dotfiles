@@ -3,7 +3,7 @@ allowed-tools: Read, LS
 description: Create a new custom slash command with best practices
 ---
 
-# Task: Create a New Custom Slash Command
+# Create a New Custom Slash Command
 
 ## Input
 

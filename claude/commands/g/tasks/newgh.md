@@ -12,7 +12,7 @@ Create a new unprioritized task from a GitHub issue by fetching its title and co
 ## Usage
 
 ```
-/tasks/newgh [issue-url-or-number]
+/tasks:newgh [issue-url-or-number]
 ```
 
 ## Arguments
@@ -22,10 +22,12 @@ Create a new unprioritized task from a GitHub issue by fetching its title and co
 ## Execution
 
 1. **Get issue reference**
+
    - If `$ARGUMENTS` provided: use it as the issue reference
    - If no arguments: ask user "Enter GitHub issue URL or issue number:"
 
 2. **Determine issue type and fetch data**
+
    - If input matches GitHub URL pattern (https://github.com/owner/repo/issues/123):
      - Use `gh issue view <URL> --json title,body,url` to fetch data
    - If input is just a number:
@@ -33,15 +35,17 @@ Create a new unprioritized task from a GitHub issue by fetching its title and co
    - If neither, report error: "Invalid input. Please provide a GitHub issue URL or issue number."
 
 3. **Create task file**
+
    - Extract issue title, body, and URL from the gh command output
    - Convert title to kebab-case for filename (lowercase, alphanumeric only, max 5 words)
    - Create file: `docs/tasks-todo/task-x-[kebab-title].md`
    - Write content in this exact format:
+
      ```
      # Task: [Original Issue Title]
-     
+
      [Issue URL]
-     
+
      [Issue Body Content]
      ```
 

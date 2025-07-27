@@ -12,17 +12,19 @@ Renumber all prioritized tasks in `docs/tasks-todo` to maintain their current or
 ## Usage
 
 ```
-/tasks/renumber
+/tasks:renumber
 ```
 
 ## Execution
 
 1. **List all tasks in the todo folder**
+
    - Use LS tool on `docs/tasks-todo` directory
    - Filter for files matching pattern `task-[0-9]+-*.md` (ignore `task-x-*.md`)
    - Sort by the current number to preserve order
 
 2. **Create renumbering plan**
+
    - Extract current numbers and full filenames
    - Map each file to its new number (1, 2, 3, etc.)
    - Display the renumbering plan to user:
@@ -33,17 +35,18 @@ Renumber all prioritized tasks in `docs/tasks-todo` to maintain their current or
      ```
 
 3. **Execute renaming using bash**
+
    ```bash
    cd docs/tasks-todo
-   
+
    # Get all numbered tasks, sorted by number
    files=$(ls task-[0-9]*-*.md 2>/dev/null | sort -t- -k2,2n)
-   
+
    if [ -z "$files" ]; then
      echo "No numbered tasks found to renumber"
      exit 0
    fi
-   
+
    # Rename to temporary names first to avoid conflicts
    counter=1
    echo "$files" | while read file; do
@@ -53,7 +56,7 @@ Renumber all prioritized tasks in `docs/tasks-todo` to maintain their current or
      mv "$file" "$temp_name"
      ((counter++))
    done
-   
+
    # Now rename from temp names to final names
    counter=1
    for file in task-temp-*-*.md; do
@@ -66,7 +69,7 @@ Renumber all prioritized tasks in `docs/tasks-todo` to maintain their current or
        ((counter++))
      fi
    done
-   
+
    echo "Renumbering complete!"
    ```
 

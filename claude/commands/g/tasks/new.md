@@ -3,7 +3,7 @@ description: Create a new unprioritized task in the task management system
 allowed-tools: [Bash]
 ---
 
-# /tasks/new - Create New Task
+# /tasks:new - Create New Task
 
 ## Purpose
 
@@ -22,6 +22,7 @@ Create a new unprioritized task file in `docs/tasks-todo` with the format `task-
 ## Execution
 
 1. **Check if arguments provided**
+
    - If `$ARGUMENTS` exists: proceed to step 2 with TASK_INPUT="$ARGUMENTS"
    - If no arguments: ask user "What is this task about? (provide a brief description or leave empty)"
    - Store user response as TASK_INPUT for step 2
@@ -60,7 +61,7 @@ else
   NATURAL_TITLE=$(echo "$TASK_INPUT" | \
     sed 's/[.!?].*//; s/\n.*//' | \
     awk '{for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) substr($i,2)} 1')
-  
+
   echo "# Task: $NATURAL_TITLE" > "$FILENAME"
   echo "" >> "$FILENAME"
   echo "$TASK_INPUT" >> "$FILENAME"
