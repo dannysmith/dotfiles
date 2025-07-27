@@ -1,6 +1,6 @@
 # Global Claude Code Preferences
 
-**Note: If local `.claude.md` rules conflict with these, follow the local rules.**
+**Note: If local project `CLAUDE.md` rules conflict with these, follow the local rules.**
 
 ## Communication
 
@@ -30,11 +30,9 @@
 - For code history/“why", check git logs and GitHub PRs.
 - After each atomic change, suggest a commit before starting the next.
 
-## Command Line Setup
+## Commands
 
-- On my local machine:
-  - `rm` is aliased to `rm -i` - needs confirmation.
-  - `cat` is aliased to `bat`
+- Always use `rm -f` instead of `rm`
 
 ## Security
 

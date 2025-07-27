@@ -54,7 +54,6 @@
       "Bash(realpath:*)",
       "Bash(readlink:*)"
     ],
-
     "deny": [
       "Bash(sudo:*)",
       "Bash(su:*)",
