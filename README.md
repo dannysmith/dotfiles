@@ -19,6 +19,8 @@ rcup -x README.md
 
 ### Claude Code
 
+Clone down the [agents](https://github.com/dannysmith/agents) repo into `~/.claude/agents`
+
 Add the following MCPs to the end of `.claude.json` to make them globally available. This is nececarry as claude regularly updates this file (so it cannot live in this repo)
 
 ```json

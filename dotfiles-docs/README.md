@@ -42,11 +42,4 @@ The format for all global claude commands should follow the format in `claude/co
 
 Agents...
 
-See here for more inspiration: https://github.com/wshobson/agents
-
-- [ ] Designer (take info from here: https://github-spark-docs.simonwillison.net/#system-prompt and maybe https://github.com/iannuttall/claude-agents/blob/main/agents/frontend-designer.md)
-- [ ] Task Planner - https://github.com/iannuttall/claude-agents/blob/main/agents/project-task-planner.md
-- [ ] Code Refactorer - https://github.com/iannuttall/claude-agents/blob/main/agents/code-refactorer.md
-- [ ] Technical Writer -
-- [ ] Security Consultant - https://github.com/iannuttall/claude-agents/blob/main/agents/security-auditor.md
-- [ ] Write-Like-Danny - see Claude Desktop project and https://github.com/iannuttall/claude-agents/blob/main/agents/content-writer.md
+Agents are kept [in this repo](https://github.com/dannysmith/agents) repo to avoid the need to symlink them. Clone into into `~/.claude/agents` to use them.
