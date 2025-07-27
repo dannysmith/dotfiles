@@ -12,11 +12,31 @@ Generally speaking, all commands should be either actual _commands_ which run a 
 
 The format for all global claude commands should follow the format in `claude/commands/g/create-claude-command.md`
 
-- [ ] `/g:docs:update` - Update Project documents
-- [ ] `/g:prime-context` - Prime Claude session with context efficiently
-  - https://github.com/TuckerTucker/tkr-portfolio/blob/main/.claude/commands/context_prime.md
-  - [ ] `/g:review` - Runs multi-step review of recent work based on https://github.com/dannysmith/lol/issues/10#issuecomment-3098544641
-  - Take a "step" as an argument
+### Available Global Commands
+
+#### Meta Commands
+
+- `/g:create-claude-command` - Create a new custom slash command with best practices
+
+#### Task Management
+
+- `/g:tasks:init` - Initialize a simple file-based task management system
+- `/g:tasks:new` - Create a new unprioritized task in the task management system
+- `/g:tasks:newgh` - Create a new task from a GitHub issue
+- `/g:tasks:renumber` - Renumber prioritized tasks to start from 1 with no gaps
+
+#### Development
+
+- `/g:initaiboilerplate` - Initialize minimal AI assistant boilerplate files for Claude, Cursor, and Gemini
+- `/g:five` - Apply the Five Whys root cause analysis technique to investigate issues
+- `/g:step-back` - Step back from current work to gain perspective and avoid getting trapped in local minima
+- `/g:generate-commit` - Generate a conventional commit message based on staged changes
+- `/g:prime-context` - Efficiently prime a new Claude Code session with essential project context
+- `/g:review-session` - Review code quality for work done in the current session
+
+#### Documentation
+
+- `/g:docs:update` - Update documentation based on recent changes in the current session
 
 ## Agents
 
@@ -30,7 +50,3 @@ See here for more inspiration: https://github.com/wshobson/agents
 - [ ] Technical Writer -
 - [ ] Security Consultant - https://github.com/iannuttall/claude-agents/blob/main/agents/security-auditor.md
 - [ ] Write-Like-Danny - see Claude Desktop project and https://github.com/iannuttall/claude-agents/blob/main/agents/content-writer.md
-
-# Gemini Code
-
-# Cursor
