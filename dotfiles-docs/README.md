@@ -15,12 +15,11 @@ The format for all global claude commands should follow the format in `claude/co
 - [ ] `/g:boilerplate-init` - Adds **minimal** AI set-up to current project, merging with any existing stuff
   - Copies over minimal template for `docs/` and `.claude/` and `.cursor/` and `CLAUDE.md` and `GEMINI.md` from `~/.dotfiles-docs/templates/boilerplate-init`, merging intelligently where anything already exists.
   - Reviews current project documentation and structure (and package.json etc) and determines minimal set of docs and instructions and commands to include in the project.
-- [ ] `/g:tasks:init` - Initialise simple task management system in project with (`docs/tasks-done` `docs/tasks-todo` simple `docs/TASKS.md` instructions with current task and instructions on usage.)
-- [ ] `/g:tasks:new` - Create a new task with a suitable title and very basic template.
-- [ ] `/g:tasks:newgh` - Pull a GH issue and turn it into a task document (incl a link to the original issue)
+- [x] `/g:tasks:init` - Initialise simple task management system in project with (`docs/tasks-done` `docs/tasks-todo` simple `docs/TASKS.md` instructions with current task and instructions on usage.)
+- [x] `/g:tasks:new` - Create a new task with a suitable title and very basic template.
+- [x] `/g:tasks:newgh` - Pull a GH issue and turn it into a task document (incl a link to the original issue)
 - [ ] `/g:tasks:renumber` - Renumber numbered tasks in `tasks-todo` so they start from 1.
 - [ ] `/g:docs:update` - Update Project documents
-- [ ] `/g:stepback` - Minima: https://github.com/TuckerTucker/tkr-portfolio/blob/main/.claude/commands/minima.md
 - [ ] `/g:generate-commit-message` - Generate an appropriate commit message for recent uncomitted work
   - https://github.com/TuckerTucker/tkr-portfolio/blob/main/.claude/commands/commit.md
   - https://github.com/dannysmith/dannyis-astro/blob/main/.cursor/rules/commit-messages.mdc
