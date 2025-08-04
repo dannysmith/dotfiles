@@ -1,6 +1,7 @@
 [user]
   name = Danny Smith
   email = hi@danny.is
+	signingkey = 8596D6F456F200BD
 [alias]
   st = status
   co = checkout
@@ -26,7 +27,7 @@
 [rerere]
   enabled = true
 [commit]
-  gpgsign = false
+	gpgsign = true
 	verbose = true
 # so much color
 [color]

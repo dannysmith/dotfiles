@@ -54,6 +54,9 @@ alias claude="/Users/danny/.claude/local/claude"
 ################ Cargo ################
 . "$HOME/.cargo/env"
 
+################ Set GPG TTY ################
+export GPG_TTY=$(tty)
+
 ################ Local .commonrc.local ################
 
 # If ~/commonrc.local exists, source it - use for local settings which main contain sensitive data
