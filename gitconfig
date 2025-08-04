@@ -27,7 +27,7 @@
 [rerere]
   enabled = true
 [commit]
-	gpgsign = true
+	gpgsign = false
 	verbose = true
 # so much color
 [color]
@@ -80,3 +80,5 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[tag]
+	gpgsign = true
