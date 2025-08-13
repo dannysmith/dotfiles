@@ -82,3 +82,5 @@
 	required = true
 [tag]
 	gpgsign = true
+[gitbutler]
+	aiModelProvider = openai
