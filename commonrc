@@ -10,6 +10,7 @@ alias dt="cd ~/Desktop"
 alias dev="cd ~/dev"
 alias dannyis="cursor ~/dev/dannyis-astro"
 alias aicontext="cursor ~/aicontext"
+alias c="cursor"
 
 ################ Env Variables ################
 
