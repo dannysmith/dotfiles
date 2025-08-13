@@ -53,10 +53,6 @@ Quickly establish essential project understanding in a new Claude Code session w
 5. **Check recent activity** (if relevant)
 
    - Run `git log --oneline -10` for recent commits
-   - Check for TODO/FIXME comments if focus_area specified:
-     ```bash
-     grep -r "TODO\|FIXME\|HACK\|XXX" --include="*.{js,ts,py,go,rs}" . | head -20
-     ```
 
 6. **Summarize findings**
    Provide a concise summary:
@@ -68,14 +64,9 @@ Quickly establish essential project understanding in a new Claude Code session w
    Key Structure:
    - [Main directories and their purposes]
 
-   Key Commands:
-   - Build: [command]
-   - Test: [command]
-   - Run: [command]
-
    Focus Area: [If specified, key findings about that area]
 
-   Ready to assist with this [type] project.
+   Ready to go...
    ```
 
 ## Optimization Strategies
