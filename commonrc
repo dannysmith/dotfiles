@@ -8,16 +8,15 @@ source ~/.pathrc # Set PATH
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias dev="cd ~/dev"
-alias dannyis="cursor ~/dev/dannyis-astro"
-alias aicontext="cursor ~/aicontext"
 alias c="cursor"
+alias dannyis="c ~/dev/dannyis-astro"
 
 ################ Env Variables ################
 
 #Sets SVN, GVS and default editors
-export EDITOR="cursor --wait"
-export CVSEDITOR="cursor --wait"
-export SVN_EDITOR="cursor --wait"
+export EDITOR="c --wait"
+export CVSEDITOR="c --wait"
+export SVN_EDITOR="c --wait"
 
 export LC_ALL=en_GB.UTF-8
 export LANG=en_GB.UTF-8
