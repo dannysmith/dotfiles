@@ -1,0 +1,71 @@
+# Node package manager helpers: prefer pnpm interactively
+
+# Prefer pnpm when you accidentally type npm. Prompts only in interactive shells.
+npm() {
+  # Bypass if explicitly requested
+  if [[ -n "${NPM_WRAPPER_BYPASS:-}" ]]; then
+    command npm "$@"
+    return $?
+  fi
+
+  # Only prompt in interactive TTYs
+  if [[ $- != *i* ]] || [[ ! -t 0 ]] || [[ ! -t 1 ]]; then
+    command npm "$@"
+    return $?
+  fi
+
+  # Fast-path help/version without prompting
+  case "$1" in
+    -v|--version|help|-h|--help)
+      command npm "$@"
+      return $?
+      ;;
+  esac
+
+  if command -v pnpm >/dev/null 2>&1; then
+    printf "Use pnpm instead of npm for: npm %s? [Y/n] " "$*"
+    local reply
+    IFS= read -r reply
+    if [[ -z "$reply" || "$reply" == [yY]* ]]; then
+      pnpm "$@"
+      return $?
+    fi
+  fi
+
+  command npm "$@"
+}
+
+# Prefer pnpm dlx when you type npx. Prompts only in interactive shells.
+npx() {
+  if [[ -n "${NPM_WRAPPER_BYPASS:-}" ]]; then
+    command npx "$@"
+    return $?
+  fi
+
+  if [[ $- != *i* ]] || [[ ! -t 0 ]] || [[ ! -t 1 ]]; then
+    command npx "$@"
+    return $?
+  fi
+
+  case "$1" in
+    -v|--version|help|-h|--help)
+      command npx "$@"
+      return $?
+      ;;
+  esac
+
+  if command -v pnpm >/dev/null 2>&1; then
+    printf "Use pnpm dlx instead of npx for: npx %s? [Y/n] " "$*"
+    local reply
+    IFS= read -r reply
+    if [[ -z "$reply" || "$reply" == [yY]* ]]; then
+      pnpm dlx "$@"
+      return $?
+    fi
+  fi
+
+  command npx "$@"
+}
+
+# Convenience alias matching pnpx behavior
+alias pnpx='pnpm dlx'
