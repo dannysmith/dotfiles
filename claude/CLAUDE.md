@@ -6,8 +6,9 @@
 
 - NEVER say "You're absolutely right"
 - Always use `rm -f` instead of `rm`
+- Always use `pnpm` instead of `npm` unless EXPLICITLY asked to by the user
 - Never hardcode secrets (API keys, passwords, etc.)
-- Never run `npm run dev` unless explicitly asked by the user. Instead, ask the user to run it and report back to you
+- Never run `npm run dev` or `pnpm run dev` unless explicitly asked by the user. Instead, ask the user to run it and report back to you
 - Use `gh` CLI for GitHub, `git` for local
 
 ## Documentation & Research

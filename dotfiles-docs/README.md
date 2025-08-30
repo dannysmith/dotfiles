@@ -8,7 +8,7 @@ This directory contains global documents to assist AI coding tools such as Claud
 
 Most commands should live in individual projects, not globaly in these dotfiles. This allows for them to be customised specifically for the relevant project and tech stack, making them far more useful. However, there are _some_ commands which are useful globally in all projects. **All commands in this repo should be namespaced with `g` for global**
 
-Generally speaking, all commands should be either actual _commands_ which run a sequence of discrete steps and produce an outcome or a simple shortcut for an instruction which you find yourself typing all the time (eg _Check what we've done is in accordance with `/docs/architecture-guidelines.md` and then run `npm run check:all` and fix any errors_). For more in-depth tasks where you need the Agent to take on a specific persona or "become" a specialist, you should probably be using agents instead.
+Generally speaking, all commands should be either actual _commands_ which run a sequence of discrete steps and produce an outcome or a simple shortcut for an instruction which you find yourself typing all the time (eg _Check what we've done is in accordance with `/docs/architecture-guidelines.md` and then run `pnpm run check:all` and fix any errors_). For more in-depth tasks where you need the Agent to take on a specific persona or "become" a specialist, you should probably be using agents instead.
 
 The format for all global claude commands should follow the format in `claude/commands/g/create-claude-command.md`
 
