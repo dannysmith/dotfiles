@@ -15,13 +15,31 @@ rcup -x README.md
 
 3. Install [Oh My ZSH](http://ohmyz.sh/) into `~/.oh-my-zsh`.
 
-## Additional Manual config steps
+## Additional Manual Config
+
+### Ghostty Config
+
+Install [Ghostty](https://ghostty.org/) and add the following config:
+
+```
+font-family = "Operator Mono"
+font-size = 18
+window-padding-x = 10
+window-padding-y = 10
+window-padding-color = background
+window-padding-balance = true
+theme = "iTerm2 Pastel Dark Background"
+adjust-cell-height = 15%
+window-save-state = always
+background-opacity = 0.99
+macos-titlebar-style = tabs
+```
 
 ### Claude Code
 
 Clone down the [agents](https://github.com/dannysmith/agents) repo into `~/.claude/agents`
 
-Add the following MCPs to the end of `.claude.json` to make them globally available. This is nececarry as claude regularly updates this file (so it cannot live in this repo)
+Add the following MCPs to the end of `.claude.json` to make them globally available.
 
 ```json
 "mcpServers": {
@@ -47,6 +65,8 @@ Add the following MCPs to the end of `.claude.json` to make them globally availa
 ```
 
 ## Cursor/VSCode Settings
+
+My default settings for VSCode/Cursor
 
 ```json
 {
@@ -132,7 +152,7 @@ Add the following MCPs to the end of `.claude.json` to make them globally availa
 }
 ```
 
-### Cusror Keybindings
+### Cusror/VSCode Keybindings
 
 ```json
 [
