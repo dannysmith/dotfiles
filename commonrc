@@ -4,12 +4,16 @@
 #######################################################
 source ~/.pathrc # Set PATH
 
+################ Application Shortcuts ################
+alias c="cursor"
+alias claude="/Users/danny/.claude/local/claude"
+
 ################ Location Shortcuts ################
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias dev="cd ~/dev"
-alias c="cursor"
-alias dannyis="c ~/dev/dannyis-astro"
+alias dannyis="cd ~/dev/dannyis-astro"
+alias notes="cd ~/notes"
 
 ################ Env Variables ################
 
@@ -48,13 +52,11 @@ alias gst='git status -s'
 alias gcm='git commit -m'
 alias gco='git checkout'
 
-################ AI Shortcuts ################
-alias claude="/Users/danny/.claude/local/claude"
-
 ################ Cargo ################
 . "$HOME/.cargo/env"
 
 ################ Set GPG TTY ################
+# Needed for gpg signing with git commit/push
 export GPG_TTY=$(tty)
 
 ################ Local .commonrc.local ################
