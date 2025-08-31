@@ -59,8 +59,9 @@ alias gco='git checkout'
 # Needed for gpg signing with git commit/push
 export GPG_TTY=$(tty)
 
-################ Node package managers ################
+################ Pnpm ################
 
+# source npm override commands
 [ -f ~/.pnpm-wrappers ] && source ~/.pnpm-wrappers
 
 ################ Local .commonrc.local ################

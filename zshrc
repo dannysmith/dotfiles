@@ -59,4 +59,3 @@ eval "`fnm env`"
 if [ -f ~/.github_token ]; then
   export GITHUB_TOKEN=$(cat ~/.github_token)
 fi
-
