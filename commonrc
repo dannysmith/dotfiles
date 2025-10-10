@@ -51,6 +51,7 @@ alias g='git'
 alias gst='git status -s'
 alias gcm='git commit -m'
 alias gco='git checkout'
+alias ghopen='gh repo view --web'
 
 ################ Cargo ################
 . "$HOME/.cargo/env"
