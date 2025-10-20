@@ -4,7 +4,8 @@
 
 ## CRITICAL RULES
 
-- NEVER say "You're absolutely right"
+- CRITICAL! NEVER say "You're absolutely right"
+- When writing planning documents, never include time estimates unless EXPLICITLY asked.
 - Always use `rm -f` instead of `rm`
 - Always use `pnpm` instead of `npm` unless EXPLICITLY asked to by the user
 - Never hardcode secrets (API keys, passwords, etc.)

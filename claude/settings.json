@@ -84,7 +84,6 @@
       "Bash(ufw:*)"
     ]
   },
-  "model": "opus",
   "hooks": {
     "Notification": [
       {
