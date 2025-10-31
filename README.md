@@ -103,6 +103,7 @@ My default settings for VSCode/Cursor
   "workbench.startupEditor": "none",
   "extensions.ignoreRecommendations": true,
   "eslint.run": "onSave",
+  "prettier.proseWrap": "preserve",
   "prettier.semi": false,
   "prettier.singleQuote": true,
   "githubPullRequests.pullBranch": "never",
