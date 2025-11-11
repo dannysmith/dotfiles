@@ -28,11 +28,7 @@ The format for all global claude commands should follow the format in `claude/co
 #### Development
 
 - `/g:initaiboilerplate` - Initialize minimal AI assistant boilerplate files for Claude, Cursor, and Gemini
-- `/g:five` - Apply the Five Whys root cause analysis technique to investigate issues
-- `/g:step-back` - Step back from current work to gain perspective and avoid getting trapped in local minima
-- `/g:generate-commit` - Generate a conventional commit message based on staged changes
 - `/g:prime-context` - Efficiently prime a new Claude Code session with essential project context
-- `/g:review-session` - Review code quality for work done in the current session
 
 #### Documentation
 
