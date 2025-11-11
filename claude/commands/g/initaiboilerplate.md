@@ -34,13 +34,28 @@ Set up minimal boilerplate files for AI assistants (Claude, Cursor, Gemini) in a
    - Create minimal CLAUDE.md:
 
      ```
-     # Project: [Project Name]
+     # Claude Instructions for [Project Name]
 
      See @docs/ for full documentation.
 
-     ## Quick Context
-     - Language: [detected language]
-     - Type: [detected project type]
+     ## Project Overview
+
+     ## Core Rules
+
+     ### New Sessions
+
+      - Read @docs/tasks.md for task management
+      - Review `docs/developer/architecture-guide.md` for essential patterns
+      - Consult specialized guides when working on specific features
+      - Check git status and project structure
+
+     ### Development Practices
+
+     **CRITICAL:** Follow these strictly:
+
+     1. **Read Before Editing**: Always read files first to understand context
+     2. **Follow Established Patterns**: Use patterns from this file and `docs/developer`
+     3. **Senior Architect Mindset**: Consider performance, maintainability, testability
      ```
 
 4. **Check for comprehensive check command**
@@ -66,7 +81,13 @@ Set up minimal boilerplate files for AI assistants (Claude, Cursor, Gemini) in a
    Read @CLAUDE.md
    ```
 
-7. **Create docs/README.md** (only if docs/ exists but README.md doesn't)
+7. **Create AGENTS.md** (if missing)
+
+   ```
+   Read @CLAUDE.md
+   ```
+
+8. **Create docs/README.md** (only if docs/ exists but README.md doesn't)
 
    ```
    # [Project Name] Documentation
@@ -74,7 +95,7 @@ Set up minimal boilerplate files for AI assistants (Claude, Cursor, Gemini) in a
    Project documentation goes here.
    ```
 
-8. **Report results**
+9. **Report results**
    - List what was created
    - List what was skipped (already existed)
    - Confirm initialization complete

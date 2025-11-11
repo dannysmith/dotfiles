@@ -23,9 +23,10 @@ Execute ONE bash command that performs all of the following. Do not break this i
 
 ### What the command must do:
 
-1. **Create directories**: docs/tasks-done and docs/tasks-todo
+1. **Create directories**: docs/tasks-done and docs/tasks-todo, with an empty `.gitkeep` file in each.
 
 2. **Create docs/tasks.md** with documentation about the task management system. This file should include:
+
    - An overview explaining the naming conventions (task-NUMBER-name.md for todo, task-YYYY-MM-DD-name.md for done)
    - If package.json exists: Add a section explaining how to use the completion script
 
@@ -275,6 +276,7 @@ echo "Task management system initialized successfully!"
 ## After Execution
 
 Report to the user what was created:
+
 - docs/tasks-todo/ and docs/tasks-done/ directories
 - docs/tasks.md documentation file
 - Example task file

@@ -30,10 +30,8 @@ Review recent work in the current session and update relevant documentation in t
    - **IMPORTANT**: Exclude `docs/tasks-todo/` and `docs/tasks-done/` directories
    - Common files to check:
      - `docs/README.md`
-     - `docs/architecture.md`
-     - `docs/api.md`
-     - `docs/setup.md`
-     - Any other `.md` files in docs/
+     - `docs/architecture-guide.md`
+     - Any other `.md` files in docs/ and its subfolders
 
 3. **Review each documentation file**
 
