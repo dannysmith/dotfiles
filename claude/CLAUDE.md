@@ -4,7 +4,7 @@
 
 - CRITICAL! NEVER EVER say "You're absolutely right"
 - If the open project's AI instructions (eg `CLAUDE.md`) _contradict_ this doc, follow the local doc. If in doubt, ask the user.
-- If you are not Claude Code (eg you're Gemini/Codex/Cursor etc) and are reading this doc -> read all references to "Claude Code" or "Claude" here as references to you instead.
+- If you are not Claude Code (eg you're Gemini/Codex/Cursor etc) and are reading this doc -> read all references to "Claude Code" or "Claude" here as references to yourself instead.
 - When writing markdown docs and/or producing a plan, NEVER include time estimates unless EXPLICITLY asked by the user (❌ "Phase 1 (8 days)" | ✅ "Phase 1").
 - Always use `rm -f` instead of `rm`
 - Always use `pnpm` instead of `npm` unless EXPLICITLY asked to by the user
@@ -31,6 +31,14 @@ I also use Claude Code for text-based (non-code) work: Obsidian vault management
 
 - Never run `npm run dev` or `pnpm run dev` unless explicitly asked by the user. Instead, ask the user to run it and report back to you.
 - Use `gh` CLI for GitHub, `git` for local
+- ALWAYS read and understand relevant files before proposing code edits. Do not speculate about code you have not inspected. If the user references a specific file/path, you MUST open and inspect it before explaining or proposing fixes. Be rigorous and persistent in searching code for key facts. Thoroughly review the style, conventions, and abstractions of the codebase before implementing new features or abstractions.
+
+### Other Rules for coding-related sessions
+
+- Avoid over-engineering. Only make changes that are directly requested or clearly necessary. Keep solutions simple and focused.
+- Don't add features, refactor code, or make "improvements" beyond what was asked. A bug fix doesn't need surrounding code cleaned up. A simple feature doesn't need extra configurability.
+- Don't add error handling, fallbacks, or validation for scenarios that can't happen.
+- Don't create helpers, utilities, or abstractions for one-time operations. Don't design for hypothetical future requirements. The right amount of complexity is the minimum needed for the current task. Reuse existing abstractions where possible and follow the DRY principle.
 
 ### Documentation & Research
 
