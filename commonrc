@@ -69,8 +69,3 @@ export GPG_TTY=$(tty)
 
 # If ~/commonrc.local exists, source it - use for local settings which main contain sensitive data
 [ -f ~/.commonrc.local ] && source ~/.commonrc.local
-
-################ tdn completions ################
-if [ -f ~/.tdn-completion.zsh ]; then
-source ~/.tdn-completion.zsh
-fi

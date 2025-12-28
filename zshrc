@@ -59,3 +59,8 @@ eval "`fnm env`"
 if [ -f ~/.github_token ]; then
   export GITHUB_TOKEN=$(cat ~/.github_token)
 fi
+
+################ tdn completions ################
+if [ -f ~/.tdn-completion.zsh ]; then
+source ~/.tdn-completion.zsh
+fi
