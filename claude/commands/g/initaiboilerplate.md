@@ -20,21 +20,17 @@ Set up minimal boilerplate files for AI assistants (Claude, Cursor, Gemini) in a
 1. **Analyze existing structure**
 
    - Check for existing files: CLAUDE.md, GEMINI.md, .claude/, .cursor/, docs/
-   - Look for project metadata: package.json, Cargo.toml, pyproject.toml, go.mod, README.md
+   - Look for project metadata: package.json, Cargo.toml, pyproject.toml, go.mod, README.md etc
    - Extract project name and type
 
-2. **Create .claude directory structure** (if missing)
-
-   - Create directories: `mkdir -p .claude/commands`
-
-3. **Create CLAUDE.md** (only if missing)
+2. **Create AGENTS.md** (only if missing)
 
    - Extract project name from metadata or directory name
    - Detect primary language from file extensions or config files
-   - Create minimal CLAUDE.md:
+   - Create minimal AGENTS.md:
 
      ```
-     # Claude Instructions for [Project Name]
+     # AI Coding Agent Instructions for [Project Name]
 
      See @docs/ for full documentation.
 
@@ -55,10 +51,10 @@ Set up minimal boilerplate files for AI assistants (Claude, Cursor, Gemini) in a
 
      1. **Read Before Editing**: Always read files first to understand context
      2. **Follow Established Patterns**: Use patterns from this file and `docs/developer`
-     3. **Senior Architect Mindset**: Consider performance, maintainability, testability
+     3. **Senior Architect Mindset**
      ```
 
-4. **Check for comprehensive check command**
+3. **Check for comprehensive check command**
 
    - If package.json exists, look for scripts matching: check, check:all, verify, validate, ci, precommit, lint:all
    - If found, create `.claude/commands/check.md` with this structure:
@@ -67,27 +63,13 @@ Set up minimal boilerplate files for AI assistants (Claude, Cursor, Gemini) in a
      - Create execution section that runs the discovered command
      - Keep it simple - just run the command and report results
 
-5. **Create .cursor structure**
-
-   - Create: `mkdir -p .cursor/rules`
-   - Create `.cursor/rules/ai-setup.md`:
-     ```
-     Please read @CLAUDE.md for project context and conventions.
-     ```
-
-6. **Create GEMINI.md** (if missing)
+4. **Create CLAUDE.md** (if missing)
 
    ```
-   Read @CLAUDE.md
+   @AGENTS.md
    ```
 
-7. **Create AGENTS.md** (if missing)
-
-   ```
-   Read @CLAUDE.md
-   ```
-
-8. **Create docs/README.md** (only if docs/ exists but README.md doesn't)
+5. **Create docs/README.md** (only if docs/ exists but README.md doesn't)
 
    ```
    # [Project Name] Documentation
@@ -95,7 +77,7 @@ Set up minimal boilerplate files for AI assistants (Claude, Cursor, Gemini) in a
    Project documentation goes here.
    ```
 
-9. **Report results**
+6. **Report results**
    - List what was created
    - List what was skipped (already existed)
    - Confirm initialization complete

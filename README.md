@@ -35,35 +35,6 @@ background-opacity = 0.99
 macos-titlebar-style = tabs
 ```
 
-### Claude Code
-
-Clone down the [agents](https://github.com/dannysmith/agents) repo into `~/.claude/agents`
-
-Add the following MCPs to the end of `.claude.json` to make them globally available.
-
-```json
-"mcpServers": {
-    "context7": {
-      "type": "stdio",
-      "command": "npx",
-      "args": [
-        "-y",
-        "@upstash/context7-mcp"
-      ],
-      "env": {}
-    },
-    "playwright": {
-      "type": "stdio",
-      "command": "npx",
-      "args": [
-        "-y",
-        "@playwright/mcp"
-      ],
-      "env": {}
-    }
-  }
-```
-
 ## Cursor/VSCode Settings
 
 My default settings for VSCode/Cursor

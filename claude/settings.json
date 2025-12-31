@@ -52,7 +52,21 @@
       "Bash(basename:*)",
       "Bash(dirname:*)",
       "Bash(realpath:*)",
-      "Bash(readlink:*)"
+      "Bash(readlink:*)",
+      "Skill(tdn@tdn-marketplace:*)",
+      "Skill(tdn-claude-plugin:task-management)",
+      "Skill(css-expert)",
+      "Bash(tree:*)",
+      "Bash(cargo check:*)",
+      "Bash(pnpm run check:*)",
+      "Bash(bun run check:*)",
+      "Bash(npm run check:*)",
+      "Bash(tdn context:*)",
+      "Bash(tdn list:*)",
+      "Bash(tdn show:*)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:ui.shadcn.com)",
+      "WebFetch(domain:docs.anthropic.com)"
     ],
     "deny": [
       "Bash(sudo:*)",
@@ -108,8 +122,8 @@
       }
     ]
   },
-  "alwaysThinkingEnabled": true,
   "enabledPlugins": {
-    "rust-analyzer-lsp@claude-plugins-official": true
-  }
+    "tdn@tdn-marketplace": true
+  },
+  "alwaysThinkingEnabled": true
 }
