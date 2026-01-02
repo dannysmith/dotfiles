@@ -98,32 +98,9 @@
       "Bash(ufw:*)"
     ]
   },
-  "hooks": {
-    "Notification": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "terminal-notifier -title \"🔔 Claude Code\" -message \"Claude needs your input\""
-          }
-        ]
-      }
-    ],
-    "Stop": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "terminal-notifier -title \"✅ Claude Code\" -message \"Job done!\""
-          }
-        ]
-      }
-    ]
-  },
   "enabledPlugins": {
-    "tdn@tdn-marketplace": true
+    "tdn@tdn-marketplace": true,
+    "plugin-dev@claude-plugins-official": true
   },
   "alwaysThinkingEnabled": true
 }
