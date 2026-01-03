@@ -14,6 +14,7 @@ alias dt="cd ~/Desktop"
 alias dev="cd ~/dev"
 alias dannyis="cd ~/dev/dannyis-astro"
 alias notes="cd ~/notes"
+alias scr="cd ~/scratchpad"
 
 ################ Env Variables ################
 
