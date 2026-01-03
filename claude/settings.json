@@ -100,7 +100,8 @@
   },
   "enabledPlugins": {
     "tdn@tdn-marketplace": true,
-    "plugin-dev@claude-plugins-official": true
+    "personal@dannysmith": true,
+    "css-expert@dannysmith": true
   },
   "alwaysThinkingEnabled": true
 }
