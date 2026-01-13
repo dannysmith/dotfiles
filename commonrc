@@ -65,7 +65,7 @@ export GPG_TTY=$(tty)
 ################ Pnpm ################
 
 # source npm override commands
-[ -f ~/.pnpm-wrappers ] && source ~/.pnpm-wrappers
+[ -f ~/.npm-wrappers ] && source ~/.npm-wrappers
 
 ################ Local .commonrc.local ################
 

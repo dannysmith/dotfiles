@@ -19,6 +19,9 @@ export PATH=$PATH:$HOME/.rbenv/shims:$HOME/.rbenv/bin
 # Postgres.app command line tools
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 
+# Bun
+export PATH=$PATH:$HOME/.bun/bin
+
 # pnpm
 export PNPM_HOME="/Users/danny/Library/pnpm"
 case ":$PATH:" in
