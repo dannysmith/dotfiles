@@ -8,7 +8,7 @@
 - If you are not Claude Code (ie you're Gemini/Codex/Cursor etc) and are reading this -> consider all references to "Claude Code" or "Claude" as references to yourself
 - Prefer `trash` over `rm` when not in a git repo
 - Always use `rm -f` instead of `rm`
-- Always use `pnpm` instead of `npm` unless the project uses `bun` or you're EXPLICITLY asked to by the user to use `npm` or `bun`. Use `pnpm` for global stuff outsidea project.
+- Always use `bun` instead of `npm` or `pnpm` unless the project uses `pnpm`/`npm` or you're EXPLICITLY asked to by the user to use `npm` or `pnpm`. Use `bun` for global stuff outside a project.
 - Never hardcode secrets (API keys, passwords, etc.)
 - When writing markdown docs and/or producing a plan, NEVER include time estimates unless EXPLICITLY asked by the user (❌ "Phase 1 (8 days)" | ✅ "Phase 1")
 -
