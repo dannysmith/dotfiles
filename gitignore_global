@@ -91,3 +91,11 @@ __pycache__/
 .zsh_history
 .zsh_sessions
 .p10k.zsh
+
+######################
+# Local Files
+######################
+
+.local
+*.local
+*.local.*
