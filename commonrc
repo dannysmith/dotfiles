@@ -6,7 +6,6 @@ source ~/.pathrc # Set PATH
 
 ################ Application Shortcuts ################
 alias c="cursor"
-alias claude="/Users/danny/.claude/local/claude"
 alias spc="cd ~/scratchpad && claude"
 
 ################ Location Shortcuts ################
