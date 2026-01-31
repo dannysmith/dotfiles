@@ -101,7 +101,8 @@
   "enabledPlugins": {
     "tdn@tdn-marketplace": true,
     "personal@dannysmith": true,
-    "css-expert@dannysmith": true
+    "css-expert@dannysmith": true,
+    "playwright-cli@playwright-cli": true
   },
   "alwaysThinkingEnabled": true
 }
