@@ -60,6 +60,9 @@ if [ -f ~/.github_token ]; then
   export GITHUB_TOKEN=$(cat ~/.github_token)
 fi
 
+################ OrbStack ################
+source ~/.orbstack/shell/init.zsh 2>/dev/null || :
+
 ################ tdn completions ################
 if [ -f ~/.tdn-completion.zsh ]; then
 source ~/.tdn-completion.zsh

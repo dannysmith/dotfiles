@@ -2,7 +2,12 @@
 # This contains settings common to both zsh and bash  #
 # Danny Smith - http://danny.is                       #
 #######################################################
-source ~/.pathrc # Set PATH
+
+################ Homebrew ################
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+################ Path ################
+source ~/.pathrc
 
 ################ Application Shortcuts ################
 alias c="cursor"
