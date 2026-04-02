@@ -30,7 +30,6 @@ export SVN_EDITOR="c --wait"
 
 export LC_ALL=en_GB.UTF-8
 export LANG=en_GB.UTF-8
-export ARCHFLAGS="-arch x86_64"
 export SSH_KEY_PATH="~/.ssh/dsa_id"
 export MANPATH="/usr/local/man:$MANPATH"
 
