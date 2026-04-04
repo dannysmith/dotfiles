@@ -58,6 +58,41 @@ alias gcm='git commit -m'
 alias gco='git checkout'
 alias ghopen='gh repo view --web'
 
+################ Dev Task Management ################
+
+# Completes a task by moving it from docs/tasks-todo/ to docs/tasks-done/ with
+# a date prefix. Searches from CWD, falling back to git root. Usage:
+#   devtask-complete <name-or-number>  (case-insensitive match)
+devtask-complete() {
+  local task_id="${1:?Usage: devtask-complete <task-name-or-number>}"
+
+  local base_dir
+  if [ -d "./docs/tasks-todo" ]; then
+    base_dir="."
+  else
+    base_dir="$(git rev-parse --show-toplevel 2>/dev/null)" || { echo "Not in a git repo and no docs/tasks-todo here"; return 1; }
+  fi
+
+  local todo_dir="$base_dir/docs/tasks-todo"
+  local done_dir="$base_dir/docs/tasks-done"
+  [ -d "$todo_dir" ] || { echo "Error: $todo_dir not found"; return 1; }
+  [ -d "$done_dir" ] || { echo "Error: $done_dir not found (project not initialised?)"; return 1; }
+
+  local match
+  match=$(ls "$todo_dir"/ 2>/dev/null | grep -i "$task_id" | head -1)
+  if [ -z "$match" ]; then
+    echo "No task matching '$task_id'. Available:"
+    ls "$todo_dir"/*.md 2>/dev/null | xargs -n1 basename 2>/dev/null || echo "  (none)"
+    return 1
+  fi
+
+  local new_name="$(date +%Y-%m-%d)-${match}"
+  [ -f "$done_dir/$new_name" ] && { echo "Error: $done_dir/$new_name already exists"; return 1; }
+
+  mv "$todo_dir/$match" "$done_dir/$new_name"
+  echo "Done: $match → $done_dir/$new_name"
+}
+
 ################ Cargo ################
 . "$HOME/.cargo/env"
 
