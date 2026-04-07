@@ -10,7 +10,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 source ~/.pathrc
 
 ################ Application Shortcuts ################
-alias c="cursor"
+alias c="code"
 alias spc="cd ~/scratchpad && claude"
 
 ################ Location Shortcuts ################

@@ -8,9 +8,9 @@ Managed with [Thoughtbot's rcm](http://thoughtbot.github.io/rcm/rcm.7.html).
 2. Install RCM and create the symlinks
 
 ```shell
-lsrc -x README.md # Dry run, check everything is ok.
+lsrc -x README.md -x vscode-setup.md # Dry run, check everything is ok.
 rcup -v
-rcup -x README.md
+rcup -x README.md -x vscode-setup.md
 ```
 
 3. Install [Oh My ZSH](http://ohmyz.sh/) into `~/.oh-my-zsh`.
@@ -35,13 +35,15 @@ background-opacity = 0.99
 macos-titlebar-style = tabs
 ```
 
-## Cursor/VSCode Settings
+## VSCode Setup
 
-My default settings for VSCode/Cursor
+My VSCode/Cursor setup is detailed in [vscode-setup.md](./vscode-setup.md). My actual `settings.json` and `keybindings.json` obviously change somewhat often but will always look something like this:
+
+### `settings.json`
 
 ```json
 {
-  "editor.formatOnSave": true,
+  "editor.formatOnSave": false,
   "editor.formatOnPaste": true,
   "editor.fontFamily": "'Operator Mono Lig', 'Operator Mono', Monaco, monospace",
   "editor.fontLigatures": true,
@@ -62,36 +64,6 @@ My default settings for VSCode/Cursor
   "editor.quickSuggestions": {
     "strings": "on"
   },
-  "explorer.confirmDragAndDrop": false,
-  "files.insertFinalNewline": true,
-  "files.trimTrailingWhitespace": true,
-  "files.trimFinalNewlines": true,
-  "terminal.external.osxExec": "Ghostty.app",
-  "terminal.integrated.fontSize": 15,
-  "terminal.integrated.lineHeight": 1.2,
-  "window.zoomLevel": 1,
-  "workbench.colorTheme": "Cobalt Next",
-  "workbench.startupEditor": "none",
-  "extensions.ignoreRecommendations": true,
-  "eslint.run": "onSave",
-  "prettier.proseWrap": "preserve",
-  "prettier.semi": false,
-  "prettier.singleQuote": true,
-  "githubPullRequests.pullBranch": "never",
-  "git.enableSmartCommit": true,
-  "git.autofetch": true,
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "cursor.cpp.disabledLanguages": ["plaintext", "markdown", "scminput"],
-  "tailwindCSS.emmetCompletions": true,
-  "tailwindCSS.experimental.classRegex": [
-    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
-    ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
-  ],
-  "emmet.includeLanguages": {
-    "astro": "html"
-  },
-  "emmet.showExpandedAbbreviation": "inMarkupAndStylesheetFilesOnly",
-  "markdown.validate.enabled": false,
   "editor.tokenColorCustomizations": {
     "textMateRules": [
       {
@@ -110,36 +82,63 @@ My default settings for VSCode/Cursor
       }
     ]
   },
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "files.trimFinalNewlines": true,
+  "explorer.confirmDragAndDrop": false,
+  "terminal.external.osxExec": "Ghostty.app",
+  "terminal.integrated.fontSize": 15,
+  "terminal.integrated.lineHeight": 1.2,
+  "window.zoomLevel": 1,
+  "workbench.colorTheme": "Cobalt Next",
+  "workbench.startupEditor": "none",
+  "workbench.activityBar.location": "top",
+  "extensions.ignoreRecommendations": true,
+  "eslint.run": "onSave",
+  "prettier.proseWrap": "preserve",
+  "prettier.semi": false,
+  "prettier.singleQuote": true,
+  "git.enableSmartCommit": true,
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "githubPullRequests.pullBranch": "never",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "tailwindCSS.emmetCompletions": true,
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+  ],
+  "emmet.includeLanguages": {
+    "astro": "html"
+  },
+  "emmet.showExpandedAbbreviation": "inMarkupAndStylesheetFilesOnly",
+  "markdown.validate.enabled": false,
   "[markdown]": {
     "files.trimTrailingWhitespace": false,
     "editor.wordWrap": "wordWrapColumn",
-    "editor.wordWrapColumn": 100
+    "editor.wordWrapColumn": 100,
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
   },
   "[yaml]": {
     "files.trimTrailingWhitespace": false
   },
   "[astro]": {
     "editor.defaultFormatter": "astro-build.astro-vscode"
+  },
+  "claudeCode.preferredLocation": "panel",
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
   }
 }
 ```
 
-### Cusror/VSCode Keybindings
+### `keybindings.json`
 
 ```json
 [
-  {
-    "key": "cmd+i",
-    "command": "composerMode.agent"
-  },
-  {
-    "key": "shift+enter",
-    "command": "workbench.action.terminal.sendSequence",
-    "args": {
-      "text": "\\\r\n"
-    },
-    "when": "terminalFocus"
-  },
   {
     "key": "cmd+b",
     "command": "markdown.extension.editing.toggleBold",
@@ -151,8 +150,12 @@ My default settings for VSCode/Cursor
     "when": "editorTextFocus && editorLangId == markdown"
   },
   {
-    "key": "cmd+e",
-    "command": "composerMode.background"
+    "key": "shift+enter",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": {
+      "text": "\\\r\n"
+    },
+    "when": "terminalFocus"
   }
 ]
 ```
