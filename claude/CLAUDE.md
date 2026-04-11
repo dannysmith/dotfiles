@@ -11,6 +11,7 @@
 - Always use `bun` instead of `npm` or `pnpm` unless the project uses `pnpm`/`npm` or you're EXPLICITLY asked to by the user to use `npm` or `pnpm`. Use `bun` for global stuff outside a project.
 - Never hardcode secrets (API keys, passwords, etc.)
 - When writing markdown docs and/or producing a plan, NEVER include time estimates unless EXPLICITLY asked by the user (❌ "Phase 1 (8 days)" | ✅ "Phase 1")
+- When writing/editing markdown files never use line-breaks to hard-wrap text unles explicitly asked
 
 ## Principles
 
