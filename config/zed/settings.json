@@ -1,0 +1,135 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  // -------------------------------------------------------------------
+  // Theme & base keymap
+  // -------------------------------------------------------------------
+  "current_line_highlight": "gutter",
+  "multi_cursor_modifier": "cmd_or_ctrl",
+  "ui_font_family": ".SystemUIFont",
+  "when_closing_with_no_tabs": "keep_window_open",
+  "git": {
+    "inline_blame": {
+      "enabled": false
+    }
+  },
+  "theme": "Cobalt Next",
+  "theme_overrides": {
+    "Cobalt Next": {
+      "editor.wrap_guide": "#1b2b34",
+      "editor.active_wrap_guide": "#1b2b34"
+    }
+  },
+  "base_keymap": "Atom",
+
+  // -------------------------------------------------------------------
+  // Fonts
+  // Sizes intentionally larger than VS Code's 15px — Zed renders fonts
+  // smaller at the same px, so 18 here ≈ 15 there visually.
+  // -------------------------------------------------------------------
+  "ui_font_size": 18,
+  "buffer_font_size": 18,
+  "buffer_font_family": "Operator Mono Lig",
+  "buffer_font_features": {
+    "calt": true
+  },
+
+  // -------------------------------------------------------------------
+  // Editor visuals
+  // -------------------------------------------------------------------
+  "show_whitespaces": "all",
+  "cursor_shape": "bar",
+  "cursor_blink": true,
+  "minimap": {
+    "show": "auto"
+  },
+  "scrollbar": {
+    "show": "auto"
+  },
+
+  // -------------------------------------------------------------------
+  // Editor behaviour
+  // -------------------------------------------------------------------
+  "tab_size": 2,
+  "format_on_save": "off",
+  "format_on_paste": true,
+  "ensure_final_newline_on_save": true,
+  "remove_trailing_whitespace_on_save": true,
+  "soft_wrap": "none",
+  "preferred_line_length": 100,
+
+  // -------------------------------------------------------------------
+  // AI — Zed's native Edit Predictions (Zeta model)
+  // -------------------------------------------------------------------
+  "edit_predictions": {
+    "provider": "zed"
+  },
+  "show_edit_predictions": true,
+
+  // -------------------------------------------------------------------
+  // External agents (ACP) — explicit registration works around the
+  // "Custom agent server claude-acp is not registered" error.
+  // See zed-industries/zed#50807
+  // -------------------------------------------------------------------
+  "agent_servers": {
+    "claude-acp": {
+      "type": "registry"
+    }
+  },
+
+  // -------------------------------------------------------------------
+  // Per-language overrides
+  // -------------------------------------------------------------------
+  "languages": {
+    "Markdown": {
+      "soft_wrap": "preferred_line_length",
+      "preferred_line_length": 100,
+      "format_on_save": "off",
+      "remove_trailing_whitespace_on_save": false,
+      "show_edit_predictions": false
+    },
+    "Plain Text": {
+      "show_edit_predictions": false
+    }
+  },
+
+  // -------------------------------------------------------------------
+  // MCP / Context servers (mirrors VS Code's mcp.json)
+  // -------------------------------------------------------------------
+  "context_servers": {
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp@latest"],
+      "env": {}
+    }
+  },
+
+  // -------------------------------------------------------------------
+  // Extensions Zed should keep installed on launch.
+  // Anything missing from this list will be installed automatically.
+  // (Note: this doesn't UNINSTALL things — for that, use the UI.)
+  // -------------------------------------------------------------------
+  "auto_install_extensions": {
+    "astro": true,
+    "cobalt2": true,
+    "html": true,
+    "markdownlint": true,
+    "tailwind-theme": true,
+    "toml": true
+  },
+
+  // -------------------------------------------------------------------
+  // Terminal
+  // -------------------------------------------------------------------
+  "terminal": {
+    "font_family": "Operator Mono Lig",
+    "font_size": 16,
+    "shell": "system"
+  }
+}
