@@ -67,3 +67,6 @@ source ~/.orbstack/shell/init.zsh 2>/dev/null || :
 if [ -f ~/.tdn-completion.zsh ]; then
 source ~/.tdn-completion.zsh
 fi
+
+################ jj ################
+source <(COMPLETE=zsh jj)
