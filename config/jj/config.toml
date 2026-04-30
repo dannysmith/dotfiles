@@ -3,3 +3,10 @@
 [user]
 name = "Danny Smith"
 email = "hi@danny.is"
+
+[ui]
+editor = "c --wait"
+
+[signing]
+backend = "gpg"
+key = "8596D6F456F200BD"

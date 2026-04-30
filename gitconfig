@@ -69,6 +69,9 @@
   pushInsteadOf = "gist:"
   pushInsteadOf = "git://gist.github.com/"
   pushInsteadOf = "https://gist.github.com/"
+[url "git@tangled.org:"]
+  insteadOf = "tngl:"
+  pushInsteadOf = "tngl:"
 [init]
 	defaultBranch = main
 [credential "https://github.com"]
