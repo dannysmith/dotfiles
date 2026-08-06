@@ -16,7 +16,7 @@
   - Its for task docs named `task-x-the-task-name.md` (`x` = number, ordering next-up tasks; literal `x` = unpropritised).
   - `docs/tasks-done/` is for completed docs renamed `task-YYY-MM-DD-x-the-task-name.md` with completion date.
   - The gitignored `docs/tasks-todo/temporary/` is for working files, epsecially those the user may want to inspect or edit. The user may add reference (eg screenshots) here. You may work create it if not present and can freely in here.
-- If you are running with the bash sandbox enabled and have issues you suspect are because of it, tell the user before trying any complex workarounds.
+- If you are running with the bash sandbox enabled and have issues you suspect are because of it, tell the user before trying any complex workarounds. Common tells: EPERM on paths under `~/Library`, a tool silently using a project-local cache/store it normally wouldn't, or a tool resolving to a different version than usual (check `command -v` — sandbox denies can make the shell fall through to a different binary on PATH).
 
 ## Writing Markdown
 

@@ -99,3 +99,9 @@ __pycache__/
 .local
 *.local
 *.local.*
+
+######################
+# Claude Files
+######################
+
+**/.claude/.cc-writes/
