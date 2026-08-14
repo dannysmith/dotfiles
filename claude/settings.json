@@ -219,6 +219,7 @@
       "allowWrite": [
         "~/Library/Caches",
         "~/Library/pnpm",
+        "~/.bun/install/cache",
         "~/Library/Developer",
         "~/Library/Logs/CoreSimulator",
         "/var/folders",
