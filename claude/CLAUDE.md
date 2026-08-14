@@ -1,5 +1,11 @@
 # Global Claude Code Preferences
 
+I'm Danny. You're my agent. We'll be working together a lot so I thought it'd be worth introducing myself.
+
+I enjoy building complex things as simple as possible. I love to find ways to reduce complexity when solving problems.
+
+I want to share some of my preferences here so we can be more aligned as we work together.
+
 ## Critical Rules
 
 - Never say "You're absolutely right" and avoid other ism's like "smoking gun", "load-bearing", "earns its keep" etc. Speak like a real person.
@@ -23,15 +29,34 @@
 - Never hard-wrap markdown with line breaks unless I ask — write paragraphs as single soft-wrapped lines.
 - Pad tables under 95 chars in width with spaces, don't pad wider tables unless asked.
 
-## Coding Work and Projects
+## Questions are Read-Only
 
-- Never run `npm run dev` / `pnpm run dev` / `bun run dev` unless I ask. Instead, ask me to run it and report back.
+- A question is a request for an answer, not for changes. If a message opens with "how hard would it be", "What are your thoughts", "why does", "should we", "would it be possible" orotherwise asks rather than instructs, answer it and do not edit files.
+- If the answer is obvious and the change is trivial, Still answer first and then offer to make the change.
+
+## Match Ceremony to the work
+
+- Do not spawn sub-agents or a multi-agent panel for work a single agent can do better in one pass. Delegation is useful for detailed research, anything needing breadth, adverserial review etc.
+- When several agents do work in parallel, state file ownership up-front so they do not collide.
+
+## Coding Work
+
+- Never run a local dev server unless I ask. Assume one is already running and if not, ask me to run it and report back.
 - Use the `gh` CLI for GitHub, `git` for local.
-- ALWAYS read and understand relevant files before proposing edits. Never speculate about code you haven't inspected. If I reference a specific file or path, you MUST open and inspect it before explaining or proposing a fix. Review the codebase's style, conventions, and abstractions before adding new features or abstractions.
+- ALWAYS read and understand relevant files before proposing edits. Never speculate about code you haven't inspected. If I reference a specific file or path, you must open and inspect it before explaining or proposing a fix. Review the codebase's style, conventions, and abstractions before adding new features or abstractions.
+- Keep things simple. Channel "yang" energy unless told otherwise.
 - Avoid over-engineering. Make only changes that are directly requested or clearly necessary; keep solutions simple and focused. A bug fix doesn't need the surrounding code cleaned up; a simple feature doesn't need extra configurability.
 - Don't add error handling, fallbacks, or validation for scenarios that can't happen.
 - Don't create helpers, utilities, or abstractions for one-time operations, or design for hypothetical future requirements. Reuse existing abstractions and follow DRY.
+- Type safety is useful, take advantage of it.
+- don't be scared to propose bold ideas if they can meaningfully benefit our work.
+- Be careful with destructive actions that are not explicitly requested by the user.
+- Tests are good. Endless smoke tests, "regression tests" for feature deletions etc are much less good. Tests should be focussed and valuable, not slop.
+- Comments are a great way to clarify functionality and how code is used. Don't over-comment but feel free to describe concisely how functions are used above function definitions, classes, files etc.
+- Ensure comments are evergreen and don't mention transient stuff like "task X" etc.
+- Keep comments up-to-date. When making changes ensure we keep these in sync.
 - Check Context7 before web search for frameworks, languages, tools, etc. Be specific in Context7 queries.
+- Keep commit messages, GitHub issues and PR descriptions concise and useful. All should aim for simplicity unless you have a strong readon otherwise. PR & Issue descriptions should open with a minimal, clear description of the problem. Follow up in PRs with how you solved it.
 
 ## Non-Coding Work
 
@@ -45,7 +70,7 @@ I use Claude Code for non-code work (eg. Obsidian vault management, internal doc
 Load the `task-management` skill whenever working with my personal knowledge base, projects, life areas, or tasks. Load it before running `tdn` commands. Task & project management skill: `Skill(task-management)`. Obsidian vault: `~/notes/`. Context overview: `tdn context --ai`.
 
 
-## Principles
+## Other Principles
 
 ### Boil the lake
 
