@@ -1,7 +1,15 @@
 {
+  "cleanupPeriodDays": 60,
+  "env": {
+    "ASTRO_TELEMETRY_DISABLED": "1",
+    "DO_NOT_TRACK": "1",
+    "HOMEBREW_NO_ANALYTICS": "1"
+  },
+  "attribution": {
+    "commit": "Most likely with oversight by an actual human, Danny.\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+  },
   "permissions": {
     "allow": [
-      "MCP(playwright:*)",
       "MCP(context7:*)",
       "LS(*)",
       "Bash(ls:*)",
@@ -45,6 +53,9 @@
       "Bash(ps:*)",
       "Bash(pgrep:*)",
       "Bash(lsof:*)",
+      "Bash(diskutil list)",
+      "Bash(diskutil list:*)",
+      "Bash(diskutil info:*)",
       "Bash(gh repo view:*)",
       "Bash(gh pr list:*)",
       "Bash(gh pr view:*)",
@@ -70,28 +81,7 @@
       "Bash(tdn list:*)",
       "Bash(tdn show:*)",
       "WebFetch(domain:github.com)",
-      "WebFetch(domain:ui.shadcn.com)",
       "WebFetch(domain:docs.anthropic.com)"
-    ],
-    "ask": [
-      "Bash(git push:*)",
-      "Bash(gh pr create:*)",
-      "Bash(gh pr merge:*)",
-      "Bash(gh pr close:*)",
-      "Bash(gh pr edit:*)",
-      "Bash(gh pr comment:*)",
-      "Bash(gh pr review:*)",
-      "Bash(gh issue create:*)",
-      "Bash(gh issue edit:*)",
-      "Bash(gh issue close:*)",
-      "Bash(gh issue comment:*)",
-      "Bash(gh release:*)",
-      "Bash(gh repo create:*)",
-      "Bash(gh repo delete:*)",
-      "Bash(gh api:*)",
-      "Bash(npm publish:*)",
-      "Bash(bun publish:*)",
-      "Bash(cargo publish:*)"
     ],
     "deny": [
       "Bash(sudo:*)",
@@ -111,6 +101,12 @@
       "Bash(mount:*)",
       "Bash(umount:*)",
       "Bash(crontab:*)",
+      "Bash(diskutil erase*)",
+      "Bash(diskutil partition*)",
+      "Bash(diskutil reformat*)",
+      "Bash(diskutil secureErase*)",
+      "Bash(diskutil zeroDisk*)",
+      "Bash(diskutil apfs delete*)",
       "Read(~/.ssh/**)",
       "Read(~/.gnupg/**)",
       "Read(~/.config/gh/**)",
@@ -146,10 +142,59 @@
       "Edit(~/.bash_profile)",
       "Edit(~/.claude/settings.json)",
       "Edit(~/.claude/.credentials.json)"
+    ],
+    "ask": [
+      "Bash(dangerouslyDisableSandbox:true)",
+      "Bash(git push:*)",
+      "Bash(gh pr create:*)",
+      "Bash(gh pr merge:*)",
+      "Bash(gh pr close:*)",
+      "Bash(gh pr edit:*)",
+      "Bash(gh pr comment:*)",
+      "Bash(gh pr review:*)",
+      "Bash(gh issue create:*)",
+      "Bash(gh issue edit:*)",
+      "Bash(gh issue close:*)",
+      "Bash(gh issue comment:*)",
+      "Bash(gh release:*)",
+      "Bash(gh repo create:*)",
+      "Bash(gh repo delete:*)",
+      "Bash(gh api:*)",
+      "Bash(npm publish:*)",
+      "Bash(bun publish:*)",
+      "Bash(cargo publish:*)",
+      "Bash(gh gist create)",
+      "Bash(gh gist create:*)",
+      "Bash(gh auth token)",
+      "Bash(gh auth token:*)",
+      "Bash(gh secret set:*)",
+      "Bash(gh secret delete:*)",
+      "Bash(launchctl:*)",
+      "Bash(dscl:*)",
+      "Bash(defaults write:*)",
+      "Bash(defaults delete:*)",
+      "Bash(security:*)",
+      "Bash(osascript:*)"
     ]
+  },
+  "enableAllProjectMcpServers": false,
+  "statusLine": {
+    "type": "command",
+    "command": "bash ~/.claude/statusline-command.sh"
+  },
+  "enabledPlugins": {
+    "tdn@tdn-marketplace": true,
+    "personal@dannysmith": true,
+    "css-expert@dannysmith": true,
+    "frontend-design@claude-plugins-official": true,
+    "writing@dannysmith": true,
+    "obsidian@obsidian-skills": true,
+    "swift-lsp@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true
   },
   "sandbox": {
     "enabled": true,
+    "allowUnsandboxedCommands": true,
     "network": {
       "allowedDomains": [
         "github.com",
@@ -160,15 +205,38 @@
         "static.crates.io",
         "index.crates.io",
         "pypi.org",
+        "files.pythonhosted.org",
         "esm.sh",
         "danny.is",
         "*.danny.is",
         "localhost",
         "127.0.0.1"
       ],
+      "strictAllowlist": false,
       "allowLocalBinding": true
     },
     "filesystem": {
+      "allowWrite": [
+        "~/Library/Caches",
+        "~/Library/pnpm",
+        "~/Library/Developer",
+        "~/Library/Logs/CoreSimulator",
+        "/var/folders",
+        "/private/var/folders"
+      ],
+      "denyWrite": [
+        "~/.ssh",
+        "~/.zshrc",
+        "~/.zshenv",
+        "~/.zprofile",
+        "~/.bashrc",
+        "~/.bash_profile",
+        "~/.claude",
+        "~/Library/Caches/Google",
+        "~/Library/Caches/com.apple.Safari",
+        "~/Library/Caches/Firefox",
+        "~/Library/Caches/Mozilla"
+      ],
       "denyRead": [
         "~/Documents",
         "~/Desktop",
@@ -192,60 +260,101 @@
         "~/.viminfo",
         "/Volumes"
       ],
-      "denyWrite": [
-        "~/.ssh",
-        "~/.zshrc",
-        "~/.zshenv",
-        "~/.zprofile",
-        "~/.bashrc",
-        "~/.bash_profile",
-        "~/.claude",
-        "~/Library/Caches/Google",
-        "~/Library/Caches/com.apple.Safari",
-        "~/Library/Caches/Firefox",
-        "~/Library/Caches/Mozilla"
-      ],
       "allowRead": [
         "~/Library/Caches",
         "~/Library/pnpm",
         "~/Library/Developer",
         "~/Library/Logs"
       ],
-      "allowWrite": [
-        "~/Library/Caches",
-        "~/Library/pnpm",
-        "~/Library/Developer",
-        "~/Library/Logs/CoreSimulator",
-        "/var/folders",
-        "/private/var/folders"
-      ]
+      "disabled": false
     },
     "credentials": {
       "files": [
-        { "path": "~/.ssh", "mode": "deny" },
-        { "path": "~/.gnupg", "mode": "deny" },
-        { "path": "~/.config/gh", "mode": "deny" },
-        { "path": "~/.npmrc", "mode": "deny" },
-        { "path": "~/.cargo/credentials.toml", "mode": "deny" },
-        { "path": "~/.claude/.credentials.json", "mode": "deny" },
-        { "path": "~/.github_token", "mode": "deny" },
-        { "path": "~/.docker", "mode": "deny" },
-        { "path": "~/.tauri", "mode": "deny" },
-        { "path": "~/.t3", "mode": "deny" },
-        { "path": "~/.codex", "mode": "deny" },
-        { "path": "~/.gemini", "mode": "deny" },
-        { "path": "~/.mcp-auth", "mode": "deny" },
-        { "path": "~/.config/1Password", "mode": "deny" },
-        { "path": "~/.claude.json", "mode": "deny" },
-        { "path": "~/.claude.json.backup", "mode": "deny" },
-        { "path": "~/.orbstack/ssh", "mode": "deny" },
-        { "path": "~/.n8n", "mode": "deny" }
+        {
+          "path": "~/.ssh",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.gnupg",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.config/gh",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.npmrc",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.cargo/credentials.toml",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.claude/.credentials.json",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.github_token",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.docker",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.tauri",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.t3",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.codex",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.gemini",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.mcp-auth",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.config/1Password",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.claude.json",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.claude.json.backup",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.orbstack/ssh",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.n8n",
+          "mode": "deny"
+        }
       ],
       "envVars": [
-        { "name": "GITHUB_TOKEN", "mode": "deny" },
-        { "name": "GEMINI_API_KEY", "mode": "deny" }
+        {
+          "name": "GITHUB_TOKEN",
+          "mode": "deny"
+        },
+        {
+          "name": "GEMINI_API_KEY",
+          "mode": "deny"
+        }
       ]
     },
+    "allowAppleEvents": false,
     "excludedCommands": [
       "docker *",
       "gh *",
@@ -262,30 +371,13 @@
       "lsof *",
       "kill *",
       "pkill *",
+      "killall *",
       "defuddle",
       "defuddle *"
     ]
   },
-  "env": {
-    "ASTRO_TELEMETRY_DISABLED": "1"
-  },
-  "model": "claude-fable-5[1m]",
-  "statusLine": {
-    "type": "command",
-    "command": "bash ~/.claude/statusline-command.sh"
-  },
-  "enabledPlugins": {
-    "tdn@tdn-marketplace": true,
-    "personal@dannysmith": true,
-    "css-expert@dannysmith": true,
-    "frontend-design@claude-plugins-official": true,
-    "writing@dannysmith": true,
-    "obsidian@obsidian-skills": true,
-    "swift-lsp@claude-plugins-official": true,
-    "rust-analyzer-lsp@claude-plugins-official": true
-  },
   "alwaysThinkingEnabled": true,
-  "effortLevel": "high",
+  "effortLevel": "xhigh",
   "tui": "fullscreen",
   "agentPushNotifEnabled": true
 }
