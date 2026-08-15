@@ -2,13 +2,13 @@
   "cleanupPeriodDays": 60,
   "env": {
     "ASTRO_TELEMETRY_DISABLED": "1",
-    "DO_NOT_TRACK": "1",
     "HOMEBREW_NO_ANALYTICS": "1"
   },
   "attribution": {
     "commit": "Most likely with oversight by an actual human, Danny.\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
   },
   "permissions": {
+    "defaultMode": "auto",
     "allow": [
       "MCP(context7:*)",
       "LS(*)",
@@ -34,7 +34,6 @@
       "Bash(whoami)",
       "Bash(date)",
       "Bash(uname:*)",
-      "Bash(env)",
       "Bash(printenv:*)",
       "Bash(which:*)",
       "Bash(whereis:*)",
@@ -223,7 +222,8 @@
         "~/Library/Developer",
         "~/Library/Logs/CoreSimulator",
         "/var/folders",
-        "/private/var/folders"
+        "/private/var/folders",
+        "~/.Trash"
       ],
       "denyWrite": [
         "~/.ssh",
@@ -265,7 +265,8 @@
         "~/Library/Caches",
         "~/Library/pnpm",
         "~/Library/Developer",
-        "~/Library/Logs"
+        "~/Library/Logs",
+        "~/.Trash"
       ],
       "disabled": false
     },
@@ -380,5 +381,25 @@
   "alwaysThinkingEnabled": true,
   "effortLevel": "xhigh",
   "tui": "fullscreen",
-  "agentPushNotifEnabled": true
+  "agentPushNotifEnabled": true,
+  "autoMode": {
+    "environment": [
+      "$defaults",
+      "Organization: none — personal machine, solo developer (Danny Smith). Primary use: software development across many small personal projects under ~/dev, plus non-coding work (personal knowledge management, writing, research).",
+      "Source control: GitHub. github.com/dannysmith plus the orgs RootpathHQ, redacademy, adaapp and butterbakerylondon. Projects live one-repo-per-directory under ~/dev; reading and working across sibling repos there is routine.",
+      "Repository visibility: mixed, repo by repo, and stated in each repo's own CLAUDE.md. Treat a repo as private unless its CLAUDE.md or the session says otherwise.",
+      "Cloud provider(s): Vercel for static and Astro sites; a single Hetzner VPS running Docker services behind a shared Caddy reverse proxy. No AWS, GCP or Azure.",
+      "Sensitive remote targets: the Hetzner VPS serving *.danny.is. SSH into it, docker or compose commands against it, and Caddy config changes are production operations. Vercel production deploys are production.",
+      "Protected deployment namespaces / environments: anything serving a live *.danny.is or *.dny.li hostname.",
+      "CI/CD deploy targets: GitHub Actions and Vercel.",
+      "Secrets management: 1Password. No cloud secret manager; secrets are never committed.",
+      "Internal package registry: none. Public registries (npm, crates.io, PyPI, esm.sh) are the expected and correct destination for installs. bun is the default package manager.",
+      "Org-specific CLIs: `tdn` (personal task and notes CLI that reads and writes the Obsidian vault at ~/notes), `defuddle` (web page to markdown).",
+      "Trusted internal domains: localhost and 127.0.0.1 for local dev servers; danny.is and *.danny.is.",
+      "Internal sharing / snippet hosting: none. Public paste and gist services are outside the trust boundary.",
+      "Sensitive data locations & audiences: ~/notes is a personal Obsidian vault (personal notes, journals, task data, client material); ~/Documents, ~/Desktop and ~/Downloads hold personal files. The cleared audience is the local session only — reading, editing and reorganising files in place is the routine expected work of vault sessions and is not exfiltration. Their contents must not leave them: never commit vault or personal-directory content to a git repo, put it in PR, issue or commit text, paste it to a gist or paste service, or send it to a third-party API.",
+      "Network posture: every Bash command runs in Claude Code's Seatbelt sandbox with a deny-by-default network allowlist. Credential dot-folders (SSH, GPG, gh, npm, 1Password, other AI agents' config) are unreadable to both sandboxed commands and the Read tool.",
+      "Additional context: solo developer, no compliance regime, no multi-tenant infrastructure, no regulated data. The risks that matter are irreversible loss of local work, and personal or client material leaking into a public repo."
+    ]
+  }
 }
