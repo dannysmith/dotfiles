@@ -8,9 +8,9 @@ Managed with [Thoughtbot's rcm](http://thoughtbot.github.io/rcm/rcm.7.html).
 2. Install RCM and create the symlinks
 
 ```shell
-lsrc -x README.md -x vscode-setup.md # Dry run, check everything is ok.
+lsrc -x README.md -x CLAUDE.md -x vscode-setup.md # Dry run, check everything is ok.
 rcup -v
-rcup -x README.md -x vscode-setup.md
+rcup -x README.md -x CLAUDE.md -x vscode-setup.md
 ```
 
 3. Install [Oh My ZSH](http://ohmyz.sh/) into `~/.oh-my-zsh`.
