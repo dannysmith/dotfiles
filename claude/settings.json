@@ -266,6 +266,7 @@
         "~/Library/pnpm",
         "~/Library/Developer",
         "~/Library/Logs",
+        "~/Library/Application Support/fnm",
         "~/.Trash"
       ],
       "disabled": false
