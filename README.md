@@ -19,21 +19,7 @@ rcup -x README.md -x CLAUDE.md -x vscode-setup.md
 
 ### Ghostty Config
 
-Install [Ghostty](https://ghostty.org/) and add the following config:
-
-```
-font-family = "Operator Mono"
-font-size = 18
-window-padding-x = 10
-window-padding-y = 10
-window-padding-color = background
-window-padding-balance = true
-theme = "iTerm2 Pastel Dark Background"
-adjust-cell-height = 15%
-window-save-state = always
-background-opacity = 0.99
-macos-titlebar-style = tabs
-```
+Install [Ghostty](https://ghostty.org/). The config lives at [config/ghostty/config.ghostty](./config/ghostty/config.ghostty) and is symlinked to `~/.config/ghostty/config.ghostty` by `rcup`.
 
 ## VSCode Setup
 

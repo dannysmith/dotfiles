@@ -1,0 +1,17 @@
+# Ghostty config. Symlinked to ~/.config/ghostty/config.ghostty by rcup.
+# Reference: https://ghostty.org/docs/config
+
+font-family = "Operator Mono"
+font-size = 18
+window-padding-x = 10
+window-padding-y = 10
+window-padding-color = background
+window-padding-balance = equal
+theme = "iTerm2 Pastel Dark Background"
+adjust-cell-height = 15%
+window-save-state = always
+background-opacity = 0.99
+macos-titlebar-style = tabs
+keybind = shift+enter=text:\x1b\r
+shell-integration-features = ssh-env,ssh-terminfo,path
+auto-update-channel = tip
