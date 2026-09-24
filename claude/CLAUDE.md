@@ -57,6 +57,11 @@ I want to share some of my preferences here so we can be more aligned as we work
 - Keep comments up-to-date. When making changes ensure we keep these in sync.
 - Check Context7 before web search for frameworks, languages, tools, etc. Be specific in Context7 queries.
 - Keep commit messages, GitHub issues and PR descriptions concise and useful. All should aim for simplicity unless you have a strong readon otherwise. PR & Issue descriptions should open with a minimal, clear description of the problem. Follow up in PRs with how you solved it.
+- YAGNI. Simple beats clever. Readability beats conciseness or performance.
+- Match the surrounding style. Consistency within a file trumps external standards.
+- Edit files surgically rather than rewriting them when the result would be the same.
+- Names say what code does, not how or its history. No `ZodValidator`, `NewAPI`, `LegacyHandler`; `ToolFactory` is just `Tool`.
+- Comments explain what or why. Never describe what used to be there or call something "improved". Don't remove a comment unless it's provably false.
 
 ## Non-Coding Work
 
