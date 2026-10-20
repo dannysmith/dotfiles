@@ -23,6 +23,7 @@ I want to share some of my preferences here so we can be more aligned as we work
   - `docs/tasks-done/` is for completed docs renamed `task-YYY-MM-DD-x-the-task-name.md` with completion date.
   - The gitignored `docs/tasks-todo/temporary/` is for working files, epsecially those the user may want to inspect or edit. The user may add reference (eg screenshots) here. You may work create it if not present and can freely in here.
 - If you are running with the bash sandbox enabled and have issues you suspect are because of it, tell the user before trying any complex workarounds. Common tells: EPERM on paths under `~/Library`, a tool silently using a project-local cache/store it normally wouldn't, or a tool resolving to a different version than usual (check `command -v` — sandbox denies can make the shell fall through to a different binary on PATH).
+- When a chat settles a question, produces something, or I report a milestone, offer to log a one-line entry to my daily note with Day Log (see the daily-log skill).
 
 ## Writing Markdown
 
