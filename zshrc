@@ -70,3 +70,6 @@ fi
 
 ################ jj ################
 source <(COMPLETE=zsh jj)
+
+# bun completions
+[ -s "/Users/danny/.bun/_bun" ] && source "/Users/danny/.bun/_bun"
