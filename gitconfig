@@ -20,6 +20,9 @@
   excludesfile = ~/.gitignore_global
   editor = c --wait
   autocrlf = input
+# Homebrew git links Apple's libcurl, which otherwise reads Apple's outdated /etc/ssl/cert.pem
+[http]
+  sslCAInfo = /opt/homebrew/etc/ca-certificates/cert.pem
 [merge]
   summary = true
 [pull]

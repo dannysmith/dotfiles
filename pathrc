@@ -6,6 +6,9 @@
 # OpenJDK (installed via homebrew)
 # export PATH=/opt/homebrew/opt/openjdk/bin:$PATH
 
+# Curl (installed via homebrew, keg-only). Its CA bundle stays current, unlike Apple's /etc/ssl/cert.pem
+export PATH=/opt/homebrew/opt/curl/bin:$PATH
+
 # Basic Bins (including Homebrew)
 export PATH=$PATH:/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/local/sbin:$HOME/.local/bin
 
