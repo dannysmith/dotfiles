@@ -387,7 +387,9 @@
       "pkill *",
       "killall *",
       "defuddle",
-      "defuddle *"
+      "defuddle *",
+      "echo *",
+      "sleep *"
     ]
   },
   "alwaysThinkingEnabled": true,
