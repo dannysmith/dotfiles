@@ -34,11 +34,11 @@ I want to share some of my preferences here so we can be more aligned as we work
 Bash runs in a Seatbelt sandbox, usually in auto mode. The aim of this is:
 
 1. You can work freely within the session's scope without needing my constant input via permissions prompts.
-2. I'm prompted to authorise actions I want to oversee, which are mostly: A. writing/affecting external things (eg. pushes, writing to other projects, leaving github comments); B. Accessing *potentially sensitive stuff* (eg. reading certain local dirs); C. Running things outside the sandbox (eg. killing processes on my machine, touching `~/notes`).
+2. I'm prompted to authorise actions I want to oversee, which are mostly: A. writing/affecting external things (eg. pushes, writing to other projects, leaving github comments); B. Accessing *potentially sensitive stuff* (eg. reading certain local dirs); C. Running things outside the sandbox (eg. opening apps, touching `~/notes`).
 
 How it works:
 
-- Sandboxed commands can write to the working dir, caches and `$TMPDIR`, and reach allowlisted hosts. They can't read credential dirs (`~/.ssh`, `~/.config/gh`…), `~/Library`, personal folders or `~/notes`. That's deliberate; don't work around it unless explicitly asked.
+- Sandboxed commands can write to the working dir, caches and `$TMPDIR`, and reach allowlisted hosts. They can't read credential dirs (`~/.ssh`, `~/.config/gh`…), `~/Library`, personal folders or `~/notes` (unless it's the working dir). That's deliberate: if a task genuinely needs one of these, ask via `dangerouslyDisableSandbox` (below) rather than finding another route, and never for credential dirs unless I ask.
 - Some commands (eg. `gh`, `git push/pull/fetch`, `tdn`, `docker`, `defuddle`, `ps`, `pgrep`, `lsof`, `kill`, `echo`, `sleep`) are excluded from the sandbox: they run outside it under my normal permission rules, so read-only ones usually don't prompt and ones in `permissions.ask` do. That only happens when every command in the call is excluded and there's no `cd`, file redirect, `$(...)`, heredoc, subshell or loop (`2>&1` is fine). So run them bare: use gh's `--jq`/`--template`/`--limit` instead of piping to `head`/`grep`/`jq` (long output is saved to a file you can search), `--repo owner/name` instead of `cd`, and `--body-file` instead of `--body "$(cat <<EOF)"`.
 - Put anything that needs my approval (`git push`, `gh pr create`, anything in `permissions.ask`) in its own Bash call, so the rest runs without me: eg add + commit in one call, push in the next.
 - `dangerouslyDisableSandbox` always prompts me. If a command needs something the sandbox blocks (a path listed above, writing outside the working dir, other apps), don't hunt for workarounds: run it with `dangerouslyDisableSandbox` straight away so I get one clear prompt. Keep that call to just the command that needs it, since the whole call runs unsandboxed. Don't use it for things that work in the sandbox, or on the excluded commands above.
@@ -63,8 +63,7 @@ How it works:
 ## Coding Work
 
 - Never run a local dev server unless I ask. Assume one is already running and if not, ask me to run it and report back.
-- Use the `gh` CLI for GitHub, `git` for local.
-- ALWAYS read and understand relevant files before proposing edits. Never speculate about code you haven't inspected. If I reference a specific file or path, you must open and inspect it before explaining or proposing a fix. Review the codebase's style, conventions, and abstractions before adding new features or abstractions.
+- If I reference a specific file or path, open it before explaining or proposing a fix; don't speculate about code you haven't read. Review the codebase's style, conventions, and abstractions before adding new features or abstractions.
 - Keep things simple. Channel "yang" energy unless told otherwise.
 - Avoid over-engineering. Make only changes that are directly requested or clearly necessary; keep solutions simple and focused. A bug fix doesn't need the surrounding code cleaned up; a simple feature doesn't need extra configurability.
 - Don't add error handling, fallbacks, or validation for scenarios that can't happen.
@@ -76,10 +75,8 @@ How it works:
 - Comments are a great way to clarify functionality and how code is used. Don't over-comment but feel free to describe concisely how functions are used above function definitions, classes, files etc.
 - Ensure comments are evergreen and don't mention transient stuff like "task X" etc.
 - Keep comments up-to-date. When making changes ensure we keep these in sync.
-- Check Context7 before web search for frameworks, languages, tools, etc. Be specific in Context7 queries.
 - Keep commit messages, GitHub issues and PR descriptions concise and useful. All should aim for simplicity unless you have a strong readon otherwise. PR & Issue descriptions should open with a minimal, clear description of the problem. Follow up in PRs with how you solved it.
 - YAGNI. Simple beats clever. Readability beats conciseness or performance.
-- Match the surrounding style. Consistency within a file trumps external standards.
 - Edit files surgically rather than rewriting them when the result would be the same.
 - Names say what code does, not how or its history. No `ZodValidator`, `NewAPI`, `LegacyHandler`; `ToolFactory` is just `Tool`.
 - Comments explain what or why. Never describe what used to be there or call something "improved". Don't remove a comment unless it's provably false.
