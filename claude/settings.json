@@ -8,7 +8,6 @@
     "commit": "Most likely with oversight by an actual human, Danny.\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
   },
   "permissions": {
-    "defaultMode": "auto",
     "allow": [
       "MCP(context7:*)",
       "LS(*)",
@@ -174,8 +173,10 @@
       "Bash(defaults delete:*)",
       "Bash(security:*)",
       "Bash(osascript:*)"
-    ]
+    ],
+    "defaultMode": "auto"
   },
+  "model": "opus[1m]",
   "enableAllProjectMcpServers": false,
   "statusLine": {
     "type": "command",
@@ -189,7 +190,17 @@
     "writing@dannysmith": true,
     "obsidian@obsidian-skills": true,
     "swift-lsp@claude-plugins-official": true,
-    "rust-analyzer-lsp@claude-plugins-official": true
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "vercel@claude-plugins-official": true,
+    "typesafe@typesafe-ai": true
+  },
+  "extraKnownMarketplaces": {
+    "typesafe-ai": {
+      "source": {
+        "source": "github",
+        "repo": "typesafe-ai/skills"
+      }
+    }
   },
   "sandbox": {
     "enabled": true,
@@ -381,6 +392,14 @@
   },
   "alwaysThinkingEnabled": true,
   "effortLevel": "xhigh",
+  "modelSettings": {
+    "claude-fable-5-1": {
+      "effortLevel": "high"
+    },
+    "claude-opus-5-5": {
+      "effortLevel": "high"
+    }
+  },
   "tui": "fullscreen",
   "agentPushNotifEnabled": true,
   "autoMode": {
