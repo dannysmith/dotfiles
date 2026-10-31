@@ -22,8 +22,28 @@ I want to share some of my preferences here so we can be more aligned as we work
   - Its for task docs named `task-x-the-task-name.md` (`x` = number, ordering next-up tasks; literal `x` = unpropritised).
   - `docs/tasks-done/` is for completed docs renamed `task-YYY-MM-DD-x-the-task-name.md` with completion date.
   - The gitignored `docs/tasks-todo/temporary/` is for working files, epsecially those the user may want to inspect or edit. The user may add reference (eg screenshots) here. You may work create it if not present and can freely in here.
-- If you are running with the bash sandbox enabled and have issues you suspect are because of it, tell the user before trying any complex workarounds. Common tells: EPERM on paths under `~/Library`, a tool silently using a project-local cache/store it normally wouldn't, or a tool resolving to a different version than usual (check `command -v` — sandbox denies can make the shell fall through to a different binary on PATH).
 - When a chat settles a question, produces something, or I report a milestone, offer to log a one-line entry to my daily note with Day Log (see the daily-log skill).
+
+## Bash
+
+- Look at what commands actually print. Long output is saved to a file you can grep or tail afterwards, so don't pre-filter through `head`/`tail`/`grep` or wrap commands in scripts that print `ok`/`FAIL` by default: that throws away the detail you need when something goes wrong, and a pipe hides the exit code. This matters most for slow commands (builds, full test suites) you can't cheaply rerun: run them bare or redirect to `$TMPDIR/<name>.log 2>&1; echo "exit $?"`, then search the log. Filtering is fine when you know exactly what you want, like `git log --oneline | head`.
+- Prefer several small Bash calls to one long chain. Each gets its own output and exit status, and independent ones can run in parallel.
+
+### Sandbox
+
+Bash runs in a Seatbelt sandbox, usually in auto mode. The aim of this is:
+
+1. You can work freely within the session's scope without needing my constant input via permissions prompts.
+2. I'm prompted to authorise actions I want to oversee, which are mostly: A. writing/affecting external things (eg. pushes, writing to other projects, leaving github comments); B. Accessing *potentially sensitive stuff* (eg. reading certain local dirs); C. Running things outside the sandbox (eg. killing processes on my machine, touching `~/notes`).
+
+How it works:
+
+- Sandboxed commands can write to the working dir, caches and `$TMPDIR`, and reach allowlisted hosts. They can't read credential dirs (`~/.ssh`, `~/.config/gh`…), `~/Library`, personal folders or `~/notes`. That's deliberate; don't work around it unless explicitly asked.
+- Some commands (eg. `gh`, `git push/pull/fetch`, `tdn`, `docker`, `defuddle`, `ps`, `pgrep`, `lsof`, `kill`, `echo`, `sleep`) are excluded from the sandbox: they run outside it under my normal permission rules, so read-only ones usually don't prompt and ones in `permissions.ask` do. That only happens when every command in the call is excluded and there's no `cd`, file redirect, `$(...)`, heredoc, subshell or loop (`2>&1` is fine). So run them bare: use gh's `--jq`/`--template`/`--limit` instead of piping to `head`/`grep`/`jq` (long output is saved to a file you can search), `--repo owner/name` instead of `cd`, and `--body-file` instead of `--body "$(cat <<EOF)"`.
+- Put anything that needs my approval (`git push`, `gh pr create`, anything in `permissions.ask`) in its own Bash call, so the rest runs without me: eg add + commit in one call, push in the next.
+- `dangerouslyDisableSandbox` always prompts me. If a command needs something the sandbox blocks (a path listed above, writing outside the working dir, other apps), don't hunt for workarounds: run it with `dangerouslyDisableSandbox` straight away so I get one clear prompt. Keep that call to just the command that needs it, since the whole call runs unsandboxed. Don't use it for things that work in the sandbox, or on the excluded commands above.
+- If something fails oddly (EPERM under `~/Library`, a project-local cache, a different binary on PATH), suspect the sandbox and tell me before trying workarounds.
+- Unless a project's own tools say otherwise, change file contents with Edit/Write: they show me a diff, fail loudly on a mismatch and work with `/rewind`. Bash (sed etc.) is fine for mechanical bulk changes across many files and for moving files; don't write Python scripts to edit files unless you have a compelling reason to do so.
 
 ## Writing Markdown
 
