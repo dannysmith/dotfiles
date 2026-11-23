@@ -105,3 +105,5 @@ __pycache__/
 ######################
 
 **/.claude/.cc-writes/
+
+**/.claude/settings.local.json

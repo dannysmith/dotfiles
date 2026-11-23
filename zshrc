@@ -73,3 +73,5 @@ source <(COMPLETE=zsh jj)
 
 # bun completions
 [ -s "/Users/danny/.bun/_bun" ] && source "/Users/danny/.bun/_bun"
+
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi

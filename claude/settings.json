@@ -4,9 +4,6 @@
     "ASTRO_TELEMETRY_DISABLED": "1",
     "HOMEBREW_NO_ANALYTICS": "1"
   },
-  "attribution": {
-    "commit": "Most likely with oversight by an actual human, Danny.\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
-  },
   "permissions": {
     "allow": [
       "MCP(context7:*)",
