@@ -39,11 +39,21 @@ Bash runs in a Seatbelt sandbox, usually in auto mode. The aim of this is:
 How it works:
 
 - Sandboxed commands can write to the working dir, caches and `$TMPDIR`, and reach allowlisted hosts. They can't read credential dirs (`~/.ssh`, `~/.config/gh`…), `~/Library`, personal folders or `~/notes` (unless it's the working dir). That's deliberate: if a task genuinely needs one of these, ask via `dangerouslyDisableSandbox` (below) rather than finding another route, and never for credential dirs unless I ask.
-- Some commands (eg. `gh`, `git push/pull/fetch`, `tdn`, `docker`, `defuddle`, `ps`, `pgrep`, `lsof`, `kill`, `echo`, `sleep`) are excluded from the sandbox: they run outside it under my normal permission rules, so read-only ones usually don't prompt and ones in `permissions.ask` do. That only happens when every command in the call is excluded and there's no `cd`, file redirect, `$(...)`, heredoc, subshell or loop (`2>&1` is fine). So run them bare: use gh's `--jq`/`--template`/`--limit` instead of piping to `head`/`grep`/`jq` (long output is saved to a file you can search), `--repo owner/name` instead of `cd`, and `--body-file` instead of `--body "$(cat <<EOF)"`.
+- Some commands (eg. `gh`, `git push/pull/fetch`, `git branch -d/-D`, `tdn`, `docker`, `defuddle`, `ps`, `pgrep`, `lsof`, `kill`, `echo`, `sleep`) are excluded from the sandbox: they run outside it under my normal permission rules, so read-only ones usually don't prompt and ones in `permissions.ask` do. That only happens when every command in the call is excluded and there's no `cd`, file redirect, `$(...)`, heredoc, subshell or loop (`2>&1` is fine). So run them bare: use gh's `--jq`/`--template`/`--limit` instead of piping to `head`/`grep`/`jq` (long output is saved to a file you can search), `--repo owner/name` instead of `cd`, and `--body-file` instead of `--body "$(cat <<EOF)"`.
+- If `gh` fails because it can't read its config, or `git push` fails on SSH, the call ran inside the sandbox. Rerun it bare as its own call rather than reaching for `dangerouslyDisableSandbox`.
+- `.git/config`, `.git/hooks`, `.git/worktrees` and `.claude/` config files are write-protected inside the sandbox. In repos that track files under `.claude/`, a `git switch`/`checkout`/`pull` that changes them fails halfway, so run those with `dangerouslyDisableSandbox` from the start.
+- SwiftPM applies its own sandbox, which can't nest inside this one: pass `--disable-sandbox` to `swift build/test/run`.
+- Headless Chromium (eg Playwright's bundled browser) only starts inside the sandbox with `--single-process`; `SANDBOX_RUNTIME=1` is set there if a script needs to detect it. Never launch my installed Chrome from code.
 - Put anything that needs my approval (`git push`, `gh pr create`, anything in `permissions.ask`) in its own Bash call, so the rest runs without me: eg add + commit in one call, push in the next.
 - `dangerouslyDisableSandbox` always prompts me. If a command needs something the sandbox blocks (a path listed above, writing outside the working dir, other apps), don't hunt for workarounds: run it with `dangerouslyDisableSandbox` straight away so I get one clear prompt. Keep that call to just the command that needs it, since the whole call runs unsandboxed. Don't use it for things that work in the sandbox, or on the excluded commands above.
 - If something fails oddly (EPERM under `~/Library`, a project-local cache, a different binary on PATH), suspect the sandbox and tell me before trying workarounds.
 - Unless a project's own tools say otherwise, change file contents with Edit/Write: they show me a diff, fail loudly on a mismatch and work with `/rewind`. Bash (sed etc.) is fine for mechanical bulk changes across many files and for moving files; don't write Python scripts to edit files unless you have a compelling reason to do so.
+
+## GitHub
+
+- Read GitHub data with gh's read-only subcommands (`gh pr view/checks/diff`, `gh issue view`, `gh run view`, `gh release view`, `gh search` etc) and `--json`/`--jq`: they don't prompt. `gh api` always prompts me, so only use it when no subcommand covers what you need.
+- To read code from one of my repos, look for a clone in `~/dev/` first (by name, or `git -C ~/dev/<dir> remote get-url origin`) and `git fetch` it if you need the latest.
+- For anyone else's repo, fetching a README or a single file remotely is fine. To explore further, `git clone --depth 1 https://github.com/<owner>/<repo>` into the scratchpad and read it locally. This works inside the sandbox without prompting.
 
 ## Writing Markdown
 
@@ -59,6 +69,13 @@ How it works:
 
 - Do not spawn sub-agents or a multi-agent panel for work a single agent can do better in one pass. Delegation is useful for detailed research, anything needing breadth, adverserial review etc.
 - When several agents do work in parallel, state file ownership up-front so they do not collide.
+
+## Sub-agents
+
+- Sub-agents don't see this conversation, and Explore and Plan don't get this file. Put what they need in the brief: the goal, what's already ruled out, and any rules from here that apply (eg the GitHub section for research).
+- Scope research agents tightly and give them a budget ("a handful of sources", "stop once you can answer X"). Ask them to report what they have rather than exhaustively paging through docs.
+- Have long-running agents write findings as they go to `docs/tasks-todo/temporary/<topic>.md` (or the scratchpad if that directory doesn't exist), so a stopped agent still leaves something useful.
+- Don't wait silently on a long background agent. If it's been running a while, check in with `SendMessage` (ask where it's at, or tell it to wrap up) and tell me what it's doing.
 
 ## Coding Work
 
