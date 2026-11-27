@@ -51,7 +51,9 @@ How it works:
 
 ## GitHub
 
-- Read GitHub data with gh's read-only subcommands (`gh pr view/checks/diff`, `gh issue view`, `gh run view`, `gh release view`, `gh search` etc) and `--json`/`--jq`: they don't prompt. `gh api` always prompts me, so only use it when no subcommand covers what you need.
+- Read GitHub data with gh's read-only subcommands (`gh pr view/checks/diff`, `gh issue view`, `gh run view`, `gh release view`, `gh search` etc) and `--json`/`--jq`: they don't prompt.
+- When no subcommand covers it, use `gh read` (my extension) instead of `gh api`. It takes the same arguments but only makes GET requests and GraphQL queries, so it doesn't prompt. If it refuses a call, the one-line error says why. `gh api` always prompts me, so only use it for writes.
+- To read a file from a repo, use `gh read repos/<owner>/<repo>/contents/<path> -H 'Accept: application/vnd.github.raw'` (or `--jq '.content | @base64d'`) rather than piping to `base64 -d`.
 - To read code from one of my repos, look for a clone in `~/dev/` first (by name, or `git -C ~/dev/<dir> remote get-url origin`) and `git fetch` it if you need the latest.
 - For anyone else's repo, fetching a README or a single file remotely is fine. To explore further, `git clone --depth 1 https://github.com/<owner>/<repo>` into the scratchpad and read it locally. This works inside the sandbox without prompting.
 
